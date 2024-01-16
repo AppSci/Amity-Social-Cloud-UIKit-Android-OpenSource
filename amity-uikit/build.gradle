@@ -10,6 +10,7 @@ android {
             consumerProguardFiles 'amity-proguard-rules.pro'
         }
     }
+    namespace = "com.amity.socialcloud.uikit"
 }
 
 
