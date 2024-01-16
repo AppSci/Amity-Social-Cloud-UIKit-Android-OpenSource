@@ -5,7 +5,8 @@ import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.amity.socialcloud.sdk.model.social.community.AmityCommunity
 import com.amity.socialcloud.uikit.common.base.AmityBaseRecyclerViewPagingDataAdapter
-import com.amity.socialcloud.uikit.community.R
+import com.amity.socialcloud.uikit.common.R as CommonR
+import com.amity.socialcloud.uikit.community.R as CommunityR
 import com.amity.socialcloud.uikit.community.databinding.AmityItemCategoryCommunityListBinding
 import com.amity.socialcloud.uikit.community.explore.listener.AmityCommunityItemClickListener
 import com.bumptech.glide.Glide
@@ -23,7 +24,7 @@ open class AmityCategoryCommunityItemViewHolder(
             binding?.tvCommunityName?.setCompoundDrawablesWithIntrinsicBounds(
                 0,
                 0,
-                R.drawable.amity_ic_verified,
+                CommonR.drawable.amity_ic_verified,
                 0
             )
         } else {

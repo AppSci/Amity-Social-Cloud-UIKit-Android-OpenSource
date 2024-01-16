@@ -17,7 +17,8 @@ import com.amity.socialcloud.uikit.common.common.showSnackBar
 import com.amity.socialcloud.uikit.common.common.views.dialog.AmityAlertDialogFragment
 import com.amity.socialcloud.uikit.common.common.views.dialog.bottomsheet.AmityBottomSheetDialog
 import com.amity.socialcloud.uikit.common.utils.AmityConstants
-import com.amity.socialcloud.uikit.community.R
+import com.amity.socialcloud.uikit.common.R as CommonR
+import com.amity.socialcloud.uikit.community.R as CommunityR
 import com.amity.socialcloud.uikit.community.databinding.AmityFragmentCommentListBinding
 import com.amity.socialcloud.uikit.community.newsfeed.activity.AmityEditCommentActivity
 import com.amity.socialcloud.uikit.community.newsfeed.activity.AmityReactionListActivity
@@ -217,7 +218,7 @@ class AmityCommentListFragment : RxFragment() {
 
     private fun reportComment(comment: AmityComment) {
         viewModel.reportComment(comment, {
-            view?.showSnackBar(getString(R.string.amity_report_sent))
+            view?.showSnackBar(getString(CommunityR.string.amity_report_sent))
         }, {})
             .untilLifecycleEnd(this)
             .subscribe()
@@ -225,7 +226,7 @@ class AmityCommentListFragment : RxFragment() {
 
     private fun unReportComment(comment: AmityComment) {
         viewModel.unReportComment(comment, {
-            view?.showSnackBar(getString(R.string.amity_unreport_sent))
+            view?.showSnackBar(getString(CommunityR.string.amity_unreport_sent))
         }, {})
             .untilLifecycleEnd(this)
             .subscribe()
@@ -234,9 +235,9 @@ class AmityCommentListFragment : RxFragment() {
     private fun showDeleteCommentWarning(comment: AmityComment) {
         val deleteConfirmationDialogFragment = AmityAlertDialogFragment
             .newInstance(
-                R.string.amity_delete_comment_title,
-                R.string.amity_delete_comment_warning_message,
-                R.string.amity_delete, R.string.amity_cancel
+                CommunityR.string.amity_delete_comment_title,
+                CommunityR.string.amity_delete_comment_warning_message,
+                CommunityR.string.amity_delete, CommunityR.string.amity_cancel
             )
         deleteConfirmationDialogFragment.show(childFragmentManager, AmityAlertDialogFragment.TAG)
         deleteConfirmationDialogFragment.listener =
@@ -254,9 +255,9 @@ class AmityCommentListFragment : RxFragment() {
     private fun showDeleteReplyWarning(comment: AmityComment) {
         val deleteConfirmationDialogFragment = AmityAlertDialogFragment
             .newInstance(
-                R.string.amity_delete_reply_title,
-                R.string.amity_delete_reply_warning_message,
-                R.string.amity_delete, R.string.amity_cancel
+                CommunityR.string.amity_delete_reply_title,
+                CommunityR.string.amity_delete_reply_warning_message,
+                CommunityR.string.amity_delete, CommunityR.string.amity_cancel
             )
         deleteConfirmationDialogFragment.show(childFragmentManager, AmityAlertDialogFragment.TAG)
         deleteConfirmationDialogFragment.listener =

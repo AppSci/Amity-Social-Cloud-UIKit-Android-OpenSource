@@ -4,7 +4,8 @@ import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.amity.socialcloud.uikit.chat.R
+import com.amity.socialcloud.uikit.chat.R as ChatR
+import com.amity.socialcloud.uikit.common.R as CommonR
 import com.amity.socialcloud.uikit.chat.messages.composebar.AmityChatRoomComposeBar
 import com.amity.socialcloud.uikit.chat.messages.fragment.AmityChatRoomFragment
 import com.amity.socialcloud.uikit.common.utils.AmityThemeUtil
@@ -28,7 +29,7 @@ class AmityMessageListActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         AmityThemeUtil.setCurrentTheme(this)
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.amity_activity_chat)
+        setContentView(ChatR.layout.amity_activity_chat)
         channelId = intent.getStringExtra(INTENT_CHANNEL_ID) ?: ""
         initializeFragment()
     }
@@ -42,7 +43,7 @@ class AmityMessageListActivity : AppCompatActivity() {
             .composeBar(composebar)
             .build(this)
         val transaction = supportFragmentManager.beginTransaction()
-        transaction.replace(R.id.messageListContainer, messageListFragment)
+        transaction.replace(ChatR.id.messageListContainer, messageListFragment)
         transaction.addToBackStack(null)
         transaction.commit()
     }

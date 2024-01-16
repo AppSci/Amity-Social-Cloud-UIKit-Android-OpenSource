@@ -5,7 +5,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.amity.socialcloud.uikit.chat.R
+import com.amity.socialcloud.uikit.chat.R as ChatR
+import com.amity.socialcloud.uikit.common.R as CommonR
 
 
 class AmityCreateGroupChatFragment : Fragment() {
@@ -14,7 +15,7 @@ class AmityCreateGroupChatFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.amity_fragment_create_group_chat, container, false)
+        return inflater.inflate(ChatR.layout.amity_fragment_create_group_chat, container, false)
     }
 
 }

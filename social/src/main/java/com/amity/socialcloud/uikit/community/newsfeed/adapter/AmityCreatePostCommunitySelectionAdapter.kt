@@ -10,7 +10,8 @@ import com.amity.socialcloud.sdk.model.core.file.AmityImage
 import com.amity.socialcloud.sdk.model.social.community.AmityCommunity
 import com.amity.socialcloud.uikit.common.base.AmityBaseRecyclerViewPagingDataAdapter
 import com.amity.socialcloud.uikit.common.common.loadImage
-import com.amity.socialcloud.uikit.community.R
+import com.amity.socialcloud.uikit.common.R as CommonR
+import com.amity.socialcloud.uikit.community.R as CommunityR
 import com.amity.socialcloud.uikit.community.databinding.AmityItemCommunitySelectionListBinding
 import com.amity.socialcloud.uikit.community.newsfeed.listener.AmityCreatePostCommunitySelectionListener
 
@@ -45,7 +46,7 @@ class AmityCreatePostCommunitySelectionAdapter(private val listener: AmityCreate
     }
 
     override fun getLayoutId(position: Int, obj: AmityCommunity?): Int =
-        R.layout.amity_item_community_selection_list
+        CommunityR.layout.amity_item_community_selection_list
 
     override fun getViewHolder(view: View, viewType: Int): RecyclerView.ViewHolder {
         return AmityCommunityViewHolder(view, listener)
@@ -74,11 +75,11 @@ class AmityCreatePostCommunitySelectionAdapter(private val listener: AmityCreate
             var rightDrawable: Drawable? = null
             if (!data.isPublic()) {
                 leftDrawable =
-                    ContextCompat.getDrawable(itemView.context, R.drawable.amity_ic_lock2)
+                    ContextCompat.getDrawable(itemView.context, CommonR.drawable.amity_ic_lock2)
             }
             if (data.isOfficial()) {
                 rightDrawable =
-                    ContextCompat.getDrawable(itemView.context, R.drawable.amity_ic_verified)
+                    ContextCompat.getDrawable(itemView.context, CommonR.drawable.amity_ic_verified)
             }
             binding?.tvCommunityName?.setCompoundDrawablesWithIntrinsicBounds(
                 leftDrawable,
@@ -91,7 +92,7 @@ class AmityCreatePostCommunitySelectionAdapter(private val listener: AmityCreate
         private fun setupCommunityImageView(data: AmityCommunity) {
             binding?.avCommunityProfile?.loadImage(
                 data.getAvatar()?.getUrl(AmityImage.Size.SMALL),
-                R.drawable.amity_ic_default_community_avatar_circular
+                CommunityR.drawable.amity_ic_default_community_avatar_circular
             )
         }
 

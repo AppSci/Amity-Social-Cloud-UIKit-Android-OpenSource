@@ -15,7 +15,8 @@ import com.amity.socialcloud.uikit.common.common.views.bottomsheet.AmityBottomSh
 import com.amity.socialcloud.uikit.common.common.views.bottomsheet.AmityMenuItemClickListener
 import com.amity.socialcloud.uikit.common.model.AmityMenuItem
 import com.amity.socialcloud.uikit.common.utils.AmityConstants
-import com.amity.socialcloud.uikit.community.R
+import com.amity.socialcloud.uikit.common.R as CommonR
+import com.amity.socialcloud.uikit.community.R as CommunityR
 import com.amity.socialcloud.uikit.community.databinding.AmityItemUserFollowerBinding
 import com.amity.socialcloud.uikit.community.followers.AmityFollowersBaseViewHolder
 import com.amity.socialcloud.uikit.community.followers.AmityFollowersItemViewModel
@@ -44,7 +45,7 @@ class AmityFollowingAdapter(
     }
 
     override fun getLayoutId(position: Int, obj: AmityFollowRelationship?): Int =
-        R.layout.amity_item_user_follower
+        CommunityR.layout.amity_item_user_follower
 
     override fun getViewHolder(view: View, viewType: Int): RecyclerView.ViewHolder {
         val itemViewModel = AmityFollowersItemViewModel()
@@ -77,7 +78,7 @@ class AmityFollowingAdapter(
                         }
                     }
                     val banIcon = if (user?.isGlobalBan() == true) {
-                        ContextCompat.getDrawable(context, R.drawable.amity_ic_ban)
+                        ContextCompat.getDrawable(context, CommunityR.drawable.amity_ic_ban)
                     } else {
                         null
                     }
@@ -98,14 +99,14 @@ class AmityFollowingAdapter(
                 items.add(
                     AmityMenuItem(
                         AmityConstants.ID_UN_REPORT_USER,
-                        context.getString(R.string.amity_un_report_user)
+                        context.getString(CommunityR.string.amity_un_report_user)
                     )
                 )
             } else {
                 items.add(
                     AmityMenuItem(
                         AmityConstants.ID_REPORT_USER,
-                        context.getString(R.string.amity_report_user)
+                        context.getString(CommunityR.string.amity_report_user)
                     )
                 )
             }

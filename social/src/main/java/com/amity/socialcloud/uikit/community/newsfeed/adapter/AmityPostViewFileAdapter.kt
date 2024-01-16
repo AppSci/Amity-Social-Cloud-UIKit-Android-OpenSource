@@ -3,7 +3,8 @@ package com.amity.socialcloud.uikit.community.newsfeed.adapter
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView
 import com.amity.socialcloud.sdk.model.social.post.AmityPost
-import com.amity.socialcloud.uikit.community.R
+import com.amity.socialcloud.uikit.common.R as CommonR
+import com.amity.socialcloud.uikit.community.R as CommunityR
 import com.amity.socialcloud.uikit.community.domain.model.AmityFileAttachment
 import com.amity.socialcloud.uikit.community.newsfeed.listener.AmityPostFileItemClickListener
 
@@ -34,14 +35,14 @@ class AmityPostViewFileAdapter() : AmityBasePostAttachmentAdapter() {
 
     override fun getLayoutId(position: Int, obj: AmityFileAttachment?): Int {
         return if (collapsible && position == MAX_ITEM_TO_DISPLAY) {
-            R.layout.amity_item_footer_view_post_file
+            CommunityR.layout.amity_item_footer_view_post_file
         } else {
-            R.layout.amity_item_view_post_file
+            CommunityR.layout.amity_item_view_post_file
         }
     }
 
     override fun getViewHolder(view: View, viewType: Int): RecyclerView.ViewHolder {
-        return if (viewType == R.layout.amity_item_footer_view_post_file) {
+        return if (viewType == CommunityR.layout.amity_item_footer_view_post_file) {
             AmityViewPostFileFooterViewHolder(view, loadMoreFilesClickListener, newsFeed)
         } else {
             AmityBasePostAttachmentViewHolder(view, fileItemClickListener)

@@ -12,7 +12,8 @@ import androidx.viewpager2.widget.ViewPager2
 import com.amity.socialcloud.sdk.model.social.post.AmityPost
 import com.amity.socialcloud.uikit.common.base.AmityBaseFragment
 import com.amity.socialcloud.uikit.common.base.AmityFragmentStateAdapter
-import com.amity.socialcloud.uikit.community.R
+import com.amity.socialcloud.uikit.common.R as CommonR
+import com.amity.socialcloud.uikit.community.R as CommunityR
 import com.amity.socialcloud.uikit.community.databinding.AmityFragmentParentMediaGalleryBinding
 import com.amity.socialcloud.uikit.community.newsfeed.model.AmityMediaGalleryTarget
 import com.amity.socialcloud.uikit.community.newsfeed.viewmodel.AmityParentMediaGalleryViewModel
@@ -68,9 +69,9 @@ class AmityMediaGalleryFragment : AmityBaseFragment() {
             binding.mediaGalleryViewpager
         ) { _, _ -> }.attach()
         val photoTabTextView =
-            View.inflate(requireContext(), R.layout.amity_view_media_gallery_tab, null) as TextView
+            View.inflate(requireContext(), CommonR.layout.amity_view_media_gallery_tab, null) as TextView
         val videoTabTextView =
-            View.inflate(requireContext(), R.layout.amity_view_media_gallery_tab, null) as TextView
+            View.inflate(requireContext(), CommonR.layout.amity_view_media_gallery_tab, null) as TextView
         photoTabTextView.text = fragmentStateAdapter.getTitle(0)
         videoTabTextView.text = fragmentStateAdapter.getTitle(1)
         binding.mediaGalleryTabLayout.getTabAt(0)?.customView = photoTabTextView
@@ -79,8 +80,8 @@ class AmityMediaGalleryFragment : AmityBaseFragment() {
     }
 
     private fun registerTabChangeListener(photoTabTextView: TextView, videoTabTextView: TextView) {
-        val videoTitle = requireActivity().getString(R.string.amity_general_videos)
-        val photoTitle = requireActivity().getString(R.string.amity_general_photos)
+        val videoTitle = requireActivity().getString(CommunityR.string.amity_general_videos)
+        val photoTitle = requireActivity().getString(CommunityR.string.amity_general_photos)
         binding.mediaGalleryViewpager.registerOnPageChangeCallback(object :
             ViewPager2.OnPageChangeCallback() {
             override fun onPageSelected(position: Int) {
@@ -101,28 +102,28 @@ class AmityMediaGalleryFragment : AmityBaseFragment() {
     }
 
     private fun photoGalleryFragment() = AmityFragmentStateAdapter.AmityPagerModel(
-        requireActivity().getString(R.string.amity_general_photos),
+        requireActivity().getString(CommunityR.string.amity_general_photos),
         postGalleryFragment(AmityPost.DataType.IMAGE)
     )
 
     private fun videoGalleryFragment() = AmityFragmentStateAdapter.AmityPagerModel(
-        requireActivity().getString(R.string.amity_general_videos),
+        requireActivity().getString(CommunityR.string.amity_general_videos),
         postGalleryFragment(AmityPost.DataType.VIDEO)
     )
 
-    private fun selectedTextColor() = resources.getColor(R.color.amityColorWhite)
+    private fun selectedTextColor() = resources.getColor(CommonR.color.amityColorWhite)
 
-    private fun unselectedTextColor() = resources.getColor(R.color.amityPlaceHolderDarkColor)
+    private fun unselectedTextColor() = resources.getColor(CommonR.color.amityPlaceHolderDarkColor)
 
     private fun selectedTextBackground() = ResourcesCompat.getDrawable(
         resources,
-        R.drawable.amity_rounded_primary_color_bg,
+        CommonR.drawable.amity_rounded_primary_color_bg,
         null
     )
 
     private fun unselectedTextBackground() = ResourcesCompat.getDrawable(
         resources,
-        R.drawable.amity_rounded_grey_color_bg,
+        CommunityR.drawable.amity_rounded_grey_color_bg,
         null
     )
 

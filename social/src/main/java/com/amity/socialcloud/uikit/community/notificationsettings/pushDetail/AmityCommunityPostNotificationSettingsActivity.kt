@@ -9,7 +9,8 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.Observer
 import com.amity.socialcloud.uikit.common.components.AmityToolBarClickListener
-import com.amity.socialcloud.uikit.community.R
+import com.amity.socialcloud.uikit.common.R as CommonR
+import com.amity.socialcloud.uikit.community.R as CommunityR
 import com.amity.socialcloud.uikit.community.databinding.AmityActivityPushSettingsDetailBinding
 import com.amity.socialcloud.uikit.community.utils.EXTRA_PARAM_COMMUNITY_ID
 import com.amity.socialcloud.uikit.community.utils.EXTRA_PARAM_NOTIFICATION_SETTING_TYPE
@@ -49,17 +50,17 @@ class AmityCommunityPostNotificationSettingsActivity : AppCompatActivity(),
         binding.pushDetailToolBar.setLeftDrawable(
             ContextCompat.getDrawable(
                 this,
-                R.drawable.amity_ic_arrow_back
+                CommonR.drawable.amity_ic_arrow_back
             )
         )
         binding.pushDetailToolBar.setClickListener(this)
         val postType = intent?.extras?.getString(EXTRA_PARAM_NOTIFICATION_SETTING_TYPE)
         if (postType == SettingType.POSTS.name) {
-            binding.pushDetailToolBar.setLeftString(getString(R.string.amity_Posts))
+            binding.pushDetailToolBar.setLeftString(getString(CommunityR.string.amity_Posts))
         } else {
-            binding.pushDetailToolBar.setLeftString(getString(R.string.amity_comments))
+            binding.pushDetailToolBar.setLeftString(getString(CommunityR.string.amity_comments))
         }
-        binding.pushDetailToolBar.setRightString(getString(R.string.amity_save))
+        binding.pushDetailToolBar.setRightString(getString(CommonR.string.amity_save))
         supportActionBar?.displayOptions = ActionBar.DISPLAY_SHOW_CUSTOM
         setSupportActionBar(binding.pushDetailToolBar)
     }
@@ -76,7 +77,7 @@ class AmityCommunityPostNotificationSettingsActivity : AppCompatActivity(),
             AmityCommunityCommentNotificationSettingsFragment.newInstance(communityId).build()
         }
 
-        fragmentTransaction.replace(R.id.fragmentContainer, fragment)
+        fragmentTransaction.replace(CommunityR.id.fragmentContainer, fragment)
         fragmentTransaction.commit()
     }
 

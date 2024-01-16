@@ -10,7 +10,8 @@ import com.amity.socialcloud.sdk.helper.core.mention.AmityMentionMetadataGetter
 import com.amity.socialcloud.sdk.helper.core.mention.AmityMentionee
 import com.amity.socialcloud.sdk.model.core.user.AmityUser
 import com.amity.socialcloud.sdk.model.social.post.AmityPost
-import com.amity.socialcloud.uikit.community.R
+import com.amity.socialcloud.uikit.common.R as CommonR
+import com.amity.socialcloud.uikit.community.R as CommunityR
 import com.amity.socialcloud.uikit.community.newsfeed.adapter.AmityCreatePostMediaAdapter
 import com.amity.socialcloud.uikit.community.newsfeed.model.AmityUserMention
 import com.amity.socialcloud.uikit.community.newsfeed.util.AmityNewsFeedEvents
@@ -46,11 +47,11 @@ class AmityPostEditorFragment : AmityBaseCreatePostFragment() {
 
     override fun setToolBarText() {
         (activity as AppCompatActivity).supportActionBar?.title =
-            getString(R.string.amity_edit_post)
+            getString(CommonR.string.amity_edit_post)
     }
 
     override fun getPostMenuText(): String {
-        return getString(R.string.amity_save_caps)
+        return getString(CommonR.string.amity_save_caps)
     }
 
     override fun isRightButtonActive(): Boolean {

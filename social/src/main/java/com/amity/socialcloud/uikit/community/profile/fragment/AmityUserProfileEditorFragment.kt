@@ -19,7 +19,8 @@ import com.amity.socialcloud.uikit.common.common.showSnackBar
 import com.amity.socialcloud.uikit.common.common.views.dialog.AmityBottomSheetDialogFragment
 import com.amity.socialcloud.uikit.common.model.AmityEventIdentifier
 import com.amity.socialcloud.uikit.common.utils.AmityOptionMenuColorUtil
-import com.amity.socialcloud.uikit.community.R
+import com.amity.socialcloud.uikit.common.R as CommonR
+import com.amity.socialcloud.uikit.community.R as CommunityR
 import com.amity.socialcloud.uikit.community.databinding.AmityFragmentEditUserProfileBinding
 import com.amity.socialcloud.uikit.community.profile.viewmodel.AmityEditUserProfileViewModel
 import com.bumptech.glide.Glide
@@ -49,7 +50,7 @@ class AmityUserProfileEditorFragment : AmityPickerFragment() {
         binding =
             DataBindingUtil.inflate(
                 inflater,
-                R.layout.amity_fragment_edit_user_profile,
+                CommunityR.layout.amity_fragment_edit_user_profile,
                 container,
                 false
             )
@@ -94,7 +95,7 @@ class AmityUserProfileEditorFragment : AmityPickerFragment() {
         viewModel.updateProfileUri(profileUri)
         Glide.with(requireContext())
             .load(profileUri)
-            .placeholder(R.drawable.amity_ic_default_profile1)
+            .placeholder(CommonR.drawable.amity_ic_default_profile1)
             .centerCrop()
             .into(binding.ivAvatar)
     }
@@ -137,13 +138,13 @@ class AmityUserProfileEditorFragment : AmityPickerFragment() {
 
     private fun initToolBar() {
         setHasOptionsMenu(true)
-        (activity as AppCompatActivity).supportActionBar?.title = getString(R.string.amity_edit_profile)
+        (activity as AppCompatActivity).supportActionBar?.title = getString(CommunityR.string.amity_edit_profile)
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         menuItemSaveProfile =
-            menu.add(Menu.NONE, ID_MENU_ITEM_SAVE_PROFILE, Menu.NONE, getString(R.string.amity_save))
-        menuItemSaveProfile?.setTitle(R.string.amity_save)
+            menu.add(Menu.NONE, ID_MENU_ITEM_SAVE_PROFILE, Menu.NONE, getString(CommonR.string.amity_save))
+        menuItemSaveProfile?.setTitle(CommonR.string.amity_save)
             ?.setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS)
         updateSaveProfileMenu(viewModel.hasProfileUpdate.value ?: false)
         super.onCreateOptionsMenu(menu, inflater)
@@ -163,7 +164,7 @@ class AmityUserProfileEditorFragment : AmityPickerFragment() {
 
     private fun updateSaveProfileMenu(enabled: Boolean) {
         menuItemSaveProfile?.isEnabled = enabled
-        val s = SpannableString(getString(R.string.amity_save))
+        val s = SpannableString(getString(CommonR.string.amity_save))
         s.setSpan(
             ForegroundColorSpan(
                 AmityOptionMenuColorUtil.getColor(
@@ -190,7 +191,7 @@ class AmityUserProfileEditorFragment : AmityPickerFragment() {
     }
 
     private fun handleErrorProfilePictureUpload() {
-        view?.showSnackBar(getString(R.string.amity_upload_failed_profile_picture), Snackbar.LENGTH_SHORT)
+        view?.showSnackBar(getString(CommunityR.string.amity_upload_failed_profile_picture), Snackbar.LENGTH_SHORT)
     }
 
     private fun uploadProfilePicture(uri: Uri) {
@@ -209,7 +210,7 @@ class AmityUserProfileEditorFragment : AmityPickerFragment() {
 
     private fun showOptionTakePhoto() {
         val fragment =
-            AmityBottomSheetDialogFragment.newInstance(R.menu.amity_upload_profile_picture)
+            AmityBottomSheetDialogFragment.newInstance(CommunityR.menu.amity_upload_profile_picture)
 
         fragment.show(childFragmentManager, AmityBottomSheetDialogFragment.toString())
         fragment.setOnNavigationItemSelectedListener(object :
@@ -222,9 +223,9 @@ class AmityUserProfileEditorFragment : AmityPickerFragment() {
     }
 
     private fun handleUploadPhotoOption(item: MenuItem) {
-        if (item.itemId == R.id.actionTakePicture) {
+        if (item.itemId == CommunityR.id.actionTakePicture) {
             takePicture()
-        } else if (item.itemId == R.id.actionPickPicture) {
+        } else if (item.itemId == CommunityR.id.actionPickPicture) {
             pickImage()
         }
     }
@@ -238,7 +239,7 @@ class AmityUserProfileEditorFragment : AmityPickerFragment() {
                 }, {
                     viewModel.errorOnUpdate()
                     context?.also {
-                        view?.showSnackBar(getString(R.string.amity_edit_profile_update_failed), Snackbar.LENGTH_SHORT)
+                        view?.showSnackBar(getString(CommunityR.string.amity_edit_profile_update_failed), Snackbar.LENGTH_SHORT)
                     }
                 })
         )

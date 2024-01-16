@@ -5,14 +5,15 @@ import android.view.View
 import androidx.core.content.ContextCompat
 import com.amity.socialcloud.sdk.model.social.poll.AmityPollAnswer
 import com.amity.socialcloud.uikit.common.base.AmityViewHolder
-import com.amity.socialcloud.uikit.community.R
+import com.amity.socialcloud.uikit.common.R as CommonR
+import com.amity.socialcloud.uikit.community.R as CommunityR
 import com.amity.socialcloud.uikit.community.databinding.AmityItemPollAnswerVotedBinding
 
 class AmityPollAnswerVotedViewHolder(val context: Context, private val totalVoteCount: Int) :
     AmityViewHolder<AmityPollAnswer>(
         View.inflate(
             context,
-            R.layout.amity_item_poll_answer_voted,
+            CommunityR.layout.amity_item_poll_answer_voted,
             null
         )
     ) {
@@ -27,34 +28,34 @@ class AmityPollAnswerVotedViewHolder(val context: Context, private val totalVote
         binding.voteCountProgressBar.progressDrawable = when (data.isVotedByUser) {
             true -> ContextCompat.getDrawable(
                 context,
-                R.drawable.amity_bg_poll_answer_progress_voted
+                CommunityR.drawable.amity_bg_poll_answer_progress_voted
             )
-            false -> ContextCompat.getDrawable(context, R.drawable.amity_bg_poll_answer_progress)
+            false -> ContextCompat.getDrawable(context, CommunityR.drawable.amity_bg_poll_answer_progress)
         }
 
         binding.voteCountTextView.setTextColor(
             when (data.isVotedByUser) {
-                true -> ContextCompat.getColor(context, R.color.amityColorPrimary)
-                false -> ContextCompat.getColor(context, R.color.amityColorShuttleGray)
+                true -> ContextCompat.getColor(context, CommonR.color.amityColorPrimary)
+                false -> ContextCompat.getColor(context, CommunityR.color.amityColorShuttleGray)
             }
         )
 
         binding.voteCountTextView.text = context.resources.getQuantityString(
-            R.plurals.amity_poll_vote_count,
+            CommunityR.plurals.amity_poll_vote_count,
             data.voteCount,
             data.voteCount
         )
 
         binding.answerCardView.setCardBackgroundColor(
             when (data.isVotedByUser) {
-                true -> ContextCompat.getColor(context, R.color.amityColorPrimary)
-                false -> ContextCompat.getColor(context, R.color.amityColorWhite)
+                true -> ContextCompat.getColor(context, CommonR.color.amityColorPrimary)
+                false -> ContextCompat.getColor(context, CommonR.color.amityColorWhite)
             }
         )
 
         binding.answerCardView.strokeColor = when (data.isVotedByUser) {
-            true -> ContextCompat.getColor(context, R.color.amityColorPrimary)
-            false -> ContextCompat.getColor(context, R.color.upstraMessageBubbleInverse)
+            true -> ContextCompat.getColor(context, CommonR.color.amityColorPrimary)
+            false -> ContextCompat.getColor(context, CommonR.color.upstraMessageBubbleInverse)
         }
     }
 }

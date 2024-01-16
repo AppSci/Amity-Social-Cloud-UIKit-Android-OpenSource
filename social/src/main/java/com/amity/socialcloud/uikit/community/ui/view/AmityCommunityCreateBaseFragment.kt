@@ -21,7 +21,8 @@ import com.amity.socialcloud.uikit.common.common.showSnackBar
 import com.amity.socialcloud.uikit.common.contract.AmityPickImageContract
 import com.amity.socialcloud.uikit.common.utils.AmityAlertDialogUtil
 import com.amity.socialcloud.uikit.common.utils.AmityConstants
-import com.amity.socialcloud.uikit.community.R
+import com.amity.socialcloud.uikit.common.R as CommonR
+import com.amity.socialcloud.uikit.community.R as CommunityR
 import com.amity.socialcloud.uikit.community.data.AmitySelectCategoryItem
 import com.amity.socialcloud.uikit.community.databinding.AmityFragmentCreateCommunityBinding
 import com.amity.socialcloud.uikit.community.detailpage.AmityCommunityPageActivity
@@ -51,7 +52,7 @@ abstract class AmityCommunityCreateBaseFragment : RxFragment() {
             Glide.with(this)
                 .load(data)
                 .centerCrop()
-                .placeholder(R.drawable.amity_ic_default_community_avatar)
+                .placeholder(CommunityR.drawable.amity_ic_default_community_avatar)
                 .into(binding.ccAvatar)
         }
     }
@@ -59,7 +60,7 @@ abstract class AmityCommunityCreateBaseFragment : RxFragment() {
     private val pickImagePermission =
         registerForActivityResult(ActivityResultContracts.RequestPermission()) {
             if (it) {
-                pickImage.launch(getString(com.amity.socialcloud.uikit.common.R.string.amity_choose_image))
+                pickImage.launch(getString(CommonR.string.amity_choose_image))
             } else {
                 binding.root.showSnackBar("Permission denied", Snackbar.LENGTH_SHORT)
             }
@@ -72,7 +73,7 @@ abstract class AmityCommunityCreateBaseFragment : RxFragment() {
         // Inflate the layout for this fragment
         binding = DataBindingUtil.inflate(
             inflater,
-            R.layout.amity_fragment_create_community, container, false
+            CommunityR.layout.amity_fragment_create_community, container, false
         )
         binding.setLifecycleOwner(this)
         return binding.root
@@ -128,7 +129,7 @@ abstract class AmityCommunityCreateBaseFragment : RxFragment() {
 
     open fun renderAvatar() {
         Glide.with(requireContext())
-            .load(R.drawable.amity_ic_default_community_avatar)
+            .load(CommunityR.drawable.amity_ic_default_community_avatar)
             .centerCrop()
             .into(binding.ccAvatar)
     }
@@ -216,10 +217,10 @@ abstract class AmityCommunityCreateBaseFragment : RxFragment() {
 
     private fun showDialog() {
         AmityAlertDialogUtil.showDialog(requireContext(),
-            getString(R.string.amity_cc_leave),
-            getString(R.string.amity_cc_dialog_msg),
-            getString(R.string.amity_leave),
-            getString(R.string.amity_cancel),
+            getString(CommunityR.string.amity_cc_leave),
+            getString(CommunityR.string.amity_cc_dialog_msg),
+            getString(CommunityR.string.amity_leave),
+            getString(CommunityR.string.amity_cancel),
             DialogInterface.OnClickListener { dialog, which ->
                 if (which == DialogInterface.BUTTON_POSITIVE) {
                     requireActivity().finish()
@@ -254,7 +255,7 @@ abstract class AmityCommunityCreateBaseFragment : RxFragment() {
                         is AmityUploadResult.ERROR, AmityUploadResult.CANCELLED -> {
                             binding.btnCreateCommunity.isEnabled = true
                             view?.showSnackBar(
-                                getString(R.string.amity_image_upload_error),
+                                getString(CommunityR.string.amity_image_upload_error),
                                 Snackbar.LENGTH_SHORT
                             )
                         }

@@ -18,7 +18,8 @@ import com.amity.socialcloud.uikit.common.common.views.bottomsheet.AmityMenuItem
 import com.amity.socialcloud.uikit.common.model.AmityMenuItem
 import com.amity.socialcloud.uikit.common.utils.AmityAlertDialogUtil
 import com.amity.socialcloud.uikit.common.utils.AmityConstants
-import com.amity.socialcloud.uikit.community.R
+import com.amity.socialcloud.uikit.common.R as CommonR
+import com.amity.socialcloud.uikit.community.R as CommunityR
 import com.amity.socialcloud.uikit.community.databinding.AmityItemUserFollowerBinding
 import com.amity.socialcloud.uikit.community.newsfeed.listener.AmityUserClickListener
 import com.ekoapp.rxlifecycle.extension.untilLifecycleEnd
@@ -47,7 +48,7 @@ class AmityFollowerAdapter(
     }
 
     override fun getLayoutId(position: Int, obj: AmityFollowRelationship?): Int =
-        R.layout.amity_item_user_follower
+        CommunityR.layout.amity_item_user_follower
 
     override fun getViewHolder(view: View, viewType: Int): RecyclerView.ViewHolder {
         val itemViewModel = AmityFollowersItemViewModel()
@@ -81,7 +82,7 @@ class AmityFollowerAdapter(
                         }
                     }
                     val banIcon = if (user?.isGlobalBan() == true) {
-                        ContextCompat.getDrawable(context, R.drawable.amity_ic_ban)
+                        ContextCompat.getDrawable(context, CommunityR.drawable.amity_ic_ban)
                     } else {
                         null
                     }
@@ -102,14 +103,14 @@ class AmityFollowerAdapter(
                 items.add(
                     AmityMenuItem(
                         AmityConstants.ID_UN_REPORT_USER,
-                        context.getString(R.string.amity_un_report_user)
+                        context.getString(CommunityR.string.amity_un_report_user)
                     )
                 )
             } else {
                 items.add(
                     AmityMenuItem(
                         AmityConstants.ID_REPORT_USER,
-                        context.getString(R.string.amity_report_user)
+                        context.getString(CommunityR.string.amity_report_user)
                     )
                 )
             }
@@ -117,7 +118,7 @@ class AmityFollowerAdapter(
                 items.add(
                     AmityMenuItem(
                         AmityConstants.ID_REMOVE_USER,
-                        context.getString(R.string.amity_remove_user),
+                        context.getString(CommunityR.string.amity_remove_user),
                         true
                     )
                 )
@@ -141,15 +142,15 @@ class AmityFollowerAdapter(
             AmityAlertDialogUtil.showDialog(
                 context,
                 String.format(
-                    context.getString(R.string.amity_remove_follower),
+                    context.getString(CommonR.string.amity_remove_follower),
                     user.getDisplayName()
                 ),
                 String.format(
-                    context.getString(R.string.amity_remove_follower_msg),
+                    context.getString(CommonR.string.amity_remove_follower_msg),
                     user.getDisplayName()
                 ),
-                context.getString(R.string.amity_remove),
-                context.getString(R.string.amity_cancel),
+                context.getString(CommunityR.string.amity_remove),
+                context.getString(CommunityR.string.amity_cancel),
                 DialogInterface.OnClickListener { dialog, which ->
                     if (which == DialogInterface.BUTTON_POSITIVE) {
                         removeUser(user)
@@ -161,9 +162,9 @@ class AmityFollowerAdapter(
         private fun removeUser(user: AmityUser) {
             itemViewModel.removeUser(user.getUserId())
                 .doOnComplete {
-                    itemView.showSnackBar(context.getString(R.string.amity_removed))
+                    itemView.showSnackBar(context.getString(CommunityR.string.amity_removed))
                 }.doOnError {
-                    itemView.showSnackBar(context.getString(R.string.amity_unable_to_remove))
+                    itemView.showSnackBar(context.getString(CommunityR.string.amity_unable_to_remove))
                 }
                 .untilLifecycleEnd(itemView).subscribe()
         }

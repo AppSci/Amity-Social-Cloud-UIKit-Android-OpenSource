@@ -13,7 +13,8 @@ import com.amity.socialcloud.sdk.model.social.post.AmityPost
 import com.amity.socialcloud.uikit.common.common.readableFeedPostTime
 import com.amity.socialcloud.uikit.common.components.setImageUrl
 import com.amity.socialcloud.uikit.common.utils.AmityConstants
-import com.amity.socialcloud.uikit.community.R
+import com.amity.socialcloud.uikit.common.R as CommonR
+import com.amity.socialcloud.uikit.community.R as CommunityR
 import com.amity.socialcloud.uikit.community.databinding.AmityItemBasePostHeaderBinding
 import com.amity.socialcloud.uikit.community.newsfeed.events.PostOptionClickEvent
 import com.amity.socialcloud.uikit.community.newsfeed.model.AmityBasePostHeaderItem
@@ -52,7 +53,7 @@ class AmityPostHeaderViewHolder(
             avatarURL,
             ContextCompat.getDrawable(
                 binding.avatarView.context,
-                R.drawable.amity_ic_default_profile_large
+                CommonR.drawable.amity_ic_default_profile_large
             )
         )
     }
@@ -60,7 +61,7 @@ class AmityPostHeaderViewHolder(
     private fun renderCreatorName(post: AmityPost) {
         val postedUser = post.getCreator()
         val banIcon = if (postedUser?.isGlobalBan() == true) {
-            ContextCompat.getDrawable(itemView.context, R.drawable.amity_ic_ban)
+            ContextCompat.getDrawable(itemView.context, CommunityR.drawable.amity_ic_ban)
         } else {
             null
         }
@@ -95,7 +96,7 @@ class AmityPostHeaderViewHolder(
         val shouldShowTarget = showTarget && !isTargetingOwnFeed
         var arrowIcon: Drawable? = null
         if (shouldShowTarget) {
-            arrowIcon = ContextCompat.getDrawable(context, R.drawable.amity_ic_arrow)
+            arrowIcon = ContextCompat.getDrawable(context, CommonR.drawable.amity_ic_arrow)
             val text = when (target) {
                 is AmityPost.Target.COMMUNITY -> {
                     target.getCommunity()?.getDisplayName()?.trim() ?: ""
@@ -118,7 +119,7 @@ class AmityPostHeaderViewHolder(
         val isOfficial =
             (post.getTarget() as? AmityPost.Target.COMMUNITY)?.getCommunity()?.isOfficial() ?: false
         val officialBadgeIcon = if (isOfficial) {
-            ContextCompat.getDrawable(context, R.drawable.amity_ic_verified)
+            ContextCompat.getDrawable(context, CommonR.drawable.amity_ic_verified)
         } else {
             null
         }

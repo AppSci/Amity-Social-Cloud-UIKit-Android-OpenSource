@@ -12,7 +12,8 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.amity.socialcloud.sdk.model.social.community.AmityCommunity
 import com.amity.socialcloud.uikit.common.base.AmityBaseFragment
 import com.amity.socialcloud.uikit.common.utils.AmityRecyclerViewItemDecoration
-import com.amity.socialcloud.uikit.community.R
+import com.amity.socialcloud.uikit.common.R as CommonR
+import com.amity.socialcloud.uikit.community.R as CommunityR
 import com.amity.socialcloud.uikit.community.compose.story.target.AmityStoryTargetTabBehavior
 import com.amity.socialcloud.uikit.community.databinding.AmityFragmentStoryTargetSelectionBinding
 import com.amity.socialcloud.uikit.community.newsfeed.activity.STORY_CREATION
@@ -71,8 +72,8 @@ class AmityStoryTargetPickerFragment : AmityBaseFragment(),
             this.adapter = communityAdapter
             addItemDecoration(
                 AmityRecyclerViewItemDecoration(
-                    resources.getDimensionPixelSize(R.dimen.amity_padding_xs),
-                    0, resources.getDimensionPixelSize(R.dimen.amity_padding_xs)
+                    resources.getDimensionPixelSize(CommonR.dimen.amity_padding_xs),
+                    0, resources.getDimensionPixelSize(CommonR.dimen.amity_padding_xs)
                 )
             )
             hasFixedSize()

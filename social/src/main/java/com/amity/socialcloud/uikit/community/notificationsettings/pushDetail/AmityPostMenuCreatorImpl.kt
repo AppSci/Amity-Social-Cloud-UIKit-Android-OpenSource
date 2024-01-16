@@ -1,14 +1,15 @@
 package com.amity.socialcloud.uikit.community.notificationsettings.pushDetail
 
-import com.amity.socialcloud.uikit.community.R
+import com.amity.socialcloud.uikit.common.R as CommonR
+import com.amity.socialcloud.uikit.community.R as CommunityR
 import com.amity.socialcloud.uikit.community.setting.AmitySettingsItem
 
 class AmityPostMenuCreatorImpl(private val fragment: AmityCommunityBaseNotificationSettingsFragment): AmityPostMenuCreator {
     override fun createReactPostMenu(communityId: String): AmitySettingsItem.TextContent {
         return AmitySettingsItem.TextContent(
-            title = R.string.amity_reacts_post,
+            title = CommunityR.string.amity_reacts_post,
             isTitleBold = true,
-            description = R.string.amity_reacts_post_description,
+            description = CommunityR.string.amity_reacts_post_description,
             callback = {}
         )
     }
@@ -25,9 +26,9 @@ class AmityPostMenuCreatorImpl(private val fragment: AmityCommunityBaseNotificat
 
     override fun createNewPostMenu(communityId: String): AmitySettingsItem.TextContent {
         return AmitySettingsItem.TextContent(
-            title = R.string.amity_new_posts,
+            title = CommunityR.string.amity_new_posts,
             isTitleBold = true,
-            description = R.string.amity_new_posts_description,
+            description = CommunityR.string.amity_new_posts_description,
             callback = {}
         )
     }

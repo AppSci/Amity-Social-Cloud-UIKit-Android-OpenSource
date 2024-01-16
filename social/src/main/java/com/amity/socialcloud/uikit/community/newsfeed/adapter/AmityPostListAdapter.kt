@@ -6,7 +6,8 @@ import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
 import com.amity.socialcloud.sdk.model.core.user.AmityUser
 import com.amity.socialcloud.sdk.model.social.community.AmityCommunity
-import com.amity.socialcloud.uikit.community.R
+import com.amity.socialcloud.uikit.common.R as CommonR
+import com.amity.socialcloud.uikit.community.R as CommunityR
 import com.amity.socialcloud.uikit.community.newsfeed.events.CommentContentClickEvent
 import com.amity.socialcloud.uikit.community.newsfeed.events.CommentEngagementClickEvent
 import com.amity.socialcloud.uikit.community.newsfeed.events.CommentOptionClickEvent
@@ -35,7 +36,7 @@ class AmityPostListAdapter(
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AmityPostViewHolder {
         val view = LayoutInflater.from(parent.context)
-            .inflate(R.layout.amity_item_base_post, parent, false)
+            .inflate(CommunityR.layout.amity_item_base_post, parent, false)
         return AmityPostViewHolder(
             view,
             userClickPublisher,

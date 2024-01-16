@@ -8,7 +8,7 @@ import androidx.databinding.ObservableInt
 import com.amity.socialcloud.sdk.api.core.AmityCoreClient
 import com.amity.socialcloud.sdk.api.core.file.AmityFileRepository
 import com.amity.socialcloud.sdk.model.chat.message.AmityMessage
-import com.amity.socialcloud.uikit.chat.R
+import com.amity.socialcloud.uikit.common.R as CommonR
 import com.amity.socialcloud.uikit.common.model.AmityEventIdentifier
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.schedulers.Schedulers
@@ -20,8 +20,8 @@ class AmityAudioMsgViewModel : AmitySelectableMessageViewModel() {
     val isPlaying = ObservableBoolean(false)
     val duration = ObservableField("0:00")
     val progressMax = ObservableInt(0)
-    val senderFillColor = ObservableField(R.color.amityMessageBubble)
-    val receiverFillColor = ObservableField(R.color.amityMessageBubbleInverse)
+    val senderFillColor = ObservableField(CommonR.color.amityMessageBubble)
+    val receiverFillColor = ObservableField(CommonR.color.amityMessageBubbleInverse)
     val uploading = ObservableBoolean(false)
     val uploadProgress = ObservableField(0)
     val buffering = ObservableBoolean(false)

@@ -18,7 +18,8 @@ import com.amity.socialcloud.uikit.common.common.views.AmityColorPaletteUtil
 import com.amity.socialcloud.uikit.common.common.views.AmityColorShade
 import com.amity.socialcloud.uikit.common.model.AmityEventIdentifier
 import com.amity.socialcloud.uikit.common.utils.AmityRecyclerViewItemDecoration
-import com.amity.socialcloud.uikit.community.R
+import com.amity.socialcloud.uikit.common.R as CommonR
+import com.amity.socialcloud.uikit.community.R as CommunityR
 import com.amity.socialcloud.uikit.community.databinding.AmityFragmentCommunityGlobalSearchBinding
 import com.amity.socialcloud.uikit.community.detailpage.AmityCommunityPageActivity
 import com.amity.socialcloud.uikit.community.mycommunity.adapter.AmityMyCommunitiesAdapter
@@ -80,14 +81,14 @@ class AmityCommunitySearchFragment :
             layoutManager = LinearLayoutManager(requireContext())
             addItemDecoration(
                 AmityRecyclerViewItemDecoration(
-                    resources.getDimensionPixelSize(R.dimen.amity_padding_m1)
+                    resources.getDimensionPixelSize(CommonR.dimen.amity_padding_m1)
                 )
             )
             setHasFixedSize(true)
         }
         binding.tvNoResults.setTextColor(
             AmityColorPaletteUtil.getColor(
-                ContextCompat.getColor(requireContext(), R.color.amityColorBase),
+                ContextCompat.getColor(requireContext(), CommonR.color.amityColorBase),
                 AmityColorShade.SHADE3
             )
         )

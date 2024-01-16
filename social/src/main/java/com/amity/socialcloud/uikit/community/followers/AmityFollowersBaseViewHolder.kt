@@ -4,7 +4,8 @@ import android.content.Context
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView
 import com.amity.socialcloud.sdk.model.core.user.AmityUser
-import com.amity.socialcloud.uikit.community.R
+import com.amity.socialcloud.uikit.common.R as CommonR
+import com.amity.socialcloud.uikit.community.R as CommunityR
 import com.ekoapp.rxlifecycle.extension.untilLifecycleEnd
 import com.google.android.material.snackbar.Snackbar
 
@@ -29,9 +30,9 @@ abstract class AmityFollowersBaseViewHolder(
 
     private fun showDialogSentReportMessage(isReport: Boolean) {
         val messageSent = if (isReport) {
-            R.string.amity_report_sent
+            CommunityR.string.amity_report_sent
         } else {
-            R.string.amity_unreport_sent
+            CommunityR.string.amity_unreport_sent
         }
         Snackbar.make(
             itemView,

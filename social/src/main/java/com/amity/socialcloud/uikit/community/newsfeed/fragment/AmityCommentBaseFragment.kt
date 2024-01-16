@@ -16,7 +16,8 @@ import com.amity.socialcloud.sdk.model.social.post.AmityPost
 import com.amity.socialcloud.uikit.common.base.AmityBaseFragment
 import com.amity.socialcloud.uikit.common.common.views.dialog.AmityAlertDialogFragment
 import com.amity.socialcloud.uikit.common.utils.AmityOptionMenuColorUtil
-import com.amity.socialcloud.uikit.community.R
+import com.amity.socialcloud.uikit.common.R as CommonR
+import com.amity.socialcloud.uikit.community.R as CommunityR
 import com.amity.socialcloud.uikit.community.databinding.AmityFragmentBaseCommentBinding
 import com.amity.socialcloud.uikit.community.newsfeed.adapter.AmityUserMentionAdapter
 import com.amity.socialcloud.uikit.community.newsfeed.adapter.AmityUserMentionPagingDataAdapter
@@ -59,7 +60,7 @@ abstract class AmityCommentBaseFragment: AmityBaseFragment(),
         binding =
             DataBindingUtil.inflate(
                 inflater,
-                R.layout.amity_fragment_base_comment,
+                CommunityR.layout.amity_fragment_base_comment,
                 container,
                 false
             )
@@ -170,14 +171,14 @@ abstract class AmityCommentBaseFragment: AmityBaseFragment(),
         val exitConfirmationDialogFragment = if (viewModel.getReply() != null || isReply) {
             AmityAlertDialogFragment
                 .newInstance(
-                    R.string.amity_discard_reply_title, R.string.amity_discard_reply_message,
-                    R.string.amity_discard, R.string.amity_cancel
+                    CommunityR.string.amity_discard_reply_title, CommunityR.string.amity_discard_reply_message,
+                    CommunityR.string.amity_discard, CommunityR.string.amity_cancel
                 )
         } else {
             AmityAlertDialogFragment
                 .newInstance(
-                    R.string.amity_discard_comment_title, R.string.amity_discard_comment_message,
-                    R.string.amity_discard, R.string.amity_cancel
+                    CommunityR.string.amity_discard_comment_title, CommunityR.string.amity_discard_comment_message,
+                    CommunityR.string.amity_discard, CommunityR.string.amity_cancel
                 )
         }
         exitConfirmationDialogFragment.show(childFragmentManager, AmityAlertDialogFragment.TAG);

@@ -7,7 +7,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.amity.socialcloud.sdk.model.core.user.AmityUser
 import com.amity.socialcloud.sdk.model.social.community.AmityCommunity
 import com.amity.socialcloud.uikit.common.base.AmityBaseRecyclerViewAdapter
-import com.amity.socialcloud.uikit.community.R
+import com.amity.socialcloud.uikit.common.R as CommonR
+import com.amity.socialcloud.uikit.community.R as CommunityR
 import com.amity.socialcloud.uikit.community.newsfeed.events.CommentContentClickEvent
 import com.amity.socialcloud.uikit.community.newsfeed.events.CommentEngagementClickEvent
 import com.amity.socialcloud.uikit.community.newsfeed.events.CommentOptionClickEvent
@@ -73,7 +74,7 @@ class AmityPostViewHolder(
         if (data == null) {
             return
         }
-        val basePostView = itemView.findViewById<AmityBasePostView>(R.id.basePostView)
+        val basePostView = itemView.findViewById<AmityBasePostView>(CommunityR.id.basePostView)
         if (concatAdapter == null) {
 //            To check if special config needed
 //            val config = ConcatAdapter.Config.Builder().apply {

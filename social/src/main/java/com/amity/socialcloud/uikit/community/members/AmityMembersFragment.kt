@@ -15,7 +15,8 @@ import com.amity.socialcloud.uikit.common.common.setShape
 import com.amity.socialcloud.uikit.common.common.views.AmityColorShade
 import com.amity.socialcloud.uikit.common.model.AmitySelectMemberItem
 import com.amity.socialcloud.uikit.common.utils.AmityRecyclerViewItemDecoration
-import com.amity.socialcloud.uikit.community.R
+import com.amity.socialcloud.uikit.common.R as CommonR
+import com.amity.socialcloud.uikit.community.R as CommunityR
 import com.amity.socialcloud.uikit.community.databinding.AmityFragmentMembersBinding
 import com.amity.socialcloud.uikit.community.profile.activity.AmityUserProfileActivity
 import com.ekoapp.rxlifecycle.extension.untilLifecycleEnd
@@ -55,11 +56,11 @@ class AmityMembersFragment : AmityBaseFragment(), AmityMemberClickListener {
         binding.rvCommunityMembers.layoutManager = LinearLayoutManager(requireContext())
         binding.rvCommunityMembers.adapter = adapter
         binding.rvCommunityMembers.addItemDecoration(
-            AmityRecyclerViewItemDecoration(requireContext().resources.getDimensionPixelSize(R.dimen.amity_padding_m1))
+            AmityRecyclerViewItemDecoration(requireContext().resources.getDimensionPixelSize(CommonR.dimen.amity_padding_m1))
         )
         binding.etSearch.setShape(
             null, null, null, null,
-            R.color.amityColorBase, null, AmityColorShade.SHADE4
+            CommonR.color.amityColorBase, null, AmityColorShade.SHADE4
         )
     }
 
@@ -100,7 +101,7 @@ class AmityMembersFragment : AmityBaseFragment(), AmityMemberClickListener {
                 val selectMemberItem = AmitySelectMemberItem(
                     ekoUser.getUserId(),
                     ekoUser.getAvatar()?.getUrl(AmityImage.Size.MEDIUM) ?: "",
-                    ekoUser.getDisplayName() ?: getString(R.string.amity_anonymous),
+                    ekoUser.getDisplayName() ?: getString(CommonR.string.amity_anonymous),
                     ekoUser.getDescription(),
                     false
                 )

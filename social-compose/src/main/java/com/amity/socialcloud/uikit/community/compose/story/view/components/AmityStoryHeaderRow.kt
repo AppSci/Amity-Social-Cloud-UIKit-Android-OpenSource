@@ -43,7 +43,7 @@ import com.amity.socialcloud.sdk.api.core.AmityCoreClient
 import com.amity.socialcloud.sdk.model.social.story.AmityStory
 import com.amity.socialcloud.uikit.common.common.readableTimeDiff
 import com.amity.socialcloud.uikit.common.utils.AmityConstants
-import com.amity.socialcloud.uikit.community.compose.R
+import com.amity.socialcloud.uikit.common.R as CommonR
 import com.amity.socialcloud.uikit.community.compose.story.view.AmityViewStoryPageViewModel
 import com.amity.socialcloud.uikit.community.compose.story.view.elements.AmityStorySegmentTimerElement
 import com.amity.socialcloud.uikit.community.compose.ui.base.AmityBaseElement
@@ -141,7 +141,7 @@ fun AmityStoryHeaderRow(
                     ) {
                         if (avatarUrl.isEmpty()) {
                             Image(
-                                painter = painterResource(id = R.drawable.amity_ic_default_profile1),
+                                painter = painterResource(id = CommonR.drawable.amity_ic_default_profile1),
                                 contentScale = ContentScale.Fit,
                                 contentDescription = "Avatar Image",
                                 modifier = Modifier
@@ -165,7 +165,7 @@ fun AmityStoryHeaderRow(
                         }
                         if (hasManageStoryPermission) {
                             Image(
-                                painter = painterResource(id = R.drawable.amity_ic_plus_circle),
+                                painter = painterResource(id = CommonR.drawable.amity_ic_plus_circle),
                                 contentDescription = "",
                                 modifier = Modifier
                                     .size(16.dp)

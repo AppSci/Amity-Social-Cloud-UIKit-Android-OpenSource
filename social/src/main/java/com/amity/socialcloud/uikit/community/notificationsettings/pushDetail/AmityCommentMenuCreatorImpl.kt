@@ -1,14 +1,15 @@
 package com.amity.socialcloud.uikit.community.notificationsettings.pushDetail
 
-import com.amity.socialcloud.uikit.community.R
+import com.amity.socialcloud.uikit.common.R as CommonR
+import com.amity.socialcloud.uikit.community.R as CommunityR
 import com.amity.socialcloud.uikit.community.setting.AmitySettingsItem
 
 class AmityCommentMenuCreatorImpl(private val fragment: AmityCommunityBaseNotificationSettingsFragment): AmityCommentMenuCreator {
     override fun createReactCommentsMenu(communityId: String): AmitySettingsItem.TextContent {
         return AmitySettingsItem.TextContent(
-            title = R.string.amity_reacts_comments,
+            title = CommunityR.string.amity_reacts_comments,
             isTitleBold = true,
-            description = R.string.amity_reacts_comments_description,
+            description = CommunityR.string.amity_reacts_comments_description,
             callback = {}
         )
     }
@@ -25,9 +26,9 @@ class AmityCommentMenuCreatorImpl(private val fragment: AmityCommunityBaseNotifi
 
     override fun createNewCommentsMenu(communityId: String): AmitySettingsItem.TextContent {
         return AmitySettingsItem.TextContent(
-            title = R.string.amity_new_comments,
+            title = CommunityR.string.amity_new_comments,
             isTitleBold = true,
-            description = R.string.amity_new_comments_description,
+            description = CommunityR.string.amity_new_comments_description,
             callback = {}
         )
     }
@@ -44,9 +45,9 @@ class AmityCommentMenuCreatorImpl(private val fragment: AmityCommunityBaseNotifi
 
     override fun createReplyCommentsMenu(communityId: String): AmitySettingsItem.TextContent {
         return AmitySettingsItem.TextContent(
-            title = R.string.amity_replies,
+            title = CommunityR.string.amity_replies,
             isTitleBold = true,
-            description = R.string.amity_replies_description,
+            description = CommunityR.string.amity_replies_description,
             callback = {}
         )
     }

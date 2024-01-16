@@ -16,7 +16,8 @@ import com.amity.socialcloud.uikit.common.base.AmityFragmentStateAdapter
 import com.amity.socialcloud.uikit.common.common.setSafeOnClickListener
 import com.amity.socialcloud.uikit.common.common.views.dialog.bottomsheet.AmityBottomSheetDialog
 import com.amity.socialcloud.uikit.common.common.views.dialog.bottomsheet.BottomSheetMenuItem
-import com.amity.socialcloud.uikit.community.R
+import com.amity.socialcloud.uikit.community.R as CommunityR
+import com.amity.socialcloud.uikit.common.R as CommonR
 import com.amity.socialcloud.uikit.community.compose.story.target.AmityStoryTargetTabBehavior
 import com.amity.socialcloud.uikit.community.databinding.AmityFragmentCommunityPageBinding
 import com.amity.socialcloud.uikit.community.newsfeed.activity.AmityLiveStreamPostCreatorActivity
@@ -85,7 +86,7 @@ class AmityCommunityPageFragment : RxFragment(),
     ): View {
         binding = DataBindingUtil.inflate(
             inflater,
-            R.layout.amity_fragment_community_page,
+            CommunityR.layout.amity_fragment_community_page,
             container,
             false
         )
@@ -143,7 +144,7 @@ class AmityCommunityPageFragment : RxFragment(),
             AmityCommunityProfileFragment.newInstance(viewModel.communityId!!)
                 .build(requireActivity() as AppCompatActivity)
         childFragmentManager.beginTransaction()
-            .replace(R.id.profile_container, communityProfileFragment)
+            .replace(CommunityR.id.profile_container, communityProfileFragment)
             .commit()
     }
 
@@ -152,11 +153,11 @@ class AmityCommunityPageFragment : RxFragment(),
         fragmentStateAdapter.setFragmentList(
             arrayListOf(
                 AmityFragmentStateAdapter.AmityPagerModel(
-                    requireActivity().getString(R.string.amity_timeline),
+                    requireActivity().getString(CommunityR.string.amity_timeline),
                     getFeedFragment(viewModel.communityId!!)
                 ),
                 AmityFragmentStateAdapter.AmityPagerModel(
-                    getString(R.string.amity_gallery_title),
+                    getString(CommunityR.string.amity_gallery_title),
                     getPostGalleryFragment()
                 )
             )
@@ -167,7 +168,7 @@ class AmityCommunityPageFragment : RxFragment(),
     }
 
     private fun setUpViewListeners() {
-        binding.refreshLayout.setColorSchemeResources(R.color.amityColorPrimary)
+        binding.refreshLayout.setColorSchemeResources(CommonR.color.amityColorPrimary)
         binding.refreshLayout.setOnRefreshListener {
             refreshCommunity()
         }
@@ -205,24 +206,24 @@ class AmityCommunityPageFragment : RxFragment(),
         val postCreationOptions =
             mutableListOf(
                 BottomSheetMenuItem(
-                    iconResId = R.drawable.ic_amity_ic_post_create,
-                    titleResId = R.string.amity_post,
+                    iconResId = CommonR.drawable.ic_amity_ic_post_create,
+                    titleResId = CommunityR.string.amity_post,
                     action = {
                         createGenericPost.launch(viewModel.communityId)
                         bottomSheet.dismiss()
                     }
                 ),
                 BottomSheetMenuItem(
-                    iconResId = R.drawable.ic_amity_ic_live_stream_create,
-                    titleResId = R.string.amity_video_stream_title,
+                    iconResId = CommonR.drawable.ic_amity_ic_live_stream_create,
+                    titleResId = CommunityR.string.amity_video_stream_title,
                     action = {
                         createLiveStreamPost.launch(viewModel.communityId)
                         bottomSheet.dismiss()
                     }
                 ),
                 BottomSheetMenuItem(
-                    iconResId = R.drawable.ic_amity_ic_poll_create,
-                    titleResId = R.string.amity_general_poll,
+                    iconResId = CommonR.drawable.ic_amity_ic_poll_create,
+                    titleResId = CommunityR.string.amity_general_poll,
                     action = {
                         createPollPost.launch(viewModel.communityId)
                         bottomSheet.dismiss()
@@ -234,8 +235,8 @@ class AmityCommunityPageFragment : RxFragment(),
             postCreationOptions.add(
                 index = 1,
                 BottomSheetMenuItem(
-                    iconResId = R.drawable.amity_ic_story_create,
-                    titleResId = R.string.amity_story,
+                    iconResId = CommonR.drawable.amity_ic_story_create,
+                    titleResId = CommunityR.string.amity_story,
                     action = {
                         community?.let { behavior.goToCreateStoryPage(it) }
                         bottomSheet.dismiss()

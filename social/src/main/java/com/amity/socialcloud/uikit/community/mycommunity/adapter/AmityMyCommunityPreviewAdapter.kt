@@ -3,7 +3,8 @@ package com.amity.socialcloud.uikit.community.mycommunity.adapter
 import android.view.View
 import com.amity.socialcloud.sdk.model.social.community.AmityCommunity
 import com.amity.socialcloud.uikit.common.base.AmityBaseRecyclerViewPagingDataAdapter
-import com.amity.socialcloud.uikit.community.R
+import com.amity.socialcloud.uikit.common.R as CommonR
+import com.amity.socialcloud.uikit.community.R as CommunityR
 import com.amity.socialcloud.uikit.community.mycommunity.listener.AmityMyCommunityItemClickListener
 
 
@@ -14,15 +15,15 @@ class AmityMyCommunityPreviewAdapter(private val listener: AmityMyCommunityItemC
 
     override fun getLayoutId(position: Int, obj: AmityCommunity?): Int {
         return if (position == VIEW_ALL_ITEM_POSITION) {
-            R.layout.amity_item_my_community_more
+            CommunityR.layout.amity_item_my_community_more
         } else {
-            R.layout.amity_item_my_community
+            CommunityR.layout.amity_item_my_community
         }
     }
 
     override fun getViewHolder(view: View, viewType: Int): AmityBaseMyCommunityPreviewItemViewHolder {
         return when (viewType) {
-            R.layout.amity_item_my_community_more -> {
+            CommunityR.layout.amity_item_my_community_more -> {
                 AmityViewAllCommunityPreviewItemViewHolder(view, listener)
             }
             else -> {

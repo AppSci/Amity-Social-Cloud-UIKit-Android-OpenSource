@@ -8,7 +8,8 @@ import androidx.fragment.app.activityViewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.amity.socialcloud.sdk.model.social.notification.AmityCommunityNotificationEvent
 import com.amity.socialcloud.uikit.common.utils.AmityAlertDialogUtil
-import com.amity.socialcloud.uikit.community.R
+import com.amity.socialcloud.uikit.common.R as CommonR
+import com.amity.socialcloud.uikit.community.R as CommunityR
 import com.amity.socialcloud.uikit.community.databinding.AmityFragmentPushSettingsDetailsBinding
 import com.amity.socialcloud.uikit.community.setting.AmitySettingsItem
 import com.amity.socialcloud.uikit.community.setting.AmitySettingsItemAdapter
@@ -17,7 +18,7 @@ import com.google.android.material.snackbar.Snackbar
 import com.trello.rxlifecycle4.components.support.RxFragment
 
 open class AmityCommunityBaseNotificationSettingsFragment internal constructor() :
-    RxFragment(R.layout.amity_fragment_push_settings_details) {
+    RxFragment(CommunityR.layout.amity_fragment_push_settings_details) {
 
     private val viewModel: AmityPushSettingsDetailViewModel by activityViewModels()
     private val settingsListAdapter = AmitySettingsItemAdapter()
@@ -95,8 +96,8 @@ open class AmityCommunityBaseNotificationSettingsFragment internal constructor()
             },
             onError = {
                 errorDialog(
-                    R.string.amity_unable_to_save,
-                    R.string.amity_something_went_wrong_pls_try
+                    CommunityR.string.amity_unable_to_save,
+                    CommunityR.string.amity_something_went_wrong_pls_try
                 )
             }).untilLifecycleEnd(this)
             .subscribe()
@@ -126,7 +127,7 @@ open class AmityCommunityBaseNotificationSettingsFragment internal constructor()
             requireContext(),
             getString(title),
             getString(description),
-            getString(R.string.amity_ok),
+            getString(CommonR.string.amity_ok),
             null
         ) { dialog, which ->
             AmityAlertDialogUtil.checkConfirmDialog(isPositive = which, confirmed = {
@@ -137,6 +138,6 @@ open class AmityCommunityBaseNotificationSettingsFragment internal constructor()
     }
 
     private fun showSnackBar() {
-        Snackbar.make(binding.rvNewPostSettings, R.string.amity_saved, Snackbar.LENGTH_SHORT).show()
+        Snackbar.make(binding.rvNewPostSettings, CommonR.string.amity_saved, Snackbar.LENGTH_SHORT).show()
     }
 }

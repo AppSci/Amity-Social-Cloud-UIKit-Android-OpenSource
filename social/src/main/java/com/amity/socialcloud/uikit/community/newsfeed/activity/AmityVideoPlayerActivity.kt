@@ -4,7 +4,8 @@ import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.amity.socialcloud.uikit.community.R
+import com.amity.socialcloud.uikit.common.R as CommonR
+import com.amity.socialcloud.uikit.community.R as CommunityR
 import com.amity.socialcloud.uikit.community.newsfeed.fragment.AmitySimpleVideoPlayerFragment
 
 internal class AmityVideoPlayerActivity : AppCompatActivity() {
@@ -12,12 +13,12 @@ internal class AmityVideoPlayerActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.amity_activity_social_video_player)
+        setContentView(CommunityR.layout.amity_activity_social_video_player)
         intent.getStringExtra(KEY_VIDEO_URL)?.let { nonNullVideoUrl ->
             val fragmentManager = supportFragmentManager
             val fragmentTransaction = fragmentManager.beginTransaction()
             val fragment = AmitySimpleVideoPlayerFragment.newInstance(nonNullVideoUrl).build(this)
-            fragmentTransaction.replace(R.id.video_container, fragment)
+            fragmentTransaction.replace(CommunityR.id.video_container, fragment)
             fragmentTransaction.commit()
         }
     }

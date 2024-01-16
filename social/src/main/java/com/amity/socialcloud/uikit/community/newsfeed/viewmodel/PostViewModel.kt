@@ -15,7 +15,8 @@ import com.amity.socialcloud.sdk.model.social.poll.AmityPoll
 import com.amity.socialcloud.sdk.model.social.post.AmityPost
 import com.amity.socialcloud.uikit.common.common.views.dialog.bottomsheet.BottomSheetMenuItem
 import com.amity.socialcloud.uikit.common.utils.AmityConstants
-import com.amity.socialcloud.uikit.community.R
+import com.amity.socialcloud.uikit.common.R as CommonR
+import com.amity.socialcloud.uikit.community.R as CommunityR
 import com.amity.socialcloud.uikit.feed.settings.AmityPostSharingTarget
 import com.amity.socialcloud.uikit.social.AmitySocialUISettings
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
@@ -180,10 +181,10 @@ interface PostViewModel {
     ): List<BottomSheetMenuItem> {
         val items = arrayListOf<BottomSheetMenuItem>()
         val myFeed =
-            BottomSheetMenuItem(null, null, R.string.amity_share_to_my_timeline, shareToMyFeed)
+            BottomSheetMenuItem(null, null, CommunityR.string.amity_share_to_my_timeline, shareToMyFeed)
         val groupFeed =
-            BottomSheetMenuItem(null, null, R.string.amity_share_to_group, shareToGroupFeed)
-        val external = BottomSheetMenuItem(null, null, R.string.amity_more_options, shareToExternal)
+            BottomSheetMenuItem(null, null, CommunityR.string.amity_share_to_group, shareToGroupFeed)
+        val external = BottomSheetMenuItem(null, null, CommunityR.string.amity_more_options, shareToExternal)
         var possibleTargets = listOf<AmityPostSharingTarget>()
         val target = post.getTarget()
         when (target) {
@@ -239,16 +240,16 @@ interface PostViewModel {
         deletePoll: () -> Unit
     ): List<BottomSheetMenuItem> {
         val items = arrayListOf<BottomSheetMenuItem>()
-        val editPostMenuItem = BottomSheetMenuItem(null, null, R.string.amity_edit_post, editPost)
+        val editPostMenuItem = BottomSheetMenuItem(null, null, CommonR.string.amity_edit_post, editPost)
         val deletePostMenuItem =
-            BottomSheetMenuItem(null, null, R.string.amity_delete_post, deletePost)
-        val reportPostMenuItem = BottomSheetMenuItem(null, null, R.string.amity_report, reportPost)
+            BottomSheetMenuItem(null, null, CommonR.string.amity_delete_post, deletePost)
+        val reportPostMenuItem = BottomSheetMenuItem(null, null, CommunityR.string.amity_report, reportPost)
         val unReportPostMenuItem =
-            BottomSheetMenuItem(null, null, R.string.amity_undo_report, unReportPost)
+            BottomSheetMenuItem(null, null, CommunityR.string.amity_undo_report, unReportPost)
         val closePollMenuItem =
-            BottomSheetMenuItem(null, null, R.string.amity_close_poll, closePoll)
+            BottomSheetMenuItem(null, null, CommunityR.string.amity_close_poll, closePoll)
         val deletePollMenuItem =
-            BottomSheetMenuItem(null, null, R.string.amity_delete_poll, deletePoll)
+            BottomSheetMenuItem(null, null, CommunityR.string.amity_delete_poll, deletePoll)
 
         if (post.getCreatorId() == AmityCoreClient.getUserId()) {
             if (post.getChildren().getOrNull(0)?.getType() == AmityPost.DataType.POLL) {

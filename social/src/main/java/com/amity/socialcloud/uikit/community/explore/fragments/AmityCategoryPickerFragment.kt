@@ -10,7 +10,8 @@ import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import com.amity.socialcloud.sdk.model.social.category.AmityCommunityCategory
-import com.amity.socialcloud.uikit.community.R
+import com.amity.socialcloud.uikit.common.R as CommonR
+import com.amity.socialcloud.uikit.community.R as CommunityR
 import com.amity.socialcloud.uikit.community.data.AmitySelectCategoryItem
 import com.amity.socialcloud.uikit.community.explore.activity.EXTRA_DEFAULT_CATEGORY_SELECTION
 import com.amity.socialcloud.uikit.community.explore.adapter.AmityCategoryListAdapter
@@ -40,7 +41,7 @@ class AmityCategoryPickerFragment : AmityBaseCategoryListFragment() {
                 Menu.NONE,
                 ID_MENU_ITEM_SAVE_PROFILE,
                 Menu.NONE,
-                getString(R.string.amity_done)
+                getString(CommunityR.string.amity_done)
             )
         menuItemDone?.setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS)
         super.onCreateOptionsMenu(menu, inflater)

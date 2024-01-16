@@ -25,7 +25,8 @@ import com.amity.socialcloud.uikit.common.common.views.AmityColorPaletteUtil
 import com.amity.socialcloud.uikit.common.common.views.AmityColorShade
 import com.amity.socialcloud.uikit.common.model.AmityEventIdentifier
 import com.amity.socialcloud.uikit.common.utils.AmityAndroidUtil
-import com.amity.socialcloud.uikit.community.R
+import com.amity.socialcloud.uikit.common.R as CommonR
+import com.amity.socialcloud.uikit.community.R as CommunityR
 import com.amity.socialcloud.uikit.community.databinding.AmityFragmentCommunityHomePageBinding
 import com.amity.socialcloud.uikit.community.explore.fragments.AmityCommunityExplorerFragment
 import com.amity.socialcloud.uikit.community.mycommunity.fragment.AmityMyCommunityFragment
@@ -55,7 +56,7 @@ class AmityCommunityHomePageFragment : Fragment() {
     ): View {
         binding = DataBindingUtil.inflate(
             inflater,
-            R.layout.amity_fragment_community_home_page,
+            CommunityR.layout.amity_fragment_community_home_page,
             container,
             false
         )
@@ -93,15 +94,15 @@ class AmityCommunityHomePageFragment : Fragment() {
         fragmentStateAdapter.setFragmentList(
             arrayListOf(
                 AmityFragmentStateAdapter.AmityPagerModel(
-                    getString(R.string.amity_title_news_feed),
+                    getString(CommunityR.string.amity_title_news_feed),
                     getNewsFeedFragment()
                 ),
                 AmityFragmentStateAdapter.AmityPagerModel(
-                    getString(R.string.amity_title_explore),
+                    getString(CommunityR.string.amity_title_explore),
                     getExploreFragment()
                 ),
 //                AmityFragmentStateAdapter.AmityPagerModel(
-//                    getString(R.string.amity_title_my_communities),
+//                    getString(CommunityR.string.amity_title_my_communities),
 //                    getMyCommunityFragment()
 //                )
             )
@@ -140,12 +141,12 @@ class AmityCommunityHomePageFragment : Fragment() {
         globalSearchStateAdapter.setFragmentList(
             arrayListOf(
                 AmityFragmentStateAdapter.AmityPagerModel(
-                    getString(R.string.amity_communities),
+                    getString(CommunityR.string.amity_communities),
                     AmityCommunitySearchFragment.newInstance(searchString)
                         .build(requireActivity() as AppCompatActivity)
                 ),
                 AmityFragmentStateAdapter.AmityPagerModel(
-                    getString(R.string.amity_accounts),
+                    getString(CommunityR.string.amity_accounts),
                     AmityUserSearchFragment.newInstance(searchString)
                         .build(requireActivity() as AppCompatActivity)
                 )
@@ -171,7 +172,7 @@ class AmityCommunityHomePageFragment : Fragment() {
             requireActivity().getSystemService(Context.SEARCH_SERVICE) as SearchManager
         val searchView =
             SearchView((activity as AppCompatActivity).supportActionBar!!.themedContext)
-        searchView.queryHint = getString(R.string.amity_search)
+        searchView.queryHint = getString(CommonR.string.amity_search)
         searchView.maxWidth = Int.MAX_VALUE
 
         val searchEditText =
@@ -179,12 +180,12 @@ class AmityCommunityHomePageFragment : Fragment() {
         searchEditText.setTextColor(
             ContextCompat.getColor(
                 requireContext(),
-                R.color.amityColorBase
+                CommonR.color.amityColorBase
             )
         )
         searchEditText.setHintTextColor(
             AmityColorPaletteUtil.getColor(
-                ContextCompat.getColor(requireContext(), R.color.amityColorBase),
+                ContextCompat.getColor(requireContext(), CommonR.color.amityColorBase),
                 AmityColorShade.SHADE2
             )
         )
@@ -200,7 +201,7 @@ class AmityCommunityHomePageFragment : Fragment() {
         })
 
         searchMenuItem = menu.add("SearchMenu").setVisible(true).setActionView(searchView)
-            .setIcon(R.drawable.amity_ic_search)
+            .setIcon(CommonR.drawable.amity_ic_search)
         searchMenuItem.setShowAsAction(MenuItem.SHOW_AS_ACTION_IF_ROOM or MenuItem.SHOW_AS_ACTION_COLLAPSE_ACTION_VIEW)
 
         searchView.setSearchableInfo(searchManager.getSearchableInfo(requireActivity().componentName))

@@ -9,7 +9,8 @@ import com.amity.socialcloud.sdk.helper.core.mention.AmityMentionMetadataGetter
 import com.amity.socialcloud.sdk.helper.core.mention.AmityMentionee
 import com.amity.socialcloud.sdk.model.social.post.AmityPost
 import com.amity.socialcloud.uikit.common.common.views.text.AmityExpandableTextView
-import com.amity.socialcloud.uikit.community.R
+import com.amity.socialcloud.uikit.common.R as CommonR
+import com.amity.socialcloud.uikit.community.R as CommunityR
 import com.amity.socialcloud.uikit.community.newsfeed.events.PollVoteClickEvent
 import com.amity.socialcloud.uikit.community.newsfeed.events.PostContentClickEvent
 import com.amity.socialcloud.uikit.community.newsfeed.listener.AmityMentionClickableSpan
@@ -27,7 +28,7 @@ open class AmityPostContentViewHolder(itemView: View) : RecyclerView.ViewHolder(
     }
 
     internal fun setPostText(data: AmityPost, showCompleteText: Boolean) {
-        val tvPost = itemView.findViewById<AmityExpandableTextView>(R.id.tvFeed)
+        val tvPost = itemView.findViewById<AmityExpandableTextView>(CommunityR.id.tvFeed)
         setPostTextToTextView(tvPost, data, showCompleteText)
     }
     

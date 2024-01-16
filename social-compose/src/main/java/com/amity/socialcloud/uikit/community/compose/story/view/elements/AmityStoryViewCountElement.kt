@@ -16,6 +16,7 @@ import androidx.compose.ui.res.vectorResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.amity.socialcloud.uikit.community.compose.R
+import com.amity.socialcloud.uikit.common.R as commonR
 
 @Composable
 fun AmityStoryViewCountElement(

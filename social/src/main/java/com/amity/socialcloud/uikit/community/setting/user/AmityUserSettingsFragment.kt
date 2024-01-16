@@ -11,7 +11,8 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.amity.socialcloud.sdk.model.core.user.AmityUser
 import com.amity.socialcloud.uikit.common.common.showSnackBar
 import com.amity.socialcloud.uikit.common.utils.AmityAlertDialogUtil
-import com.amity.socialcloud.uikit.community.R
+import com.amity.socialcloud.uikit.common.R as CommonR
+import com.amity.socialcloud.uikit.community.R as CommunityR
 import com.amity.socialcloud.uikit.community.databinding.AmityFragmentUserSettingsBinding
 import com.amity.socialcloud.uikit.community.profile.activity.AmityEditUserProfileActivity
 import com.amity.socialcloud.uikit.community.setting.AmitySettingsItem
@@ -78,10 +79,10 @@ class AmityUserSettingsFragment : RxFragment() {
     internal fun showUnfollowDialog(userId: String) {
         AmityAlertDialogUtil.showDialog(
             requireContext(),
-            getString(R.string.amity_unfollow_user, viewModel.user?.getDisplayName() ?: ""),
-            getString(R.string.amity_unfollow_description, viewModel.user?.getDisplayName() ?: ""),
-            getString(R.string.amity_unfollow),
-            getString(R.string.amity_cancel),
+            getString(CommunityR.string.amity_unfollow_user, viewModel.user?.getDisplayName() ?: ""),
+            getString(CommunityR.string.amity_unfollow_description, viewModel.user?.getDisplayName() ?: ""),
+            getString(CommunityR.string.amity_unfollow),
+            getString(CommunityR.string.amity_cancel),
             DialogInterface.OnClickListener { dialog, which ->
                if (which == DialogInterface.BUTTON_POSITIVE) {
                    unfollowUser(userId)
@@ -94,13 +95,13 @@ class AmityUserSettingsFragment : RxFragment() {
         if (user.isFlaggedByMe()) {
             viewModel.unReportUser(user)
                 .doOnComplete {
-                    binding.rvUserSettings.showSnackBar(getString(R.string.amity_unreport_sent))
+                    binding.rvUserSettings.showSnackBar(getString(CommunityR.string.amity_unreport_sent))
                 }.untilLifecycleEnd(this)
                 .subscribe()
         } else {
             viewModel.reportUser(user)
                 .doOnComplete {
-                    binding.rvUserSettings.showSnackBar(getString(R.string.amity_report_sent))
+                    binding.rvUserSettings.showSnackBar(getString(CommunityR.string.amity_report_sent))
                 }.untilLifecycleEnd(this)
                 .subscribe()
         }
@@ -113,9 +114,9 @@ class AmityUserSettingsFragment : RxFragment() {
 
     private fun showFollowErrorDialog() {
         AmityAlertDialogUtil.showDialog(requireContext(),
-            getString(R.string.amity_unfollow_error, viewModel.user?.getDisplayName() ?: ""),
-            getString(R.string.amity_something_went_wrong_pls_try),
-            getString(R.string.amity_ok), null,
+            getString(CommunityR.string.amity_unfollow_error, viewModel.user?.getDisplayName() ?: ""),
+            getString(CommunityR.string.amity_something_went_wrong_pls_try),
+            getString(CommonR.string.amity_ok), null,
             DialogInterface.OnClickListener { dialog, which ->
                 if (which == DialogInterface.BUTTON_POSITIVE) {
                     dialog.cancel()

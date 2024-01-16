@@ -38,7 +38,7 @@ import androidx.core.content.ContextCompat
 import androidx.lifecycle.viewmodel.compose.LocalViewModelStoreOwner
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.amity.socialcloud.uikit.common.common.readableMinuteSeconds
-import com.amity.socialcloud.uikit.community.compose.R
+import com.amity.socialcloud.uikit.common.R as CommonR
 import com.amity.socialcloud.uikit.community.compose.story.create.elements.AmityStoryCameraPreviewElement
 import com.amity.socialcloud.uikit.community.compose.story.create.elements.AmityStoryCameraRelatedButtonElement
 import com.amity.socialcloud.uikit.community.compose.story.create.elements.AmityStoryCameraShutterButtonElement
@@ -199,7 +199,7 @@ fun AmityCreateStoryPage(
 
                     if (isBackCameraSelected) {
                         AmityStoryCameraRelatedButtonElement(
-                            icon = if (isFlashLightOn) R.drawable.amity_ic_story_flash else R.drawable.amity_ic_story_flash_off,
+                            icon = if (isFlashLightOn) CommonR.drawable.amity_ic_story_flash else CommonR.drawable.amity_ic_story_flash_off,
                             iconSize = if (isFlashLightOn) 19.dp else 24.dp,
                             modifier = Modifier
                                 .size(32.dp)
@@ -214,7 +214,7 @@ fun AmityCreateStoryPage(
                         )
                     }
                     AmityStoryCameraRelatedButtonElement(
-                        icon = R.drawable.amity_ic_story_media,
+                        icon = CommonR.drawable.amity_ic_story_media,
                         iconSize = 24.dp,
                         modifier = Modifier
                             .size(40.dp)
@@ -241,7 +241,7 @@ fun AmityCreateStoryPage(
                         }
                     }
                     AmityStoryCameraRelatedButtonElement(
-                        icon = R.drawable.amity_ic_story_switch_camera,
+                        icon = CommonR.drawable.amity_ic_story_switch_camera,
                         iconSize = 20.dp,
                         modifier = Modifier
                             .size(40.dp)

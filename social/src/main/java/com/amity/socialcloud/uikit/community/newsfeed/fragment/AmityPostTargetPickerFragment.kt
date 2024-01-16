@@ -13,7 +13,8 @@ import com.amity.socialcloud.sdk.model.core.file.AmityImage
 import com.amity.socialcloud.sdk.model.social.community.AmityCommunity
 import com.amity.socialcloud.uikit.common.base.AmityBaseFragment
 import com.amity.socialcloud.uikit.common.utils.AmityRecyclerViewItemDecoration
-import com.amity.socialcloud.uikit.community.R
+import com.amity.socialcloud.uikit.common.R as CommonR
+import com.amity.socialcloud.uikit.community.R as CommunityR
 import com.amity.socialcloud.uikit.community.databinding.AmityFragmentPostTargetSelectionBinding
 import com.amity.socialcloud.uikit.community.newsfeed.activity.AmityLiveStreamPostCreatorActivity
 import com.amity.socialcloud.uikit.community.newsfeed.activity.AmityPollPostCreatorActivity
@@ -89,7 +90,7 @@ class AmityPostTargetPickerFragment : AmityBaseFragment(),
     ): View {
         binding = DataBindingUtil.inflate(
             inflater,
-            R.layout.amity_fragment_post_target_selection,
+            CommunityR.layout.amity_fragment_post_target_selection,
             container,
             false
         )
@@ -126,7 +127,7 @@ class AmityPostTargetPickerFragment : AmityBaseFragment(),
         val imageURL = user.getAvatar()?.getUrl(AmityImage.Size.SMALL)
         Glide.with(this)
             .load(imageURL)
-            .placeholder(R.drawable.amity_ic_default_profile_large)
+            .placeholder(CommonR.drawable.amity_ic_default_profile_large)
             .centerCrop()
             .into(binding.avProfile)
     }
@@ -143,8 +144,8 @@ class AmityPostTargetPickerFragment : AmityBaseFragment(),
             this.adapter = communityAdapter
             addItemDecoration(
                 AmityRecyclerViewItemDecoration(
-                    resources.getDimensionPixelSize(R.dimen.amity_padding_xs),
-                    0, resources.getDimensionPixelSize(R.dimen.amity_padding_xs)
+                    resources.getDimensionPixelSize(CommonR.dimen.amity_padding_xs),
+                    0, resources.getDimensionPixelSize(CommonR.dimen.amity_padding_xs)
                 )
             )
             hasFixedSize()

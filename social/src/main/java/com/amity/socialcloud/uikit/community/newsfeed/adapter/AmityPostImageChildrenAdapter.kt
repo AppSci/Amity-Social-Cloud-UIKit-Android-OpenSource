@@ -4,7 +4,8 @@ import android.view.View
 import androidx.recyclerview.widget.DiffUtil
 import com.amity.socialcloud.sdk.model.core.file.AmityImage
 import com.amity.socialcloud.uikit.common.base.AmityBaseRecyclerViewAdapter
-import com.amity.socialcloud.uikit.community.R
+import com.amity.socialcloud.uikit.common.R as CommonR
+import com.amity.socialcloud.uikit.community.R as CommunityR
 import com.amity.socialcloud.uikit.community.newsfeed.listener.AmityPostMediaClickListener
 import com.amity.socialcloud.uikit.community.newsfeed.model.PostMedia
 
@@ -28,19 +29,19 @@ class AmityPostImageChildrenAdapter(
         val count = Math.min(obj?.images?.count() ?: 1, 4)
         return when (count) {
             0 -> {
-                R.layout.amity_item_post_image_children_one
+                CommunityR.layout.amity_item_post_image_children_one
             }
             1 -> {
-                R.layout.amity_item_post_image_children_one
+                CommunityR.layout.amity_item_post_image_children_one
             }
             2 -> {
-                R.layout.amity_item_post_image_children_two
+                CommunityR.layout.amity_item_post_image_children_two
             }
             3 -> {
-                R.layout.amity_item_post_image_children_three
+                CommunityR.layout.amity_item_post_image_children_three
             }
             else -> {
-                R.layout.amity_item_post_image_children_four
+                CommunityR.layout.amity_item_post_image_children_four
             }
         }
     }
@@ -48,7 +49,7 @@ class AmityPostImageChildrenAdapter(
     override fun getViewHolder(view: View, viewType: Int): AmityBasePostImageChildrenViewHolder {
         val images = list.first().images
         return when (viewType) {
-            R.layout.amity_item_post_image_children_one -> {
+            CommunityR.layout.amity_item_post_image_children_one -> {
                 AmityOnePostImageChildrenViewHolder(
                     view,
                     images,
@@ -57,7 +58,7 @@ class AmityPostImageChildrenAdapter(
                     mediaType
                 )
             }
-            R.layout.amity_item_post_image_children_two -> {
+            CommunityR.layout.amity_item_post_image_children_two -> {
                 AmityTwoPostImageChildrenViewHolder(
                     view,
                     images,
@@ -66,7 +67,7 @@ class AmityPostImageChildrenAdapter(
                     mediaType
                 )
             }
-            R.layout.amity_item_post_image_children_three -> {
+            CommunityR.layout.amity_item_post_image_children_three -> {
                 AmityThreePostImageChildrenViewHolder(
                     view,
                     images,

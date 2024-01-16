@@ -13,7 +13,8 @@ import com.amity.socialcloud.uikit.common.base.AmityBaseFragment
 import com.amity.socialcloud.uikit.common.common.setSafeOnClickListener
 import com.amity.socialcloud.uikit.common.common.views.dialog.bottomsheet.AmityBottomSheetDialog
 import com.amity.socialcloud.uikit.common.common.views.dialog.bottomsheet.BottomSheetMenuItem
-import com.amity.socialcloud.uikit.community.R
+import com.amity.socialcloud.uikit.common.R as CommonR
+import com.amity.socialcloud.uikit.community.R as CommunityR
 import com.amity.socialcloud.uikit.community.compose.story.target.AmityStoryTargetTabFragment
 import com.amity.socialcloud.uikit.community.databinding.AmityFragmentNewsFeedBinding
 import com.amity.socialcloud.uikit.community.mycommunity.fragment.AmityMyCommunityPreviewFragment
@@ -55,22 +56,22 @@ class AmityNewsFeedFragment : AmityBaseFragment(),
         savedInstanceState: Bundle?
     ): View {
         binding =
-            DataBindingUtil.inflate(inflater, R.layout.amity_fragment_news_feed, container, false)
+            DataBindingUtil.inflate(inflater, CommunityR.layout.amity_fragment_news_feed, container, false)
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val fragmentTransaction = childFragmentManager.beginTransaction()
-        fragmentTransaction.replace(R.id.myCommunityContainer, getMyCommunityPreviewFragment())
-        fragmentTransaction.replace(R.id.globalFeedContainer, getGlobalFeed())
+        fragmentTransaction.replace(CommunityR.id.myCommunityContainer, getMyCommunityPreviewFragment())
+        fragmentTransaction.replace(CommunityR.id.globalFeedContainer, getGlobalFeed())
         fragmentTransaction.commit()
 
         binding.fabCreatePost.setSafeOnClickListener {
             activity?.let { navigateToCreatePost() }
         }
 
-        binding.refreshLayout.setColorSchemeResources(R.color.amityColorPrimary)
+        binding.refreshLayout.setColorSchemeResources(CommonR.color.amityColorPrimary)
         binding.refreshLayout.setOnRefreshListener {
             refreshFeed()
             Handler(Looper.getMainLooper()).postDelayed({
@@ -108,32 +109,32 @@ class AmityNewsFeedFragment : AmityBaseFragment(),
         val postCreationOptions =
             arrayListOf(
                 BottomSheetMenuItem(
-                    iconResId = R.drawable.ic_amity_ic_post_create,
-                    titleResId = R.string.amity_post,
+                    iconResId = CommonR.drawable.ic_amity_ic_post_create,
+                    titleResId = CommunityR.string.amity_post,
                     action = {
                         createPost.launch(AmityPostTargetPickerActivity.CreationType.GENERIC)
                         bottomSheet.dismiss()
                     }
                 ),
                 BottomSheetMenuItem(
-                    iconResId = R.drawable.amity_ic_story_create,
-                    titleResId = R.string.amity_story,
+                    iconResId = CommonR.drawable.amity_ic_story_create,
+                    titleResId = CommunityR.string.amity_story,
                     action = {
                         createStory.launch(AmityStoryTargetPickerActivity.CreationType.STORY)
                         bottomSheet.dismiss()
                     }
                 ),
                 BottomSheetMenuItem(
-                    iconResId = R.drawable.ic_amity_ic_live_stream_create,
-                    titleResId = R.string.amity_video_stream_title,
+                    iconResId = CommonR.drawable.ic_amity_ic_live_stream_create,
+                    titleResId = CommunityR.string.amity_video_stream_title,
                     action = {
                         createPost.launch(AmityPostTargetPickerActivity.CreationType.LIVE_STREAM)
                         bottomSheet.dismiss()
                     }
                 ),
                 BottomSheetMenuItem(
-                    iconResId = R.drawable.ic_amity_ic_poll_create,
-                    titleResId = R.string.amity_general_poll,
+                    iconResId = CommonR.drawable.ic_amity_ic_poll_create,
+                    titleResId = CommunityR.string.amity_general_poll,
                     action = {
                         createPost.launch(AmityPostTargetPickerActivity.CreationType.POLL)
                         bottomSheet.dismiss()

@@ -9,7 +9,8 @@ import com.amity.socialcloud.uikit.common.base.AmityBaseRecyclerViewPagingDataAd
 import com.amity.socialcloud.uikit.common.common.loadImage
 import com.amity.socialcloud.uikit.common.common.setBackgroundColor
 import com.amity.socialcloud.uikit.common.common.views.AmityColorShade
-import com.amity.socialcloud.uikit.community.R
+import com.amity.socialcloud.uikit.common.R as CommonR
+import com.amity.socialcloud.uikit.community.R as CommunityR
 import com.amity.socialcloud.uikit.community.databinding.AmityItemMyCommunityBinding
 import com.amity.socialcloud.uikit.community.mycommunity.listener.AmityMyCommunityItemClickListener
 
@@ -26,16 +27,16 @@ class AmityMyCommunityListViewHolder(
         if (position == 8) {
             binding?.listener = listener
             binding?.executePendingBindings()
-            binding?.tvName?.text = itemView.context.getString(R.string.amity_see_all)
+            binding?.tvName?.text = itemView.context.getString(CommunityR.string.amity_see_all)
             binding?.ivAvatar?.setBackgroundColor(null, AmityColorShade.SHADE4)
-            binding?.ivAvatar?.setImageResource(R.drawable.amity_ic_arrow_back)
+            binding?.ivAvatar?.setImageResource(CommonR.drawable.amity_ic_arrow_back)
             binding?.ivAvatar?.rotation = 180F
         } else {
             binding?.ekoCommunity = data
             binding?.listener = listener
             binding?.ivAvatar?.loadImage(
                 data?.getAvatar()?.getUrl(AmityImage.Size.SMALL),
-                R.drawable.amity_ic_default_community_avatar_circular
+                CommunityR.drawable.amity_ic_default_community_avatar_circular
             )
         }
     }

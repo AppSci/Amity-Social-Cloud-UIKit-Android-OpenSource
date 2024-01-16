@@ -7,7 +7,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.amity.socialcloud.uikit.common.base.AmityBaseRecyclerViewAdapter
 import com.amity.socialcloud.uikit.common.common.AmityFileUtils
 import com.amity.socialcloud.uikit.common.utils.AmityConstants.FILE_EXTENSION_SEPARATOR
-import com.amity.socialcloud.uikit.community.R
+import com.amity.socialcloud.uikit.common.R as CommonR
+import com.amity.socialcloud.uikit.community.R as CommunityR
 import com.amity.socialcloud.uikit.community.domain.model.AmityFileAttachment
 import com.amity.socialcloud.uikit.community.newsfeed.listener.AmityPostFileItemClickListener
 
@@ -16,9 +17,9 @@ open class AmityBasePostAttachmentViewHolder(
     itemView: View
 ) : RecyclerView.ViewHolder(itemView), AmityBaseRecyclerViewAdapter.IBinder<AmityFileAttachment> {
 
-    private var fileName: TextView = itemView.findViewById(R.id.tvFileName)
-    private var fileSize: TextView = itemView.findViewById(R.id.tvFileSize)
-    private val fileIcon: ImageView = itemView.findViewById(R.id.ivFileIcon)
+    private var fileName: TextView = itemView.findViewById(CommunityR.id.tvFileName)
+    private var fileSize: TextView = itemView.findViewById(CommunityR.id.tvFileSize)
+    private val fileIcon: ImageView = itemView.findViewById(CommunityR.id.ivFileIcon)
 
     private var itemClickListener: AmityPostFileItemClickListener? = null
 
@@ -43,7 +44,7 @@ open class AmityBasePostAttachmentViewHolder(
     }
 
     open fun getMaxCharacterLimit(): Int {
-        return itemView.resources.getInteger(R.integer.maxCharacterNewsFeed)
+        return itemView.resources.getInteger(CommunityR.integer.maxCharacterNewsFeed)
     }
 
     private fun setFileIcon(data: AmityFileAttachment) {

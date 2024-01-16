@@ -7,7 +7,8 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
-import com.amity.socialcloud.uikit.community.R
+import com.amity.socialcloud.uikit.common.R as CommonR
+import com.amity.socialcloud.uikit.community.R as CommunityR
 import com.amity.socialcloud.uikit.community.databinding.AmityFragmentExploreBinding
 import com.amity.socialcloud.uikit.community.explore.viewmodel.AmityExploreCommunityViewModel
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
@@ -25,7 +26,7 @@ class AmityCommunityExplorerFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         binding = DataBindingUtil.inflate(
-            inflater, R.layout.amity_fragment_explore, container, false
+            inflater, CommunityR.layout.amity_fragment_explore, container, false
         )
         binding.viewModel = viewModel
         return binding.root
@@ -38,16 +39,16 @@ class AmityCommunityExplorerFragment : Fragment() {
         if (savedInstanceState == null) {
             val fragmentManager = childFragmentManager
             val fragmentTransaction = fragmentManager.beginTransaction()
-            fragmentTransaction.add(R.id.recommendedContainer, getRecommendedFragment())
-            fragmentTransaction.add(R.id.trendingContainer, getTrendingFragment())
-            fragmentTransaction.add(R.id.categoryContainer, getCategoryPreviewFragment())
+            fragmentTransaction.add(CommunityR.id.recommendedContainer, getRecommendedFragment())
+            fragmentTransaction.add(CommunityR.id.trendingContainer, getTrendingFragment())
+            fragmentTransaction.add(CommunityR.id.categoryContainer, getCategoryPreviewFragment())
             fragmentTransaction.commit()
             fragmentManager.executePendingTransactions()
         }
     }
 
     private fun initListener() {
-        binding.refreshLayout.setColorSchemeResources(R.color.amityColorPrimary)
+        binding.refreshLayout.setColorSchemeResources(CommonR.color.amityColorPrimary)
         binding.refreshLayout.setOnRefreshListener {
             childFragmentManager.fragments.forEach { fragment ->
                 when (fragment) {

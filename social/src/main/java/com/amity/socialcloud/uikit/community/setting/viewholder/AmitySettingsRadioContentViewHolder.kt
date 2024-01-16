@@ -7,7 +7,8 @@ import android.widget.RadioButton
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.amity.socialcloud.uikit.common.base.AmityBaseRecyclerViewAdapter
-import com.amity.socialcloud.uikit.community.R
+import com.amity.socialcloud.uikit.common.R as CommonR
+import com.amity.socialcloud.uikit.community.R as CommunityR
 import com.amity.socialcloud.uikit.community.databinding.AmityItemSettingsRadioContentBinding
 import com.amity.socialcloud.uikit.community.setting.AmitySettingsItem
 
@@ -27,7 +28,7 @@ class AmitySettingsRadioContentViewHolder(val context: Context, itemView: View) 
                         val item = data.choices[i]
                         val radioButton: RadioButton = LayoutInflater.from(context)
                             .inflate(
-                                R.layout.amity_view_radio_button,
+                                CommonR.layout.amity_view_radio_button,
                                 radioGroup,
                                 false
                             ) as RadioButton

@@ -6,7 +6,8 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.amity.socialcloud.sdk.model.core.user.AmityUser
 import com.amity.socialcloud.sdk.model.social.community.AmityCommunity
-import com.amity.socialcloud.uikit.community.R
+import com.amity.socialcloud.uikit.common.R as CommonR
+import com.amity.socialcloud.uikit.community.R as CommunityR
 import com.amity.socialcloud.uikit.community.newsfeed.events.PostOptionClickEvent
 import com.amity.socialcloud.uikit.community.newsfeed.model.AmityBasePostHeaderItem
 import io.reactivex.rxjava3.subjects.PublishSubject
@@ -22,7 +23,7 @@ class AmityPostHeaderAdapter(private val userClickPublisher: PublishSubject<Amit
 		viewType: Int
 	): AmityPostHeaderViewHolder {
 		val view = LayoutInflater.from(parent.context)
-			.inflate(R.layout.amity_item_base_post_header, parent, false)
+			.inflate(CommunityR.layout.amity_item_base_post_header, parent, false)
 		return AmityPostHeaderViewHolder(view, userClickPublisher, communityClickPublisher, postOptionClickPublisher)
 	}
 
@@ -31,7 +32,7 @@ class AmityPostHeaderAdapter(private val userClickPublisher: PublishSubject<Amit
 	}
 
 	override fun getItemViewType(position: Int): Int {
-		return R.layout.amity_item_base_post_header
+		return CommunityR.layout.amity_item_base_post_header
 	}
 
 	override fun getItemCount(): Int {

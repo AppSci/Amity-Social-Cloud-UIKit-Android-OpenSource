@@ -6,7 +6,8 @@ import android.os.Looper
 import android.util.Log
 import android.view.View
 import androidx.core.net.toUri
-import com.amity.socialcloud.uikit.chat.R
+import com.amity.socialcloud.uikit.chat.R as ChatR
+import com.amity.socialcloud.uikit.common.R as CommonR
 import com.amity.socialcloud.uikit.chat.messages.viewHolder.AmityAudioMsgBaseViewHolder
 import com.amity.socialcloud.uikit.common.common.showSnackBar
 import com.amity.socialcloud.uikit.common.utils.AmityDateUtils
@@ -143,7 +144,7 @@ class AmityAudioMessageHelper(
             playingAmityAudioHolder?.audioMsgBaseViewModel?.buffering?.set(false)
             playingAmityAudioHolder?.itemView?.findViewById<View>(android.R.id.content)
                 ?.showSnackBar(
-                    context.getString(R.string.amity_playback_error),
+                    context.getString(ChatR.string.amity_playback_error),
                     Snackbar.LENGTH_SHORT
                 )
         }

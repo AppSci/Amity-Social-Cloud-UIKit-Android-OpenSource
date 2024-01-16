@@ -11,7 +11,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.amity.socialcloud.sdk.model.social.community.AmityCommunity
 import com.amity.socialcloud.uikit.common.base.AmityBaseFragment
 import com.amity.socialcloud.uikit.common.utils.AmityExceptionCatchLinearLayoutManager
-import com.amity.socialcloud.uikit.community.R
+import com.amity.socialcloud.uikit.common.R as CommonR
+import com.amity.socialcloud.uikit.community.R as CommunityR
 import com.amity.socialcloud.uikit.community.databinding.AmityFragmentRecommendedCommunityBinding
 import com.amity.socialcloud.uikit.community.detailpage.AmityCommunityPageActivity
 import com.amity.socialcloud.uikit.community.explore.adapter.AmityCommunityItemDecoration
@@ -60,10 +61,10 @@ class AmityRecommendedCommunityFragment : AmityBaseFragment(),
         binding.rvRecommCommunity.adapter = adapter
         binding.rvRecommCommunity.addItemDecoration(
             AmityCommunityItemDecoration(
-                requireContext().resources.getDimensionPixelSize(R.dimen.amity_ten),
-                requireContext().resources.getDimensionPixelSize(R.dimen.amity_padding_xs),
-                requireContext().resources.getDimensionPixelSize(R.dimen.amity_eighteen),
-                requireContext().resources.getDimensionPixelSize(R.dimen.amity_padding_xs)
+                requireContext().resources.getDimensionPixelSize(CommonR.dimen.amity_ten),
+                requireContext().resources.getDimensionPixelSize(CommonR.dimen.amity_padding_xs),
+                requireContext().resources.getDimensionPixelSize(CommonR.dimen.amity_eighteen),
+                requireContext().resources.getDimensionPixelSize(CommonR.dimen.amity_padding_xs)
             )
         )
         getRecommendedCommunity()

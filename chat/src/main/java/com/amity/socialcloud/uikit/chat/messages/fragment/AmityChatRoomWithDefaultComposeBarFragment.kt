@@ -30,7 +30,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.amity.socialcloud.sdk.api.core.AmityCoreClient
 import com.amity.socialcloud.sdk.model.chat.channel.AmityChannel
 import com.amity.socialcloud.sdk.model.core.file.AmityImage
-import com.amity.socialcloud.uikit.chat.R
+import com.amity.socialcloud.uikit.chat.R as ChatR
+import com.amity.socialcloud.uikit.common.R as CommonR
 import com.amity.socialcloud.uikit.chat.databinding.AmityFragmentChatWithDefaultComposeBarBinding
 import com.amity.socialcloud.uikit.chat.messages.adapter.AmityMessagePagingAdapter
 import com.amity.socialcloud.uikit.chat.messages.viewModel.AmityChatRoomEssentialViewModel
@@ -129,7 +130,7 @@ class AmityChatRoomWithDefaultComposeBarFragment : AmityPickerFragment(),
     ): View {
         binding = DataBindingUtil.inflate(
             inflater,
-            R.layout.amity_fragment_chat_with_default_compose_bar,
+            ChatR.layout.amity_fragment_chat_with_default_compose_bar,
             container,
             false
         )
@@ -154,11 +155,11 @@ class AmityChatRoomWithDefaultComposeBarFragment : AmityPickerFragment(),
         binding.apply {
             etMessage.setShape(
                 null, null, null, null,
-                R.color.amityColorBase, R.color.amityColorBase, AmityColorShade.SHADE4
+                CommonR.color.amityColorBase, CommonR.color.amityColorBase, AmityColorShade.SHADE4
             )
             recordBackground.setShape(
                 null, null, null, null,
-                R.color.amityColorBase, R.color.amityColorBase, AmityColorShade.SHADE4
+                CommonR.color.amityColorBase, CommonR.color.amityColorBase, AmityColorShade.SHADE4
             )
             etMessage.setOnClickListener {
                 messageListViewModel.showComposeBar.set(false)
@@ -200,11 +201,11 @@ class AmityChatRoomWithDefaultComposeBarFragment : AmityPickerFragment(),
     private fun presentDisconnectedView() {
         if (essentialViewModel.enableConnectionBar) {
             binding.connectionView.visibility = View.VISIBLE
-            binding.connectionTexview.setText(R.string.amity_no_internet)
+            binding.connectionTexview.setText(ChatR.string.amity_no_internet)
             binding.connectionTexview.setBackgroundColor(
                 ContextCompat.getColor(
                     requireContext(),
-                    R.color.amityColorGrey
+                    CommonR.color.amityColorGrey
                 )
             )
         }
@@ -220,7 +221,7 @@ class AmityChatRoomWithDefaultComposeBarFragment : AmityPickerFragment(),
         binding.loadingView.setBackgroundColor(
             ContextCompat.getColor(
                 requireContext(),
-                R.color.amityTranslucentBackground
+                CommonR.color.amityTranslucentBackground
             )
         )
         binding.loadingView.visibility = View.VISIBLE
@@ -287,14 +288,14 @@ class AmityChatRoomWithDefaultComposeBarFragment : AmityPickerFragment(),
                 binding.chatToolBar.ivAvatar.setImageDrawable(
                     ContextCompat.getDrawable(
                         requireContext(),
-                        R.drawable.amity_ic_group
+                        CommonR.drawable.amity_ic_group
                     )
                 )
             } else {
                 binding.chatToolBar.ivAvatar.setImageDrawable(
                     ContextCompat.getDrawable(
                         requireContext(),
-                        R.drawable.amity_ic_user
+                        CommonR.drawable.amity_ic_user
                     )
                 )
             }
@@ -360,7 +361,7 @@ class AmityChatRoomWithDefaultComposeBarFragment : AmityPickerFragment(),
                 AmityRecyclerViewItemDecoration(
                     0,
                     0,
-                    resources.getDimensionPixelSize(R.dimen.amity_padding_xs)
+                    resources.getDimensionPixelSize(CommonR.dimen.amity_padding_xs)
                 )
             )
             itemAnimator = null
@@ -369,7 +370,7 @@ class AmityChatRoomWithDefaultComposeBarFragment : AmityPickerFragment(),
                 AmityColorPaletteUtil.getColor(
                     ContextCompat.getColor(
                         requireContext(),
-                        R.color.amityColorBase
+                        CommonR.color.amityColorBase
                     ), AmityColorShade.SHADE4
                 ), (percentage * 255).toInt()
             )
@@ -456,7 +457,7 @@ class AmityChatRoomWithDefaultComposeBarFragment : AmityPickerFragment(),
                         val snackBar =
                             Snackbar.make(
                                 binding.rvChatList,
-                                R.string.amity_failed_msg,
+                                ChatR.string.amity_failed_msg,
                                 Snackbar.LENGTH_SHORT
                             )
                         snackBar.show()
@@ -506,7 +507,7 @@ class AmityChatRoomWithDefaultComposeBarFragment : AmityPickerFragment(),
         if (isImagePermissionGranted) {
             currentCount = 0
             if (currentCount == AmityConstants.MAX_SELECTION_COUNT) {
-                view?.showSnackBar(getString(com.amity.socialcloud.uikit.common.R.string.amity_max_image_selected))
+                view?.showSnackBar(getString(CommonR.string.amity_max_image_selected))
             } else {
                 Matisse.from(this)
                     .choose(MimeType.of(MimeType.JPEG, MimeType.PNG, MimeType.GIF))
@@ -570,11 +571,11 @@ class AmityChatRoomWithDefaultComposeBarFragment : AmityPickerFragment(),
 
     override fun showMessage() {
         val layout: View = layoutInflater.inflate(
-            R.layout.amity_view_audio_msg_error,
-            activity?.findViewById(R.id.errorMessageContainer)
+            ChatR.layout.amity_view_audio_msg_error,
+            activity?.findViewById(ChatR.id.errorMessageContainer)
         )
-        val textView = layout.findViewById<TextView>(R.id.tvMessage)
-        textView.setShape(null, null, null, null, R.color.amityColorBase, null, null)
+        val textView = layout.findViewById<TextView>(ChatR.id.tvMessage)
+        textView.setShape(null, null, null, null, CommonR.color.amityColorBase, null, null)
         layout.showSnackBar("", Snackbar.LENGTH_SHORT)
     }
 

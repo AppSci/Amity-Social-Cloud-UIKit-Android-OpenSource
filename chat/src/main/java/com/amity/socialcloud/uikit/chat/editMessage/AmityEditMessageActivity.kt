@@ -10,7 +10,8 @@ import androidx.appcompat.widget.Toolbar
 import androidx.core.content.ContextCompat
 import com.amity.socialcloud.sdk.model.chat.message.AmityMessage
 import com.amity.socialcloud.uikit.chat.BR
-import com.amity.socialcloud.uikit.chat.R
+import com.amity.socialcloud.uikit.chat.R as ChatR
+import com.amity.socialcloud.uikit.common.R as CommonR
 import com.amity.socialcloud.uikit.chat.databinding.AmityActivityEditMessageBinding
 import com.amity.socialcloud.uikit.common.base.AmityBaseActivity
 import io.reactivex.rxjava3.disposables.Disposable
@@ -34,7 +35,7 @@ class AmityEditMessageActivity :
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        editMessageViewModel.saveColor.set(ContextCompat.getColor(this, R.color.amityColorPrimary))
+        editMessageViewModel.saveColor.set(ContextCompat.getColor(this, CommonR.color.amityColorPrimary))
         setUpToolbar()
         getMessage()
         mViewDataBinding.lMessage.setOnClickListener {
@@ -83,7 +84,7 @@ class AmityEditMessageActivity :
         }
     }
 
-    override fun getLayoutId(): Int = R.layout.amity_activity_edit_message
+    override fun getLayoutId(): Int = ChatR.layout.amity_activity_edit_message
 
     override fun getViewModel(): AmityEditMessageViewModel = editMessageViewModel
 

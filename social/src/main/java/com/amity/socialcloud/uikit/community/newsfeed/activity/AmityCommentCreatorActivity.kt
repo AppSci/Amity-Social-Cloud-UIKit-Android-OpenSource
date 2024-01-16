@@ -9,20 +9,21 @@ import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import com.amity.socialcloud.sdk.model.social.comment.AmityComment
 import com.amity.socialcloud.uikit.common.base.AmityBaseToolbarFragmentContainerActivity
-import com.amity.socialcloud.uikit.community.R
+import com.amity.socialcloud.uikit.common.R as CommonR
+import com.amity.socialcloud.uikit.community.R as CommunityR
 import com.amity.socialcloud.uikit.community.newsfeed.fragment.AmityCommentCreatorFragment
 import com.amity.socialcloud.uikit.community.utils.EXTRA_PARAM_POST_ID
 
 class AmityCommentCreatorActivity : AmityBaseToolbarFragmentContainerActivity() {
 
     override fun initToolbar() {
-        getToolBar()?.setLeftDrawable(ContextCompat.getDrawable(this, R.drawable.amity_ic_cross))
+        getToolBar()?.setLeftDrawable(ContextCompat.getDrawable(this, CommonR.drawable.amity_ic_cross))
         val replyTo: AmityComment? = intent.getParcelableExtra(EXTRA_PARAM_COMMENT_REPLY_TO)
 
         if (replyTo != null) {
-            getToolBar()?.setLeftString(getString(R.string.amity_reply_to))
+            getToolBar()?.setLeftString(getString(CommunityR.string.amity_reply_to))
         }else {
-            getToolBar()?.setLeftString( getString(R.string.amity_add_comment))
+            getToolBar()?.setLeftString( getString(CommunityR.string.amity_add_comment))
         }
     }
 
