@@ -16,7 +16,8 @@ import com.amity.socialcloud.uikit.common.common.views.bottomsheet.AmityBottomSh
 import com.amity.socialcloud.uikit.common.common.views.bottomsheet.AmityMenuItemClickListener
 import com.amity.socialcloud.uikit.common.model.AmityMenuItem
 import com.amity.socialcloud.uikit.common.utils.AmityConstants
-import com.amity.socialcloud.uikit.community.R
+import com.amity.socialcloud.uikit.common.R as CommonR
+import com.amity.socialcloud.uikit.community.R as CommunityR
 import com.amity.socialcloud.uikit.community.databinding.AmityItemCommunityMembershipBinding
 import com.ekoapp.rxlifecycle.extension.untilLifecycleEnd
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
@@ -45,7 +46,7 @@ class AmityCommunityMembersAdapter(
     }
 
     override fun getLayoutId(position: Int, obj: AmityCommunityMember?): Int =
-        R.layout.amity_item_community_membership
+        CommunityR.layout.amity_item_community_membership
 
     override fun getViewHolder(view: View, viewType: Int): RecyclerView.ViewHolder {
         val itemViewModel = AmityMembershipItemViewModel()
@@ -80,7 +81,7 @@ class AmityCommunityMembersAdapter(
                     isBanned = isBannedUser(data)
 
                     val banIcon = if (isBannedUser(data)) {
-                        ContextCompat.getDrawable(context, R.drawable.amity_ic_ban)
+                        ContextCompat.getDrawable(context, CommunityR.drawable.amity_ic_ban)
                     } else {
                         null
                     }

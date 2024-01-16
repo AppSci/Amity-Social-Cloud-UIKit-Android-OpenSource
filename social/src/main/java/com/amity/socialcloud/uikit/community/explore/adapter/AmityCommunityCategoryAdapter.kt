@@ -7,7 +7,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.amity.socialcloud.sdk.model.core.file.AmityImage
 import com.amity.socialcloud.sdk.model.social.category.AmityCommunityCategory
 import com.amity.socialcloud.uikit.common.base.AmityBaseRecyclerViewPagingDataAdapter
-import com.amity.socialcloud.uikit.community.R
+import com.amity.socialcloud.uikit.common.R as CommonR
+import com.amity.socialcloud.uikit.community.R as CommunityR
 import com.amity.socialcloud.uikit.community.databinding.AmityItemCommunityCategoryBinding
 import com.amity.socialcloud.uikit.community.explore.listener.AmityCategoryItemClickListener
 
@@ -33,7 +34,7 @@ class AmityCommunityCategoryAdapter(private val listener: AmityCategoryItemClick
     }
 
     override fun getLayoutId(position: Int, obj: AmityCommunityCategory?): Int =
-        R.layout.amity_item_community_category
+        CommunityR.layout.amity_item_community_category
 
     override fun getViewHolder(view: View, viewType: Int): RecyclerView.ViewHolder =
         AmityCommunityCategoryViewHolder(view, listener)

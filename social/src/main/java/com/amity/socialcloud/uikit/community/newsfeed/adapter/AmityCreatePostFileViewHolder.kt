@@ -4,7 +4,8 @@ import android.view.View
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.ProgressBar
-import com.amity.socialcloud.uikit.community.R
+import com.amity.socialcloud.uikit.common.R as CommonR
+import com.amity.socialcloud.uikit.community.R as CommunityR
 import com.amity.socialcloud.uikit.community.domain.model.AmityFileAttachment
 import com.amity.socialcloud.uikit.community.newsfeed.listener.AmityCreatePostFileActionListener
 import com.amity.socialcloud.uikit.community.newsfeed.model.FileUploadState
@@ -15,11 +16,11 @@ class AmityCreatePostFileViewHolder(
     val listener: AmityCreatePostFileActionListener?
 ) : AmityBasePostAttachmentViewHolder(itemView) {
 
-    private val removeFile: ImageView = itemView.findViewById(R.id.ivRemove)
-    private val errorFile: ImageView = itemView.findViewById(R.id.ivError)
-    private val overlayView: View = itemView.findViewById(R.id.overlay)
-    private val progressBar: ProgressBar = itemView.findViewById(R.id.progress)
-    private var layoutPreparingFile: LinearLayout = itemView.findViewById(R.id.layoutPreparingFile)
+    private val removeFile: ImageView = itemView.findViewById(CommunityR.id.ivRemove)
+    private val errorFile: ImageView = itemView.findViewById(CommunityR.id.ivError)
+    private val overlayView: View = itemView.findViewById(CommunityR.id.overlay)
+    private val progressBar: ProgressBar = itemView.findViewById(CommunityR.id.progress)
+    private var layoutPreparingFile: LinearLayout = itemView.findViewById(CommunityR.id.layoutPreparingFile)
 
     override fun bind(data: AmityFileAttachment?, position: Int) {
         super.bind(data, position)
@@ -44,7 +45,7 @@ class AmityCreatePostFileViewHolder(
     }
 
     override fun getMaxCharacterLimit(): Int {
-        return itemView.resources.getInteger(R.integer.max_character_create_post)
+        return itemView.resources.getInteger(CommunityR.integer.max_character_create_post)
     }
 
 

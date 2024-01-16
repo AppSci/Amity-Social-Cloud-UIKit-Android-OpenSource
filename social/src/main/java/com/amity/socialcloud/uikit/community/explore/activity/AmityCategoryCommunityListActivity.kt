@@ -6,7 +6,8 @@ import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import com.amity.socialcloud.sdk.model.social.category.AmityCommunityCategory
 import com.amity.socialcloud.uikit.common.base.AmityBaseToolbarFragmentContainerActivity
-import com.amity.socialcloud.uikit.community.R
+import com.amity.socialcloud.uikit.common.R as CommonR
+import com.amity.socialcloud.uikit.community.R as CommunityR
 import com.amity.socialcloud.uikit.community.explore.fragments.AmityCategoryCommunityListFragment
 
 class AmityCategoryCommunityListActivity : AmityBaseToolbarFragmentContainerActivity() {
@@ -23,7 +24,7 @@ class AmityCategoryCommunityListActivity : AmityBaseToolbarFragmentContainerActi
     override fun initToolbar() {
         val category: AmityCommunityCategory? = intent.getParcelableExtra(INTENT_CATEGORY)
         getToolBar()?.setLeftDrawable(
-            ContextCompat.getDrawable(this, R.drawable.amity_ic_arrow_back)
+            ContextCompat.getDrawable(this, CommonR.drawable.amity_ic_arrow_back)
         )
         getToolBar()?.setLeftString(category?.getName() ?: "")
         showToolbarDivider()

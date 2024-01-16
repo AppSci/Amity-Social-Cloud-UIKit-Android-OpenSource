@@ -28,7 +28,8 @@ import com.amity.socialcloud.uikit.common.common.views.dialog.bottomsheet.AmityB
 import com.amity.socialcloud.uikit.common.common.views.dialog.bottomsheet.BottomSheetMenuItem
 import com.amity.socialcloud.uikit.common.utils.AmityAlertDialogUtil
 import com.amity.socialcloud.uikit.common.utils.AmityConstants
-import com.amity.socialcloud.uikit.community.R
+import com.amity.socialcloud.uikit.common.R as CommonR
+import com.amity.socialcloud.uikit.community.R as CommunityR
 import com.amity.socialcloud.uikit.community.databinding.AmityFragmentLiveStreamPostCreatorBinding
 import com.amity.socialcloud.uikit.community.newsfeed.adapter.AmityUserMentionAdapter
 import com.amity.socialcloud.uikit.community.newsfeed.adapter.AmityUserMentionPagingDataAdapter
@@ -150,8 +151,8 @@ class AmityLiveStreamPostCreatorFragment : RxFragment() {
     private fun setupView() {
         binding.descriptionEdittext.run {
             style.apply {
-                hint = R.string.amity_video_stream_description_hint
-                mentionColor = R.color.amityColorAthensGray
+                hint = CommunityR.string.amity_video_stream_description_hint
+                mentionColor = CommunityR.color.amityColorAthensGray
             }.let { livestreamStyle ->
                 setViewStyle(livestreamStyle)
             }
@@ -181,7 +182,7 @@ class AmityLiveStreamPostCreatorFragment : RxFragment() {
                     .load(imageUrl)
                     .centerCrop()
                     .dontAnimate()
-                    .placeholder(R.drawable.amity_ic_default_community_avatar)
+                    .placeholder(CommunityR.drawable.amity_ic_default_community_avatar)
                     .into(binding.communityAvatar)
             }
         }
@@ -198,10 +199,10 @@ class AmityLiveStreamPostCreatorFragment : RxFragment() {
 
     private fun showStopStreamingDialog() {
         MaterialAlertDialogBuilder(requireContext())
-            .setTitle(R.string.amity_video_stream_stop_confirmation_title)
-            .setMessage(R.string.amity_video_stream_stop_confirmation_description)
-            .setNeutralButton(R.string.amity_cancel) { _, _ -> }
-            .setNegativeButton(R.string.amity_general_stop) { _, _ -> stopStreaming() }
+            .setTitle(CommunityR.string.amity_video_stream_stop_confirmation_title)
+            .setMessage(CommunityR.string.amity_video_stream_stop_confirmation_description)
+            .setNeutralButton(CommunityR.string.amity_cancel) { _, _ -> }
+            .setNegativeButton(CommunityR.string.amity_general_stop) { _, _ -> stopStreaming() }
             .show()
     }
 
@@ -230,9 +231,9 @@ class AmityLiveStreamPostCreatorFragment : RxFragment() {
     private fun showPermissionErrorDialog() {
         MaterialAlertDialogBuilder(requireContext())
             .setCancelable(false)
-            .setTitle(R.string.amity_general_error)
-            .setMessage(R.string.amity_general_error_permission)
-            .setNeutralButton(R.string.amity_general_understand) { _, _ -> activity?.finish() }
+            .setTitle(CommunityR.string.amity_general_error)
+            .setMessage(CommunityR.string.amity_general_error_permission)
+            .setNeutralButton(CommunityR.string.amity_general_understand) { _, _ -> activity?.finish() }
             .show()
     }
 
@@ -302,7 +303,7 @@ class AmityLiveStreamPostCreatorFragment : RxFragment() {
     
     private fun showErrorDialog(title: String, message: String) {
         AmityAlertDialogUtil.showDialog(requireContext(), title, message,
-                resources.getString(R.string.amity_done),
+                resources.getString(CommunityR.string.amity_done),
                 null,
                 DialogInterface.OnClickListener { dialog, which ->
                     AmityAlertDialogUtil.checkConfirmDialog(
@@ -323,7 +324,7 @@ class AmityLiveStreamPostCreatorFragment : RxFragment() {
     }
 
     private fun showReconnectLabel() {
-        binding.liveLabel.text = getString(R.string.amity_video_stream_connecting)
+        binding.liveLabel.text = getString(CommunityR.string.amity_video_stream_connecting)
         binding.liveLabel.visibility = View.VISIBLE
     }
 
@@ -341,7 +342,7 @@ class AmityLiveStreamPostCreatorFragment : RxFragment() {
                 val second = durationMs / 1000 % 60
                 val min = durationMs / 1000 / 60
                 binding.liveLabel.text = getString(
-                    R.string.amity_video_stream_live_with_time,
+                    CommunityR.string.amity_video_stream_live_with_time,
                     min.format(),
                     second.format()
                 )
@@ -372,7 +373,7 @@ class AmityLiveStreamPostCreatorFragment : RxFragment() {
             .maxSelectable(1)
             .restrictOrientation(ActivityInfo.SCREEN_ORIENTATION_UNSPECIFIED)
             .imageEngine(GlideEngine())
-            .theme(R.style.AmityImagePickerTheme)
+            .theme(CommonR.style.AmityImagePickerTheme)
             .forResult(AmityConstants.PICK_IMAGES)
     }
 
@@ -413,7 +414,7 @@ class AmityLiveStreamPostCreatorFragment : RxFragment() {
 
     private fun presentUploadFailedThumbnail() {
         removeThumbnail()
-        binding.root.showSnackBar(msg = getString(R.string.amity_image_upload_error))
+        binding.root.showSnackBar(msg = getString(CommunityR.string.amity_image_upload_error))
     }
 
     private fun removeThumbnail() {
@@ -431,15 +432,15 @@ class AmityLiveStreamPostCreatorFragment : RxFragment() {
         val options =
             arrayListOf(
                 BottomSheetMenuItem(
-                    titleResId = R.string.amity_video_stream_thumbnail_change,
+                    titleResId = CommunityR.string.amity_video_stream_thumbnail_change,
                     action = {
                         openImagePicker()
                         bottomSheet.dismiss()
                     }
                 ),
                 BottomSheetMenuItem(
-                    colorResId = R.color.amityColorRed,
-                    titleResId = R.string.amity_video_stream_thumbnail_remove,
+                    colorResId = CommonR.color.amityColorRed,
+                    titleResId = CommunityR.string.amity_video_stream_thumbnail_remove,
                     action = {
                         removeThumbnail()
                         bottomSheet.dismiss()

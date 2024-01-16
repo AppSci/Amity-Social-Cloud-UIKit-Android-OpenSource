@@ -6,7 +6,8 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Toast
 import androidx.activity.viewModels
-import com.amity.socialcloud.uikit.community.R
+import com.amity.socialcloud.uikit.common.R as CommonR
+import com.amity.socialcloud.uikit.community.R as CommunityR
 import com.amity.socialcloud.uikit.community.databinding.AmityActivityLivestreamVideoPlayerBinding
 import com.amity.socialcloud.uikit.community.newsfeed.viewmodel.AmityLiveStreamVideoPlayerViewModel
 import com.ekoapp.rxlifecycle.extension.untilLifecycleEnd
@@ -92,7 +93,7 @@ open class AmityLivestreamVideoPlayerActivity : RxAppCompatActivity() {
     private fun presentStreamLoadingError() {
         Toast.makeText(
             this,
-            getString(R.string.amity_video_stream_unavailable_description),
+            getString(CommunityR.string.amity_video_stream_unavailable_description),
             Toast.LENGTH_SHORT
         ).show()
     }

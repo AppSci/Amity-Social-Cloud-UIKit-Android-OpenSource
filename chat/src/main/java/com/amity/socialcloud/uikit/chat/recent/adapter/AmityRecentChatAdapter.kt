@@ -4,7 +4,8 @@ import android.view.View
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.amity.socialcloud.sdk.model.chat.channel.AmityChannel
-import com.amity.socialcloud.uikit.chat.R
+import com.amity.socialcloud.uikit.chat.R as ChatR
+import com.amity.socialcloud.uikit.common.R as CommonR
 import com.amity.socialcloud.uikit.chat.home.callback.AmityRecentChatItemClickListener
 import com.amity.socialcloud.uikit.common.base.AmityBaseRecyclerViewPagingDataAdapter
 
@@ -24,7 +25,7 @@ class AmityRecentChatAdapter : AmityBaseRecyclerViewPagingDataAdapter<AmityChann
     }
 
     override fun getLayoutId(position: Int, obj: AmityChannel?): Int =
-        R.layout.amity_item_recent_message
+        ChatR.layout.amity_item_recent_message
 
     override fun getViewHolder(view: View, viewType: Int): RecyclerView.ViewHolder =
         AmityRecentChatViewHolder(view, recentChatItemClickListener)

@@ -8,7 +8,8 @@ import androidx.appcompat.app.AppCompatActivity
 import com.amity.socialcloud.sdk.model.social.post.AmityPost
 import com.amity.socialcloud.uikit.common.utils.AmityAlertDialogUtil
 import com.amity.socialcloud.uikit.common.utils.AmityAndroidUtil
-import com.amity.socialcloud.uikit.community.R
+import com.amity.socialcloud.uikit.common.R as CommonR
+import com.amity.socialcloud.uikit.community.R as CommunityR
 import com.amity.socialcloud.uikit.community.newsfeed.model.AmityPostAttachmentOptionItem
 import com.amity.socialcloud.uikit.community.newsfeed.util.AmityNewsFeedEvents
 import com.amity.socialcloud.uikit.community.utils.EXTRA_PARAM_COMMUNITY_ID
@@ -29,7 +30,7 @@ class AmityPostCreatorFragment : AmityBaseCreatePostFragment() {
     }
 
     override fun getPostMenuText(): String {
-        return getString(R.string.amity_post_caps)
+        return getString(CommunityR.string.amity_post_caps)
     }
 
     override fun onClickNegativeButton() {
@@ -39,7 +40,7 @@ class AmityPostCreatorFragment : AmityBaseCreatePostFragment() {
     private fun getToolbarTitleForCreatePost(): String {
         if (viewModel.community != null)
             return viewModel.community!!.getDisplayName()
-        return getString(R.string.amity_my_timeline)
+        return getString(CommunityR.string.amity_my_timeline)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -77,9 +78,9 @@ class AmityPostCreatorFragment : AmityBaseCreatePostFragment() {
     
     private fun showPendingPostsDialog (post: AmityPost) {
         AmityAlertDialogUtil.showDialog(requireContext(),
-            getString(R.string.amity_create_post_pending_post_title_dialog),
-            getString(R.string.amity_create_post_pending_post_message_dialog),
-            getString(R.string.amity_ok),
+            getString(CommunityR.string.amity_create_post_pending_post_title_dialog),
+            getString(CommunityR.string.amity_create_post_pending_post_message_dialog),
+            getString(CommonR.string.amity_ok),
             negativeButton = null,
             cancelable = false
         ) { dialog, which ->

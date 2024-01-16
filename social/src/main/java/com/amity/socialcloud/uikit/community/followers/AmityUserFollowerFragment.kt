@@ -9,7 +9,8 @@ import androidx.core.widget.doAfterTextChanged
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.amity.socialcloud.sdk.model.core.user.AmityUser
-import com.amity.socialcloud.uikit.community.R
+import com.amity.socialcloud.uikit.common.R as CommonR
+import com.amity.socialcloud.uikit.community.R as CommunityR
 import com.amity.socialcloud.uikit.community.databinding.AmityUserFollowerFragmentBinding
 import com.amity.socialcloud.uikit.community.newsfeed.listener.AmityUserClickListener
 import com.amity.socialcloud.uikit.social.AmitySocialUISettings
@@ -44,7 +45,7 @@ class AmityUserFollowerFragment : RxFragment() {
         viewModel = ViewModelProvider(requireActivity()).get(AmityUserFollowerViewModel::class.java)
         setupRecyclerView()
         subscribeSearchStringChange()
-        binding.refreshLayout.setColorSchemeResources(R.color.amityColorPrimary)
+        binding.refreshLayout.setColorSchemeResources(CommonR.color.amityColorPrimary)
         binding.refreshLayout.setOnRefreshListener {
             refresh()
         }

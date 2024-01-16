@@ -4,7 +4,8 @@ import android.content.Context
 import android.content.DialogInterface
 import android.view.View
 import com.amity.socialcloud.sdk.model.chat.message.AmityMessage
-import com.amity.socialcloud.uikit.chat.R
+import com.amity.socialcloud.uikit.chat.R as ChatR
+import com.amity.socialcloud.uikit.common.R as CommonR
 import com.amity.socialcloud.uikit.chat.messages.viewModel.AmitySelectableMessageViewModel
 import com.amity.socialcloud.uikit.common.model.AmityEventIdentifier
 import com.amity.socialcloud.uikit.common.utils.AmityAlertDialogUtil
@@ -62,9 +63,9 @@ abstract class AmitySelectableMessageViewHolder(
     }
 
     private fun showDeleteDialog() {
-        AmityAlertDialogUtil.showDialog(context, context.getString(R.string.amity_delete_msg),
-            context.getString(R.string.amity_dlt_dlg_body), context.getString(R.string.amity_delete),
-            context.getString(R.string.amity_cancel)
+        AmityAlertDialogUtil.showDialog(context, context.getString(CommonR.string.amity_delete_msg),
+            context.getString(CommonR.string.amity_dlt_dlg_body), context.getString(ChatR.string.amity_delete),
+            context.getString(CommonR.string.amity_cancel)
         ) { dialog, which ->
             if (which == DialogInterface.BUTTON_POSITIVE) {
                 deleteMessage()
@@ -75,9 +76,9 @@ abstract class AmitySelectableMessageViewHolder(
     }
 
     private fun showFailedMessageDialog() {
-        AmityAlertDialogUtil.showDialog(context, context.getString(R.string.amity_delete_msg),
-            context.getString(R.string.amity_failed_dlg_body), context.getString(R.string.amity_delete),
-            context.getString(R.string.amity_cancel)
+        AmityAlertDialogUtil.showDialog(context, context.getString(CommonR.string.amity_delete_msg),
+            context.getString(CommonR.string.amity_failed_dlg_body), context.getString(ChatR.string.amity_delete),
+            context.getString(CommonR.string.amity_cancel)
         ) { dialog, which ->
             if (which == DialogInterface.BUTTON_POSITIVE) {
                 deleteMessage()
@@ -102,8 +103,8 @@ abstract class AmitySelectableMessageViewHolder(
     }
 
     private fun showDeleteFailedDialog() {
-        AmityAlertDialogUtil.showDialog(context, context.getString(R.string.amity_unable_to_delete),
-            context.getString(R.string.amity_try_again), context.getString(R.string.amity_ok),
+        AmityAlertDialogUtil.showDialog(context, context.getString(CommonR.string.amity_unable_to_delete),
+            context.getString(CommonR.string.amity_try_again), context.getString(CommonR.string.amity_ok),
             null
         ) { dialog, which ->
             if (which == DialogInterface.BUTTON_POSITIVE) {
@@ -119,7 +120,7 @@ abstract class AmitySelectableMessageViewHolder(
                     CoroutineScope(Dispatchers.Main).launch {
                         val snackBar = Snackbar.make(
                             itemView,
-                            context.getString(R.string.amity_report_msg), Snackbar.LENGTH_SHORT
+                            context.getString(CommonR.string.amity_report_msg), Snackbar.LENGTH_SHORT
                         )
                         snackBar.show()
                     }
@@ -138,7 +139,7 @@ abstract class AmitySelectableMessageViewHolder(
                     CoroutineScope(Dispatchers.Main).launch {
                         val snackBar = Snackbar.make(
                             itemView,
-                            context.getString(R.string.amity_report_msg), Snackbar.LENGTH_SHORT
+                            context.getString(CommonR.string.amity_report_msg), Snackbar.LENGTH_SHORT
                         )
                         snackBar.show()
                     }

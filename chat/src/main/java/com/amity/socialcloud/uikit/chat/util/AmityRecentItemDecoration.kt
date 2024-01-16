@@ -8,7 +8,8 @@ import android.graphics.drawable.Drawable
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.ItemDecoration
-import com.amity.socialcloud.uikit.chat.R
+import com.amity.socialcloud.uikit.chat.R as ChatR
+import com.amity.socialcloud.uikit.common.R as CommonR
 
 class AmityRecentItemDecoration(private val context: Context, private val margin: Int) :
     ItemDecoration() {
@@ -53,13 +54,13 @@ class AmityRecentItemDecoration(private val context: Context, private val margin
             val child = parent.getChildAt(i)
             val params = child.layoutParams as RecyclerView.LayoutParams
             val top =
-                child.bottom + params.bottomMargin + context.resources.getDimensionPixelSize(R.dimen.amity_ten)
+                child.bottom + params.bottomMargin + context.resources.getDimensionPixelSize(CommonR.dimen.amity_ten)
             val dividerHeight = mDivider?.intrinsicHeight ?: 0
             val bottom = top + dividerHeight
 
             mDivider?.setBounds(
-                left + context.resources.getDimensionPixelSize(R.dimen.amity_sixty_eight),
-                top, right - context.resources.getDimensionPixelSize(R.dimen.amity_padding_m1), bottom
+                left + context.resources.getDimensionPixelSize(CommonR.dimen.amity_sixty_eight),
+                top, right - context.resources.getDimensionPixelSize(CommonR.dimen.amity_padding_m1), bottom
             )
             mDivider?.draw(c)
         }

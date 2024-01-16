@@ -8,7 +8,8 @@ import androidx.activity.result.contract.ActivityResultContract
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import com.amity.socialcloud.uikit.common.base.AmityBaseToolbarFragmentContainerActivity
-import com.amity.socialcloud.uikit.community.R
+import com.amity.socialcloud.uikit.common.R as CommonR
+import com.amity.socialcloud.uikit.community.R as CommunityR
 import com.amity.socialcloud.uikit.community.newsfeed.fragment.AmityPostTargetPickerFragment
 
 class AmityPostTargetPickerActivity : AmityBaseToolbarFragmentContainerActivity() {
@@ -28,9 +29,9 @@ class AmityPostTargetPickerActivity : AmityBaseToolbarFragmentContainerActivity(
 
     override fun initToolbar() {
         getToolBar()?.setLeftDrawable(
-            ContextCompat.getDrawable(this, R.drawable.amity_ic_cross)
+            ContextCompat.getDrawable(this, CommonR.drawable.amity_ic_cross)
         )
-        getToolBar()?.setLeftString(getString(R.string.amity_post_to))
+        getToolBar()?.setLeftString(getString(CommunityR.string.amity_post_to))
     }
 
     override fun leftIconClick() {

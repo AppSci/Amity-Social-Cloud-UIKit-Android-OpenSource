@@ -42,7 +42,8 @@ import com.amity.socialcloud.uikit.common.model.AmityMenuItem
 import com.amity.socialcloud.uikit.common.utils.AmityCameraUtil
 import com.amity.socialcloud.uikit.common.utils.AmityConstants
 import com.amity.socialcloud.uikit.common.utils.AmityOptionMenuColorUtil
-import com.amity.socialcloud.uikit.community.R
+import com.amity.socialcloud.uikit.common.R as CommonR
+import com.amity.socialcloud.uikit.community.R as CommunityR
 import com.amity.socialcloud.uikit.community.databinding.AmityFragmentPostCreateBinding
 import com.amity.socialcloud.uikit.community.domain.model.AmityFileAttachment
 import com.amity.socialcloud.uikit.community.newsfeed.adapter.AmityCreatePostFileAdapter
@@ -154,7 +155,7 @@ abstract class AmityBaseCreatePostFragment : AmityBaseFragment(),
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         menuItemPost =
-            menu.add(Menu.NONE, ID_MENU_ITEM_POST, Menu.NONE, getString(R.string.amity_save))
+            menu.add(Menu.NONE, ID_MENU_ITEM_POST, Menu.NONE, getString(CommonR.string.amity_save))
         menuItemPost?.setTitle(getPostMenuText())
             ?.setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS)
         updatePostMenu(isRightButtonActive())
@@ -431,7 +432,7 @@ abstract class AmityBaseCreatePostFragment : AmityBaseFragment(),
 
     private fun handleCamera() {
         if (hasReachedSelectionLimit()) {
-            view?.showSnackBar(getString(R.string.amity_create_post_max_image_selected_warning))
+            view?.showSnackBar(getString(CommunityR.string.amity_create_post_max_image_selected_warning))
         } else {
             when {
                 viewModel.isUploadingImageMedia() -> {
@@ -463,11 +464,11 @@ abstract class AmityBaseCreatePostFragment : AmityBaseFragment(),
             val items = arrayListOf(
                 AmityMenuItem(
                     AmityConstants.ID_SELECT_IMAGE_CAMERA,
-                    getString(R.string.amity_general_photos)
+                    getString(CommunityR.string.amity_general_photos)
                 ),
                 AmityMenuItem(
                     AmityConstants.ID_SELECT_VIDEO_CAMERA,
-                    getString(R.string.amity_general_videos)
+                    getString(CommunityR.string.amity_general_videos)
                 )
             )
             val imageInputFragment = AmityBottomSheetListFragment.newInstance(items)
@@ -490,7 +491,7 @@ abstract class AmityBaseCreatePostFragment : AmityBaseFragment(),
 
     private fun handleAddFiles() {
         if (hasReachedSelectionLimit()) {
-            view?.showSnackBar(getString(R.string.amity_create_post_max_image_selected_warning))
+            view?.showSnackBar(getString(CommunityR.string.amity_create_post_max_image_selected_warning))
         } else {
             grantStoragePermission(REQUEST_STORAGE_PERMISSION_FILE_UPLOAD) { openFilePicker() }
         }
@@ -498,7 +499,7 @@ abstract class AmityBaseCreatePostFragment : AmityBaseFragment(),
 
     private fun handleAddPhotos() {
         if (hasReachedSelectionLimit()) {
-            view?.showSnackBar(getString(R.string.amity_create_post_max_image_selected_warning))
+            view?.showSnackBar(getString(CommunityR.string.amity_create_post_max_image_selected_warning))
         } else {
             grantStoragePermission(REQUEST_STORAGE_PERMISSION_IMAGE_UPLOAD) { openImagePicker() }
         }
@@ -506,7 +507,7 @@ abstract class AmityBaseCreatePostFragment : AmityBaseFragment(),
 
     private fun handleAddVideos() {
         if (hasReachedSelectionLimit()) {
-            view?.showSnackBar(getString(R.string.amity_create_post_max_image_selected_warning))
+            view?.showSnackBar(getString(CommunityR.string.amity_create_post_max_image_selected_warning))
         } else {
             grantStoragePermission(REQUEST_STORAGE_PERMISSION_VIDEO_UPLOAD) { openVideoPicker() }
         }
@@ -566,7 +567,7 @@ abstract class AmityBaseCreatePostFragment : AmityBaseFragment(),
                 binding.rvAttachment.removeItemDecoration(itemDecor!!)
             }
 
-            val space = resources.getDimensionPixelSize(R.dimen.amity_padding_xs)
+            val space = resources.getDimensionPixelSize(CommonR.dimen.amity_padding_xs)
             itemDecor = AmitySpacesItemDecoration(0, 0, 0, space)
 
             mediaAdapter = createPostMediaAdapter()
@@ -597,7 +598,7 @@ abstract class AmityBaseCreatePostFragment : AmityBaseFragment(),
             if (itemDecor != null) {
                 binding.rvAttachment.removeItemDecoration(itemDecor!!)
             }
-            val space = resources.getDimensionPixelSize(R.dimen.amity_padding_xs)
+            val space = resources.getDimensionPixelSize(CommonR.dimen.amity_padding_xs)
 
             itemDecor = AmitySpacesItemDecoration(0, 0, 0, space)
             binding.rvAttachment.addItemDecoration(itemDecor!!)
@@ -712,8 +713,8 @@ abstract class AmityBaseCreatePostFragment : AmityBaseFragment(),
     private fun showExitConfirmationDialog() {
         val exitConfirmationDialogFragment = AmityAlertDialogFragment
             .newInstance(
-                R.string.amity_discard_post_title, R.string.amity_discard_post_message,
-                R.string.amity_discard, R.string.amity_cancel
+                CommunityR.string.amity_discard_post_title, CommunityR.string.amity_discard_post_message,
+                CommunityR.string.amity_discard, CommunityR.string.amity_cancel
             )
         exitConfirmationDialogFragment.show(childFragmentManager, AmityAlertDialogFragment.TAG);
         exitConfirmationDialogFragment.listener = this
@@ -737,7 +738,7 @@ abstract class AmityBaseCreatePostFragment : AmityBaseFragment(),
                 .maxSelectable(MAX_IMAGE_SELECTABLE - selectedImageCount)
                 .restrictOrientation(ActivityInfo.SCREEN_ORIENTATION_UNSPECIFIED)
                 .imageEngine(GlideEngine())
-                .theme(R.style.AmityImagePickerTheme)
+                .theme(CommonR.style.AmityImagePickerTheme)
                 .forResult(AmityConstants.PICK_IMAGES)
         }
     }
@@ -746,7 +747,7 @@ abstract class AmityBaseCreatePostFragment : AmityBaseFragment(),
         val selectedImageCount = viewModel.getImages().value?.size ?: 0
         if (selectedImageCount == MAX_IMAGE_SELECTABLE) {
             view?.showSnackBar(
-                getString(R.string.amity_create_post_max_image_selected_warning)
+                getString(CommunityR.string.amity_create_post_max_image_selected_warning)
             )
             return false
         }
@@ -756,7 +757,7 @@ abstract class AmityBaseCreatePostFragment : AmityBaseFragment(),
     private fun openVideoPicker() {
         val selectedVideoCount = viewModel.getImages().value?.size ?: 0
         if (selectedVideoCount == MAX_VIDEO_SELECTABLE) {
-            view?.showSnackBar(getString(R.string.amity_create_post_max_image_selected_warning))
+            view?.showSnackBar(getString(CommunityR.string.amity_create_post_max_image_selected_warning))
         } else {
             Matisse.from(this)
                 .choose(MimeType.ofVideo())
@@ -765,7 +766,7 @@ abstract class AmityBaseCreatePostFragment : AmityBaseFragment(),
                 .maxSelectable(MAX_VIDEO_SELECTABLE - selectedVideoCount)
                 .restrictOrientation(ActivityInfo.SCREEN_ORIENTATION_UNSPECIFIED)
                 .imageEngine(GlideEngine())
-                .theme(R.style.AmityImagePickerTheme)
+                .theme(CommonR.style.AmityImagePickerTheme)
                 .forResult(AmityConstants.PICK_VIDEOS)
         }
     }
@@ -851,7 +852,7 @@ abstract class AmityBaseCreatePostFragment : AmityBaseFragment(),
                 }
 
                 AmityEventIdentifier.FILE_UPLOAD_MAX_LIMIT_EXCEED -> {
-                    showErrorMessage(R.string.amity_attachment_count_limit_exceed)
+                    showErrorMessage(CommunityR.string.amity_attachment_count_limit_exceed)
                 }
 
                 AmityEventIdentifier.CREATE_POST_IMAGE_REMOVED -> {
@@ -868,8 +869,8 @@ abstract class AmityBaseCreatePostFragment : AmityBaseFragment(),
     private fun showImageUploadFailedDialog() {
         val dialogFragment = AmityAlertDialogFragment
             .newInstance(
-                R.string.amity_upload_incomplete, R.string.amity_image_upload_failed_message,
-                null, R.string.amity_ok
+                CommunityR.string.amity_upload_incomplete, CommunityR.string.amity_image_upload_failed_message,
+                null, CommonR.string.amity_ok
             )
         dialogFragment.show(childFragmentManager, AmityAlertDialogFragment.TAG);
         dialogFragment.setAlertDialogActionListener(object :
@@ -888,10 +889,10 @@ abstract class AmityBaseCreatePostFragment : AmityBaseFragment(),
     private fun showAttachmentUploadFailedDialog() {
         val dialogFragment = AmityAlertDialogFragment
             .newInstance(
-                R.string.amity_upload_incomplete,
-                R.string.amity_attachment_upload_failed_message,
+                CommunityR.string.amity_upload_incomplete,
+                CommunityR.string.amity_attachment_upload_failed_message,
                 null,
-                R.string.amity_ok
+                CommonR.string.amity_ok
             )
         dialogFragment.show(childFragmentManager, AmityAlertDialogFragment.TAG);
         dialogFragment.setAlertDialogActionListener(object :
@@ -929,7 +930,7 @@ abstract class AmityBaseCreatePostFragment : AmityBaseFragment(),
     private fun addFileAttachments(data: Intent) {
         setupFileAttachmentAdapter()
         if (maxAttachmentCountExceed(data)) {
-            showErrorMessage(R.string.amity_attachment_count_limit_exceed)
+            showErrorMessage(CommunityR.string.amity_attachment_count_limit_exceed)
         } else {
             var maxLimitExceedError = false
             val fileUriList = mutableListOf<Uri>()
@@ -966,10 +967,10 @@ abstract class AmityBaseCreatePostFragment : AmityBaseFragment(),
     private fun showMaxLimitExceedError(addedFiles: MutableList<AmityFileAttachment>) {
         val dialogFragment = AmityAlertDialogFragment
             .newInstance(
-                R.string.amity_file_max_limit_exceed_title,
-                R.string.amity_file_max_limit_exceed_message,
+                CommunityR.string.amity_file_max_limit_exceed_title,
+                CommunityR.string.amity_file_max_limit_exceed_message,
                 null,
-                R.string.amity_ok
+                CommonR.string.amity_ok
             )
         dialogFragment.setAlertDialogActionListener(object :
             AmityAlertDialogFragment.IAlertDialogActionListener {
@@ -1011,7 +1012,7 @@ abstract class AmityBaseCreatePostFragment : AmityBaseFragment(),
     }
 
     private fun showDuplicateFilesMessage() {
-        view?.showSnackBar(getString(R.string.amity_duplicate_files))
+        view?.showSnackBar(getString(CommunityR.string.amity_duplicate_files))
     }
 
 

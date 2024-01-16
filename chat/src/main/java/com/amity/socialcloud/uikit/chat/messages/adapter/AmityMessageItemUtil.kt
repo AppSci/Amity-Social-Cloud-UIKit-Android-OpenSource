@@ -4,7 +4,8 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import com.amity.socialcloud.sdk.api.core.AmityCoreClient
 import com.amity.socialcloud.sdk.model.chat.message.AmityMessage
-import com.amity.socialcloud.uikit.chat.R
+import com.amity.socialcloud.uikit.chat.R as ChatR
+import com.amity.socialcloud.uikit.common.R as CommonR
 import com.amity.socialcloud.uikit.chat.messages.viewHolder.*
 import com.amity.socialcloud.uikit.chat.messages.viewModel.AmityAudioMsgViewModel
 import com.amity.socialcloud.uikit.chat.messages.viewModel.AmityImageMsgViewModel
@@ -89,7 +90,7 @@ class AmityMessageItemUtil {
             val itemViewModel = AmityTextMessageViewModel()
             AmityTextMsgReceiverViewHolder(
                 inflater.inflate(
-                    R.layout.amity_item_text_message_receiver,
+                    ChatR.layout.amity_item_text_message_receiver,
                     parent, false
                 ), itemViewModel, parent.context
             )
@@ -113,7 +114,7 @@ class AmityMessageItemUtil {
             }
             AmityTextMsgSenderViewHolder(
                 inflater.inflate(
-                    R.layout.amity_item_text_message_sender,
+                    ChatR.layout.amity_item_text_message_sender,
                     parent, false
                 ), itemViewModel, parent.context
             )
@@ -131,7 +132,7 @@ class AmityMessageItemUtil {
             val itemViewModel = AmityImageMsgViewModel()
             AmityImageMsgReceiverViewHolder(
                 inflater.inflate(
-                    R.layout.amity_item_image_msg_receiver,
+                    ChatR.layout.amity_item_image_msg_receiver,
                     parent, false
                 ), itemViewModel, parent.context
             )
@@ -150,7 +151,7 @@ class AmityMessageItemUtil {
             val itemViewModel = AmityImageMsgViewModel()
             AmityImageMsgSenderViewHolder(
                 inflater.inflate(
-                    R.layout.amity_item_image_msg_sender,
+                    ChatR.layout.amity_item_image_msg_sender,
                     parent, false
                 ), itemViewModel, parent.context
             )
@@ -169,7 +170,7 @@ class AmityMessageItemUtil {
             val itemViewModel = AmityAudioMsgViewModel()
             AmityAudioMsgReceiverViewHolder(
                 inflater.inflate(
-                    R.layout.amity_item_audio_message_receiver,
+                    ChatR.layout.amity_item_audio_message_receiver,
                     parent, false
                 ), itemViewModel, parent.context, audioPlayListener
             )
@@ -188,7 +189,7 @@ class AmityMessageItemUtil {
             val itemViewModel = AmityAudioMsgViewModel()
             AmityAudioMsgSenderViewHolder(
                 inflater.inflate(
-                    R.layout.amity_item_audio_message_sender,
+                    ChatR.layout.amity_item_audio_message_sender,
                     parent, false
                 ), itemViewModel, parent.context, audioPlayListener
             )
@@ -199,7 +200,7 @@ class AmityMessageItemUtil {
             AmityChatMessageBaseViewHolder {
         return AmityUnknownMessageViewHolder(
             inflater.inflate(
-                R.layout.amity_item_unknown_message, parent,
+                ChatR.layout.amity_item_unknown_message, parent,
                 false
             ), AmityUnknownMsgViewModel()
         )
@@ -215,7 +216,7 @@ class AmityMessageItemUtil {
         } else {
             AmityUnknownMessageViewHolder(
                 inflater.inflate(
-                    R.layout.amity_item_unknown_message, parent,
+                    ChatR.layout.amity_item_unknown_message, parent,
                     false
                 ), AmityUnknownMsgViewModel()
             )
@@ -232,7 +233,7 @@ class AmityMessageItemUtil {
         } else {
             AmityUnknownMessageViewHolder(
                 inflater.inflate(
-                    R.layout.amity_item_unknown_message, parent,
+                    ChatR.layout.amity_item_unknown_message, parent,
                     false
                 ), AmityUnknownMsgViewModel()
             )

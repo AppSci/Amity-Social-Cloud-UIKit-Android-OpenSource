@@ -15,13 +15,13 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
-import com.amity.socialcloud.uikit.community.compose.R
+import com.amity.socialcloud.uikit.common.R as CommonR
 
 
 @Composable
 fun AmityStoryCameraRelatedButtonElement(
     modifier: Modifier = Modifier,
-    icon: Int = R.drawable.amity_ic_close,
+    icon: Int = CommonR.drawable.amity_ic_close,
     iconSize: Dp = 20.dp,
     tint: Color = Color.White,
     background: Color = Color(0x80000000),

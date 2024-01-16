@@ -9,7 +9,8 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.amity.socialcloud.sdk.model.social.community.AmityCommunity
 import com.amity.socialcloud.uikit.common.utils.AmityAlertDialogUtil
-import com.amity.socialcloud.uikit.community.R
+import com.amity.socialcloud.uikit.common.R as CommonR
+import com.amity.socialcloud.uikit.community.R as CommunityR
 import com.amity.socialcloud.uikit.community.databinding.AmityFragmentPostReviewBinding
 import com.amity.socialcloud.uikit.community.setting.AmitySettingsItem
 import com.amity.socialcloud.uikit.community.setting.AmitySettingsItemAdapter
@@ -59,8 +60,8 @@ class AmityPostReviewSettingsFragment : RxFragment() {
                     onError = {
                         viewModel.revertToggleState()
                         errorDialog(
-                            title = R.string.amity_unable_turn_off_post_review_title,
-                            description = R.string.amity_something_went_wrong_pls_try
+                            title = CommunityR.string.amity_unable_turn_off_post_review_title,
+                            description = CommunityR.string.amity_something_went_wrong_pls_try
                         )
                     }
                 )
@@ -72,8 +73,8 @@ class AmityPostReviewSettingsFragment : RxFragment() {
                     onError = {
                         viewModel.revertToggleState()
                         errorDialog(
-                            title = R.string.amity_unable_turn_on_post_review_title,
-                            description = R.string.amity_something_went_wrong_pls_try
+                            title = CommunityR.string.amity_unable_turn_on_post_review_title,
+                            description = CommunityR.string.amity_something_went_wrong_pls_try
                         )
                     })
                     .untilLifecycleEnd(this)
@@ -104,7 +105,7 @@ class AmityPostReviewSettingsFragment : RxFragment() {
         AmityAlertDialogUtil.showDialog(requireContext(),
             getString(title),
             getString(description),
-            getString(R.string.amity_ok),
+            getString(CommonR.string.amity_ok),
             null
         ) { dialog, which ->
             AmityAlertDialogUtil.checkConfirmDialog(

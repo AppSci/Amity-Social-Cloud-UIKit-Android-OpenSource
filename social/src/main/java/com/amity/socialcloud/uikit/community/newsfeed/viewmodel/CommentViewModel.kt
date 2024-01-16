@@ -10,7 +10,8 @@ import com.amity.socialcloud.sdk.model.social.comment.AmityComment
 import com.amity.socialcloud.sdk.model.social.post.AmityPost
 import com.amity.socialcloud.uikit.common.common.views.dialog.bottomsheet.BottomSheetMenuItem
 import com.amity.socialcloud.uikit.common.utils.AmityConstants
-import com.amity.socialcloud.uikit.community.R
+import com.amity.socialcloud.uikit.common.R as CommonR
+import com.amity.socialcloud.uikit.community.R as CommunityR
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.core.Completable
 import io.reactivex.rxjava3.schedulers.Schedulers
@@ -128,17 +129,17 @@ interface CommentViewModel {
     ): List<BottomSheetMenuItem> {
         val items = arrayListOf<BottomSheetMenuItem>()
         val editCommentMenuItem =
-            BottomSheetMenuItem(null, null, R.string.amity_edit_comment, editComment)
+            BottomSheetMenuItem(null, null, CommunityR.string.amity_edit_comment, editComment)
         val deleteCommentMenuItem =
-            BottomSheetMenuItem(null, null, R.string.amity_delete_comment, deleteComment)
+            BottomSheetMenuItem(null, null, CommunityR.string.amity_delete_comment, deleteComment)
         val reportCommentMenuItem =
-            BottomSheetMenuItem(null, null, R.string.amity_report, reportComment)
+            BottomSheetMenuItem(null, null, CommunityR.string.amity_report, reportComment)
         val unReportCommentMenuItem =
-            BottomSheetMenuItem(null, null, R.string.amity_undo_report, unReportComment)
+            BottomSheetMenuItem(null, null, CommunityR.string.amity_undo_report, unReportComment)
         val editReplyMenuItem =
-            BottomSheetMenuItem(null, null, R.string.amity_edit_reply, editReply)
+            BottomSheetMenuItem(null, null, CommunityR.string.amity_edit_reply, editReply)
         val deleteReplyMenuItem =
-            BottomSheetMenuItem(null, null, R.string.amity_delete_reply, deleteReply)
+            BottomSheetMenuItem(null, null, CommunityR.string.amity_delete_reply, deleteReply)
 
         if (comment.getCreatorId() == AmityCoreClient.getUserId()) {
             if (comment.getParentId() == null) {

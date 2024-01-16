@@ -4,7 +4,8 @@ import android.content.Context
 import android.content.res.ColorStateList
 import androidx.core.content.ContextCompat
 import com.amity.socialcloud.sdk.model.social.poll.AmityPollAnswer
-import com.amity.socialcloud.uikit.community.R
+import com.amity.socialcloud.uikit.common.R as CommonR
+import com.amity.socialcloud.uikit.community.R as CommunityR
 import com.amity.socialcloud.uikit.community.databinding.AmityItemPollMultipleAnswersBinding
 import com.google.android.material.card.MaterialCardView
 
@@ -14,7 +15,7 @@ class AmityPollMultipleAnswersViewHolder(
     voteCallback: (answerId: String, isSelected: Boolean, holder: MaterialCardView?) -> Unit
 ) : AmityPollAnswerViewHolder(
     context,
-    R.layout.amity_item_poll_multiple_answers,
+    CommunityR.layout.amity_item_poll_multiple_answers,
     isEnabled,
     voteCallback
 ) {
@@ -26,28 +27,28 @@ class AmityPollMultipleAnswersViewHolder(
         binding.voteCheckBox.text = data.data
         binding.voteCheckBox.setTextColor(
             when (isEnabled) {
-                true -> ContextCompat.getColor(context, R.color.amityColorBlack)
-                false -> ContextCompat.getColor(context, R.color.amityPlaceHolderDarkColor)
+                true -> ContextCompat.getColor(context, CommonR.color.amityColorBlack)
+                false -> ContextCompat.getColor(context, CommonR.color.amityPlaceHolderDarkColor)
             }
         )
 
         binding.voteCheckBox.buttonTintList = ColorStateList.valueOf(
             ContextCompat.getColor(
                 context, when (isEnabled) {
-                    true -> R.color.amityColorPrimary
-                    false -> R.color.amityPlaceHolderDarkColor
+                    true -> CommonR.color.amityColorPrimary
+                    false -> CommonR.color.amityPlaceHolderDarkColor
                 }
             )
         )
 
         binding.voteCardView.isEnabled = isEnabled
         binding.voteCardView.strokeColor =
-            ContextCompat.getColor(context, R.color.upstraMessageBubbleInverse)
+            ContextCompat.getColor(context, CommonR.color.upstraMessageBubbleInverse)
         binding.voteCardView.setOnClickListener {
             binding.voteCheckBox.isChecked = !binding.voteCheckBox.isChecked
             binding.voteCardView.strokeColor = when (binding.voteCheckBox.isChecked) {
-                true -> ContextCompat.getColor(context, R.color.amityColorPrimary)
-                false -> ContextCompat.getColor(context, R.color.upstraMessageBubbleInverse)
+                true -> ContextCompat.getColor(context, CommonR.color.amityColorPrimary)
+                false -> ContextCompat.getColor(context, CommonR.color.upstraMessageBubbleInverse)
             }
             voteCallback.invoke(data.id, binding.voteCheckBox.isChecked, null)
         }

@@ -7,14 +7,15 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.amity.socialcloud.sdk.model.core.user.AmityUser
 import com.amity.socialcloud.uikit.common.base.AmityBaseRecyclerViewPagingDataAdapter
-import com.amity.socialcloud.uikit.community.R
+import com.amity.socialcloud.uikit.common.R as CommonR
+import com.amity.socialcloud.uikit.community.R as CommunityR
 import com.amity.socialcloud.uikit.community.databinding.AmityItemGlobalSearchUserBinding
 import com.amity.socialcloud.uikit.community.newsfeed.listener.AmityUserClickListener
 
 class AmityUsersAdapter(private val context: Context, private val listener: AmityUserClickListener):
         AmityBaseRecyclerViewPagingDataAdapter<AmityUser>(DIFF_CALLBACK) {
     
-    override fun getLayoutId(position: Int, obj: AmityUser?): Int = R.layout.amity_item_global_search_user
+    override fun getLayoutId(position: Int, obj: AmityUser?): Int = CommunityR.layout.amity_item_global_search_user
     
     override fun getViewHolder(view: View, viewType: Int): RecyclerView.ViewHolder =
             AmityUserViewHolder(context, view, listener)
@@ -34,7 +35,7 @@ class AmityUsersAdapter(private val context: Context, private val listener: Amit
                     listener.onClickUser(data)
                 }
                 val banIcon = if (data.isGlobalBan()) {
-                    ContextCompat.getDrawable(context, R.drawable.amity_ic_ban)
+                    ContextCompat.getDrawable(context, CommunityR.drawable.amity_ic_ban)
                 } else {
                     null
                 }

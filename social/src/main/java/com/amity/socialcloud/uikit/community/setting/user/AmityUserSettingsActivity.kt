@@ -7,7 +7,8 @@ import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import com.amity.socialcloud.sdk.model.core.user.AmityUser
 import com.amity.socialcloud.uikit.common.base.AmityBaseToolbarFragmentContainerActivity
-import com.amity.socialcloud.uikit.community.R
+import com.amity.socialcloud.uikit.common.R as CommonR
+import com.amity.socialcloud.uikit.community.R as CommunityR
 
 class AmityUserSettingsActivity : AmityBaseToolbarFragmentContainerActivity() {
     private lateinit var currentUser: AmityUser
@@ -22,11 +23,11 @@ class AmityUserSettingsActivity : AmityBaseToolbarFragmentContainerActivity() {
             setLeftDrawable(
                 ContextCompat.getDrawable(
                     this@AmityUserSettingsActivity,
-                    R.drawable.amity_ic_arrow_back
+                    CommonR.drawable.amity_ic_arrow_back
                 )
             )
             setLeftString(
-                getString(R.string.amity_settings)
+                getString(CommunityR.string.amity_settings)
             )
         }
     }

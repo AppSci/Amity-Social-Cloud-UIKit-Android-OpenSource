@@ -17,7 +17,8 @@ import com.amity.socialcloud.sdk.model.core.follow.AmityUserFollowInfo
 import com.amity.socialcloud.sdk.model.core.user.AmityUser
 import com.amity.socialcloud.uikit.common.common.views.AmityColorPaletteUtil
 import com.amity.socialcloud.uikit.common.common.views.AmityColorShade
-import com.amity.socialcloud.uikit.community.R
+import com.amity.socialcloud.uikit.common.R as CommonR
+import com.amity.socialcloud.uikit.community.R as CommunityR
 import com.amity.socialcloud.uikit.community.databinding.AmityViewUserProfileHeaderBinding
 
 class AmityUserProfileHeaderView : ConstraintLayout {
@@ -43,12 +44,12 @@ class AmityUserProfileHeaderView : ConstraintLayout {
         headerBinding.amityUser = user
         headerBinding.postCount = "10"
         headerBinding.tvPostCount.setText(
-            getStylisedText("10", context.getString(R.string.amity_posts)),
+            getStylisedText("10", context.getString(CommunityR.string.amity_posts)),
             TextView.BufferType.SPANNABLE
         )
 
         val banIcon = if (user.isGlobalBan()) {
-            ContextCompat.getDrawable(context, R.drawable.amity_ic_ban)
+            ContextCompat.getDrawable(context, CommunityR.drawable.amity_ic_ban)
         } else {
             null
         }
@@ -64,14 +65,14 @@ class AmityUserProfileHeaderView : ConstraintLayout {
         headerBinding.tvFollowersCount.setText(
             getStylisedText(
                 followInfo.getFollowerCount().toString(),
-                context.getString(R.string.amity_followers)
+                context.getString(CommunityR.string.amity_followers)
             ),
             TextView.BufferType.SPANNABLE
         )
         headerBinding.tvFollowingCount.setText(
             getStylisedText(
                 followInfo.getFollowingCount().toString(),
-                context.getString(R.string.amity_following_count)
+                context.getString(CommonR.string.amity_following_count)
             ),
             TextView.BufferType.SPANNABLE
         )
@@ -89,14 +90,14 @@ class AmityUserProfileHeaderView : ConstraintLayout {
         headerBinding.tvFollowersCount.setText(
             getStylisedText(
                 userFollowInfo.getFollowerCount().toString(),
-                context.getString(R.string.amity_followers)
+                context.getString(CommunityR.string.amity_followers)
             ),
             TextView.BufferType.SPANNABLE
         )
         headerBinding.tvFollowingCount.setText(
             getStylisedText(
                 userFollowInfo.getFollowingCount().toString(),
-                context.getString(R.string.amity_following_count)
+                context.getString(CommonR.string.amity_following_count)
             ),
             TextView.BufferType.SPANNABLE
         )
@@ -108,11 +109,11 @@ class AmityUserProfileHeaderView : ConstraintLayout {
         val textColor = when (followStatus) {
             AmityFollowStatus.NONE, AmityFollowStatus.PENDING -> {
                 AmityColorPaletteUtil.getColor(
-                    ContextCompat.getColor(context, R.color.amityColorBase), AmityColorShade.SHADE2
+                    ContextCompat.getColor(context, CommonR.color.amityColorBase), AmityColorShade.SHADE2
                 )
             }
             else -> {
-                ContextCompat.getColor(context, R.color.amityColorBase)
+                ContextCompat.getColor(context, CommonR.color.amityColorBase)
             }
         }
         headerBinding.tvPostCount.setTextColor(textColor)
@@ -130,7 +131,7 @@ class AmityUserProfileHeaderView : ConstraintLayout {
     private fun init() {
         val inflater = context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
         headerBinding =
-            DataBindingUtil.inflate(inflater, R.layout.amity_view_user_profile_header, this, true)
+            DataBindingUtil.inflate(inflater, CommunityR.layout.amity_view_user_profile_header, this, true)
     }
 
     private fun getStylisedText(s1: String, s2: String): Spannable {

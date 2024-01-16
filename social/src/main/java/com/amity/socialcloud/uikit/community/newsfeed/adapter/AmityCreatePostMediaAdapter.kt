@@ -4,7 +4,8 @@ import android.view.View
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.amity.socialcloud.uikit.common.base.AmityBaseRecyclerViewAdapter
-import com.amity.socialcloud.uikit.community.R
+import com.amity.socialcloud.uikit.common.R as CommonR
+import com.amity.socialcloud.uikit.community.R as CommunityR
 import com.amity.socialcloud.uikit.community.newsfeed.listener.AmityCreatePostImageActionListener
 import com.amity.socialcloud.uikit.community.newsfeed.model.PostMedia
 
@@ -18,7 +19,7 @@ class AmityCreatePostMediaAdapter(private val listener: AmityCreatePostImageActi
     }
 
     override fun getLayoutId(position: Int, obj: PostMedia?): Int {
-        return R.layout.amity_item_create_post_image
+        return CommunityR.layout.amity_item_create_post_image
     }
 
     override fun getViewHolder(view: View, viewType: Int): RecyclerView.ViewHolder {

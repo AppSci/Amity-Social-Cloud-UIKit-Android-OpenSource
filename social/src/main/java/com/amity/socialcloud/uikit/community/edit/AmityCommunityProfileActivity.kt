@@ -8,7 +8,8 @@ import androidx.appcompat.app.ActionBar
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import com.amity.socialcloud.uikit.common.components.AmityToolBarClickListener
-import com.amity.socialcloud.uikit.community.R
+import com.amity.socialcloud.uikit.common.R as CommonR
+import com.amity.socialcloud.uikit.community.R as CommunityR
 import com.amity.socialcloud.uikit.community.databinding.AmityActivityEditCommunityBinding
 import com.amity.socialcloud.uikit.community.ui.viewModel.AmityCreateCommunityViewModel
 
@@ -45,9 +46,9 @@ class AmityCommunityProfileActivity : AppCompatActivity(), AmityToolBarClickList
     private fun setUpToolbar() {
         binding.editCommunityToolbar.apply {
             setLeftDrawable(
-                    ContextCompat.getDrawable(this@AmityCommunityProfileActivity, R.drawable.amity_ic_arrow_back)
+                    ContextCompat.getDrawable(this@AmityCommunityProfileActivity, CommonR.drawable.amity_ic_arrow_back)
             )
-            setLeftString(getString(R.string.amity_edit_profile))
+            setLeftString(getString(CommonR.string.amity_edit_profile))
 
             setClickListener(this@AmityCommunityProfileActivity)
             supportActionBar?.displayOptions = ActionBar.DISPLAY_SHOW_CUSTOM
@@ -59,7 +60,7 @@ class AmityCommunityProfileActivity : AppCompatActivity(), AmityToolBarClickList
         val fragmentManager = supportFragmentManager
         val fragmentTransaction = fragmentManager.beginTransaction()
         mFragment = AmityCommunityEditorFragment.newInstance(communityId).build(this)
-        fragmentTransaction.replace(R.id.fragmentContainer, mFragment)
+        fragmentTransaction.replace(CommonR.id.fragmentContainer, mFragment)
         fragmentTransaction.commit()
     }
 

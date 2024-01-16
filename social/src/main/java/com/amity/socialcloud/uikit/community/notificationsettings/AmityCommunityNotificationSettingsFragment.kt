@@ -7,7 +7,8 @@ import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.amity.socialcloud.uikit.common.utils.AmityAlertDialogUtil
-import com.amity.socialcloud.uikit.community.R
+import com.amity.socialcloud.uikit.common.R as CommonR
+import com.amity.socialcloud.uikit.community.R as CommunityR
 import com.amity.socialcloud.uikit.community.databinding.AmityFragmentPushNotificationSettingsBinding
 import com.amity.socialcloud.uikit.community.newsfeed.activity.EXTRA_PARAM_COMMUNITY_ID
 import com.amity.socialcloud.uikit.community.notificationsettings.pushDetail.AmityCommunityPostNotificationSettingsActivity
@@ -99,8 +100,8 @@ class AmityCommunityNotificationSettingsFragment : RxFragment() {
         viewModel.updatePushNotificationSettings(enable = value,
             onError = {
                 errorDialog(
-                    R.string.amity_unable_to_save,
-                    R.string.amity_something_went_wrong_pls_try,
+                    CommunityR.string.amity_unable_to_save,
+                    CommunityR.string.amity_something_went_wrong_pls_try,
                     value
                 )
             }).untilLifecycleEnd(this)
@@ -117,7 +118,7 @@ class AmityCommunityNotificationSettingsFragment : RxFragment() {
             requireContext(),
             getString(title),
             getString(description),
-            getString(R.string.amity_ok),
+            getString(CommonR.string.amity_ok),
             null
         ) { dialog, which ->
             AmityAlertDialogUtil.checkConfirmDialog(isPositive = which, confirmed = {

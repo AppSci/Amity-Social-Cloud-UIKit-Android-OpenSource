@@ -52,7 +52,7 @@ import androidx.paging.compose.collectAsLazyPagingItems
 import com.amity.socialcloud.sdk.model.core.file.AmityImage
 import com.amity.socialcloud.sdk.model.social.community.AmityCommunity
 import com.amity.socialcloud.sdk.model.social.story.AmityStory
-import com.amity.socialcloud.uikit.community.compose.R
+import com.amity.socialcloud.uikit.common.R as CommonR
 import com.amity.socialcloud.uikit.community.compose.story.view.components.AmityStoryBodyRow
 import com.amity.socialcloud.uikit.community.compose.story.view.components.AmityStoryBottomRow
 import com.amity.socialcloud.uikit.community.compose.story.view.components.AmityStoryHeaderRow
@@ -303,8 +303,8 @@ fun AmityViewStoryPage(
                         ) {
                             Image(
                                 painter = painterResource(
-                                    id = if (isAudioMuted) R.drawable.amity_ic_story_audio_mute
-                                    else R.drawable.amity_ic_story_audio_unmute
+                                    id = if (isAudioMuted) CommonR.drawable.amity_ic_story_audio_mute
+                                    else CommonR.drawable.amity_ic_story_audio_unmute
                                 ),
                                 contentDescription = "Mute/Unmute Audio",
                                 modifier = Modifier
@@ -349,7 +349,7 @@ fun AmityViewStoryPage(
                                         }
                                 ) {
                                     Image(
-                                        painter = painterResource(id = R.drawable.amity_ic_delete_story),
+                                        painter = painterResource(id = CommonR.drawable.amity_ic_delete_story),
                                         contentDescription = null,
                                         modifier = Modifier.size(24.dp)
                                     )

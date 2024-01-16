@@ -7,7 +7,8 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.amity.socialcloud.sdk.model.social.feed.AmityFeedType
 import com.amity.socialcloud.sdk.model.social.poll.AmityPoll
 import com.amity.socialcloud.sdk.model.social.post.AmityPost
-import com.amity.socialcloud.uikit.community.R
+import com.amity.socialcloud.uikit.common.R as CommonR
+import com.amity.socialcloud.uikit.community.R as CommunityR
 import com.amity.socialcloud.uikit.community.databinding.AmityItemPollPostBinding
 import com.amity.socialcloud.uikit.community.newsfeed.events.PollVoteClickEvent
 import com.amity.socialcloud.uikit.community.newsfeed.events.PostContentClickEvent
@@ -38,29 +39,29 @@ class AmityPostItemPollViewHolder(itemView: View) : AmityPostContentViewHolder(i
                             Days.daysBetween(DateTime.now(), it.getClosedAt()).days > 0 -> {
                                 val days = Days.daysBetween(DateTime.now(), it.getClosedAt()).days
                                 binding.statusTextView.text =
-                                    context.resources.getQuantityString(R.plurals.amity_poll_status_closed_in_days, days, days)
+                                    context.resources.getQuantityString(CommunityR.plurals.amity_poll_status_closed_in_days, days, days)
                             }
                             Hours.hoursBetween(DateTime.now(), it.getClosedAt()).hours > 0 -> {
                                 val hours = Hours.hoursBetween(DateTime.now(), it.getClosedAt()).hours
                                 binding.statusTextView.text =
-                                    context.resources.getQuantityString(R.plurals.amity_poll_status_closed_in_hours, hours, hours)
+                                    context.resources.getQuantityString(CommunityR.plurals.amity_poll_status_closed_in_hours, hours, hours)
                             }
                             else -> {
                                 val minutes = min(1, Minutes.minutesBetween(DateTime.now(), it.getClosedAt()).minutes)
                                 binding.statusTextView.text =
-                                    context.resources.getQuantityString(R.plurals.amity_poll_status_closed_in_minutes, minutes, minutes)
+                                    context.resources.getQuantityString(CommunityR.plurals.amity_poll_status_closed_in_minutes, minutes, minutes)
                             }
                         }
                     }
                     AmityPoll.Status.CLOSED == it.getStatus() -> {
-                        binding.statusTextView.text = context.getString(R.string.amity_poll_status_closed)
+                        binding.statusTextView.text = context.getString(CommunityR.string.amity_poll_status_closed)
                     }
                 }
             }
             .doOnNext {
                 var totalVoteCount = 0
                 it.getAnswers().forEach { answer -> totalVoteCount += answer.voteCount }
-                binding.voteCountTextView.text = context.resources.getQuantityString(R.plurals.amity_poll_vote_count, totalVoteCount, totalVoteCount)
+                binding.voteCountTextView.text = context.resources.getQuantityString(CommunityR.plurals.amity_poll_vote_count, totalVoteCount, totalVoteCount)
 
                 binding.pollRecyclerView.layoutManager = LinearLayoutManager(context)
                 binding.pollRecyclerView.setHasFixedSize(true)
@@ -89,7 +90,7 @@ class AmityPostItemPollViewHolder(itemView: View) : AmityPostContentViewHolder(i
 
                         binding.submitTextView.isVisible = it.getStatus() == AmityPoll.Status.OPEN && isEnabled
                         binding.submitTextView.setOnClickListener(null)
-                        binding.submitTextView.setTextColor(ContextCompat.getColor(context, R.color.amityColorShuttleGray))
+                        binding.submitTextView.setTextColor(ContextCompat.getColor(context, CommunityR.color.amityColorShuttleGray))
 
                         val answerIds = hashSetOf<String>()
                         val holders = mutableMapOf<String, MaterialCardView>()
@@ -131,8 +132,8 @@ class AmityPostItemPollViewHolder(itemView: View) : AmityPostContentViewHolder(i
 
                             binding.submitTextView.setTextColor(
                                 when (isVotable) {
-                                    true -> ContextCompat.getColor(context, R.color.amityColorPrimary)
-                                    false -> ContextCompat.getColor(context, R.color.amityColorShuttleGray)
+                                    true -> ContextCompat.getColor(context, CommonR.color.amityColorPrimary)
+                                    false -> ContextCompat.getColor(context, CommunityR.color.amityColorShuttleGray)
                                 }
                             )
                         }
@@ -146,8 +147,8 @@ class AmityPostItemPollViewHolder(itemView: View) : AmityPostContentViewHolder(i
             .doOnNext {
                 if (!showFullContent && it.getAnswers().size > 2) {
                     binding.expandTextView.text = when (it.isVoted()) {
-                        true -> context.getString(R.string.amity_poll_expand_voted)
-                        false -> context.resources.getQuantityString(R.plurals.amity_poll_expand, it.getAnswers().size - 2, it.getAnswers().size - 2)
+                        true -> context.getString(CommunityR.string.amity_poll_expand_voted)
+                        false -> context.resources.getQuantityString(CommunityR.plurals.amity_poll_expand, it.getAnswers().size - 2, it.getAnswers().size - 2)
                     }
 
                     binding.expandTextView.isVisible = true

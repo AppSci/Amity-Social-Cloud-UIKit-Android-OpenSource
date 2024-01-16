@@ -6,7 +6,8 @@ import android.view.View
 import androidx.core.content.ContextCompat
 import androidx.databinding.DataBindingUtil
 import com.amity.socialcloud.sdk.model.chat.message.AmityMessage
-import com.amity.socialcloud.uikit.chat.R
+import com.amity.socialcloud.uikit.chat.R as ChatR
+import com.amity.socialcloud.uikit.common.R as CommonR
 import com.amity.socialcloud.uikit.chat.databinding.AmityItemImageMsgSenderBinding
 import com.amity.socialcloud.uikit.chat.databinding.AmityPopupMsgDeleteBinding
 import com.amity.socialcloud.uikit.chat.messages.popUp.AmityPopUp
@@ -61,8 +62,8 @@ class AmityImageMsgSenderViewHolder(
         } else {
             binding?.ivMsgOutgoing?.setShape(
                 null, null,
-                itemView.context.resources.getDimension(R.dimen.amity_zero),
-                null, R.color.amityColorBase, null, AmityColorShade.SHADE4
+                itemView.context.resources.getDimension(CommonR.dimen.amity_zero),
+                null, CommonR.color.amityColorBase, null, AmityColorShade.SHADE4
             )
         }
 
@@ -73,7 +74,7 @@ class AmityImageMsgSenderViewHolder(
         }
 
         binding?.progressBar?.trackColor = AmityColorPaletteUtil.getColor(
-            ContextCompat.getColor(context, R.color.amityColorBase),
+            ContextCompat.getColor(context, CommonR.color.amityColorBase),
             AmityColorShade.SHADE3
         )
     }
@@ -87,11 +88,11 @@ class AmityImageMsgSenderViewHolder(
     override fun showPopUp() {
         if (!itemViewModel.uploading.get()) {
             popUp = AmityPopUp()
-            val anchor: View = itemView.findViewById(R.id.ivMsgOutgoing)
+            val anchor: View = itemView.findViewById(ChatR.id.ivMsgOutgoing)
             val inflater: LayoutInflater = LayoutInflater.from(anchor.context)
             val binding: AmityPopupMsgDeleteBinding = DataBindingUtil.inflate(
                 inflater,
-                R.layout.amity_popup_msg_delete, null, true
+                ChatR.layout.amity_popup_msg_delete, null, true
             )
             binding.viewModel = itemViewModel
             popUp?.showPopUp(binding.root, anchor, itemViewModel, AmityPopUp.PopUpGravity.END)

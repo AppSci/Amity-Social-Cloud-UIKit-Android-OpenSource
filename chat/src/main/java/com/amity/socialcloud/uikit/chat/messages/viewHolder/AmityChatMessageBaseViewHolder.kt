@@ -4,7 +4,8 @@ import android.view.View
 import androidx.recyclerview.widget.RecyclerView
 import com.amity.socialcloud.sdk.api.core.AmityCoreClient
 import com.amity.socialcloud.sdk.model.chat.message.AmityMessage
-import com.amity.socialcloud.uikit.chat.R
+import com.amity.socialcloud.uikit.chat.R as ChatR
+import com.amity.socialcloud.uikit.common.R as CommonR
 import com.amity.socialcloud.uikit.chat.messages.viewModel.AmityChatMessageBaseViewModel
 import com.amity.socialcloud.uikit.common.utils.AmityDateUtils
 
@@ -40,7 +41,7 @@ abstract class AmityChatMessageBaseViewHolder(
         return if (item.getCreatorId() == AmityCoreClient.getUserId()) {
             "ME"
         } else {
-            item.getCreator()?.getDisplayName() ?: itemView.context.getString(R.string.amity_anonymous)
+            item.getCreator()?.getDisplayName() ?: itemView.context.getString(CommonR.string.amity_anonymous)
         }
     }
 }

@@ -5,7 +5,8 @@ import android.view.LayoutInflater
 import android.view.View
 import androidx.databinding.DataBindingUtil
 import com.amity.socialcloud.sdk.model.chat.message.AmityMessage
-import com.amity.socialcloud.uikit.chat.R
+import com.amity.socialcloud.uikit.chat.R as ChatR
+import com.amity.socialcloud.uikit.common.R as CommonR
 import com.amity.socialcloud.uikit.chat.databinding.AmityItemTextMessageSenderBinding
 import com.amity.socialcloud.uikit.chat.databinding.AmityPopupTextMsgSenderBinding
 import com.amity.socialcloud.uikit.chat.editMessage.AmityEditMessageActivity
@@ -50,11 +51,11 @@ class AmityTextMsgSenderViewHolder(
 
     override fun showPopUp() {
         popUp = AmityPopUp()
-        val anchor: View = itemView.findViewById(R.id.tvMessageOutgoing)
+        val anchor: View = itemView.findViewById(ChatR.id.tvMessageOutgoing)
         val inflater: LayoutInflater = LayoutInflater.from(anchor.context)
         val binding: AmityPopupTextMsgSenderBinding = DataBindingUtil.inflate(
             inflater,
-            R.layout.amity_popup_text_msg_sender, null, true
+            ChatR.layout.amity_popup_text_msg_sender, null, true
         )
         binding.viewModel = itemViewModel
 

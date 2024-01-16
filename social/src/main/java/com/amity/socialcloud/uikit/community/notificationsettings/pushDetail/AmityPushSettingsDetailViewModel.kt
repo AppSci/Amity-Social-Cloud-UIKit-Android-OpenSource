@@ -7,7 +7,8 @@ import com.amity.socialcloud.sdk.model.core.role.AmityRoles
 import com.amity.socialcloud.sdk.model.social.notification.AmityCommunityNotificationEvent
 import com.amity.socialcloud.sdk.model.social.notification.AmityCommunityNotificationSettings
 import com.amity.socialcloud.uikit.common.utils.AmityConstants
-import com.amity.socialcloud.uikit.community.R
+import com.amity.socialcloud.uikit.common.R as CommonR
+import com.amity.socialcloud.uikit.community.R as CommunityR
 import com.amity.socialcloud.uikit.community.notificationsettings.AmityPushNotificationBaseViewModel
 import com.amity.socialcloud.uikit.community.setting.AmitySettingsItem
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
@@ -89,7 +90,7 @@ class AmityPushSettingsDetailViewModel : AmityPushNotificationBaseViewModel() {
         val settingsItems = mutableListOf<AmitySettingsItem>()
         val separator = AmitySettingsItem.Separator
         val postReactedEvent = map[AmityCommunityNotificationEvent.POST_REACTED.toString()]
-        val paddingXS = AmitySettingsItem.Margin(R.dimen.amity_padding_xs)
+        val paddingXS = AmitySettingsItem.Margin(CommonR.dimen.amity_padding_xs)
         if (postReactedEvent != null && postReactedEvent.isNetworkEnabled()) {
             val postReacted = menuCreator.createReactPostMenu(communityId)
             settingsItems.add(postReacted)
@@ -106,7 +107,7 @@ class AmityPushSettingsDetailViewModel : AmityPushNotificationBaseViewModel() {
             if (initialReactPost != -1) {
                 settingsItems.add(separator)
             }
-            settingsItems.add(AmitySettingsItem.Margin(R.dimen.amity_padding_s))
+            settingsItems.add(AmitySettingsItem.Margin(CommonR.dimen.amity_padding_s))
             val newPost = menuCreator.createNewPostMenu(communityId)
             settingsItems.add(newPost)
             settingsItems.add(paddingXS)
@@ -152,10 +153,10 @@ class AmityPushSettingsDetailViewModel : AmityPushNotificationBaseViewModel() {
             }
         }
         if (!isGlobalModerator) {
-            choices.add(Pair(R.string.amity_everyone, !isModerator))
+            choices.add(Pair(CommunityR.string.amity_everyone, !isModerator))
         }
-        choices.add(Pair(R.string.amity_only_moderator, isModerator))
-        choices.add(Pair(R.string.amity_notification_off, !notificationEvent.isEnabled()))
+        choices.add(Pair(CommunityR.string.amity_only_moderator, isModerator))
+        choices.add(Pair(CommunityR.string.amity_notification_off, !notificationEvent.isEnabled()))
 
         return choices
     }
@@ -168,12 +169,12 @@ class AmityPushSettingsDetailViewModel : AmityPushNotificationBaseViewModel() {
                 filter is AmityRolesFilter.ONLY && filter.getRoles()
                     .any { it == AmityConstants.MODERATOR_ROLE || it == AmityConstants.COMMUNITY_MODERATOR_ROLE } || isGlobalModerator
             if (isModerator) {
-                R.string.amity_only_moderator
+                CommunityR.string.amity_only_moderator
             } else {
-                R.string.amity_everyone
+                CommunityR.string.amity_everyone
             }
         } else {
-            R.string.amity_notification_off
+            CommunityR.string.amity_notification_off
         }
         return Pair(initialValue, isModerator)
     }
@@ -223,8 +224,8 @@ class AmityPushSettingsDetailViewModel : AmityPushNotificationBaseViewModel() {
     fun createCommentSettingsItem(menuCreator: AmityCommentMenuCreator): List<AmitySettingsItem> {
         val settingsItems = mutableListOf<AmitySettingsItem>()
         val separator = AmitySettingsItem.Separator
-        val paddingXS = AmitySettingsItem.Margin(R.dimen.amity_padding_xs)
-        val paddingS = AmitySettingsItem.Margin(R.dimen.amity_padding_s)
+        val paddingXS = AmitySettingsItem.Margin(CommonR.dimen.amity_padding_xs)
+        val paddingS = AmitySettingsItem.Margin(CommonR.dimen.amity_padding_s)
         val reactCommentEvent = map[AmityCommunityNotificationEvent.COMMENT_REACTED.toString()]
         if (reactCommentEvent != null && reactCommentEvent.isNetworkEnabled()) {
             val commentReacted = menuCreator.createReactCommentsMenu(communityId)
@@ -386,8 +387,8 @@ class AmityPushSettingsDetailViewModel : AmityPushNotificationBaseViewModel() {
     }
 
     private fun getPushSettingUpdateModel(event: Int): Pair<Boolean, AmityRolesFilter> {
-        val isEnable = event != R.string.amity_notification_off
-        val rolesFilter = if (event == R.string.amity_only_moderator) {
+        val isEnable = event != CommunityR.string.amity_notification_off
+        val rolesFilter = if (event == CommunityR.string.amity_only_moderator) {
             AmityRolesFilter.ONLY(
                 AmityRoles(
                     listOf(

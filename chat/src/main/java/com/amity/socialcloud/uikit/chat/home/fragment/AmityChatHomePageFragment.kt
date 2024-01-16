@@ -7,7 +7,8 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import com.amity.socialcloud.uikit.chat.R
+import com.amity.socialcloud.uikit.chat.R as ChatR
+import com.amity.socialcloud.uikit.common.R as CommonR
 import com.amity.socialcloud.uikit.chat.databinding.AmityFragmentChatHomePageBinding
 import com.amity.socialcloud.uikit.chat.home.AmityChatHomePageViewModel
 import com.amity.socialcloud.uikit.chat.home.callback.AmityRecentChatFragmentDelegate
@@ -27,14 +28,14 @@ class AmityChatHomePageFragment private constructor() : Fragment() {
 
     private val selectMembers = registerForActivityResult(AmityPickMemberContract()) { userList ->
         if (userList.isNotEmpty()) {
-            view?.showSnackBar(msg = getString(R.string.amity_channel_creation_loading))
+            view?.showSnackBar(msg = getString(ChatR.string.amity_channel_creation_loading))
             mViewModel.createChat(selectedMembers = userList,
                 onChatCreateSuccess = { channelId: String ->
                     val chatListIntent =
                         AmityMessageListActivity.newIntent(requireContext(), channelId)
                     startActivity(chatListIntent)
                 },
-                onChatCreateFailed = { view?.showSnackBar(msg = getString(R.string.amity_channel_creation_error)) })
+                onChatCreateFailed = { view?.showSnackBar(msg = getString(ChatR.string.amity_channel_creation_error)) })
                 .untilLifecycleEnd(this.requireView())
                 .subscribe()
         }
@@ -65,7 +66,7 @@ class AmityChatHomePageFragment private constructor() : Fragment() {
     }
 
     private fun initToolbar() {
-        binding.chatHomeToolBar.setLeftString(getString(R.string.amity_chat))
+        binding.chatHomeToolBar.setLeftString(getString(ChatR.string.amity_chat))
         (activity as AppCompatActivity).supportActionBar?.displayOptions =
             ActionBar.DISPLAY_SHOW_CUSTOM
         (activity as AppCompatActivity).setSupportActionBar(binding.chatHomeToolBar as Toolbar)
@@ -76,7 +77,7 @@ class AmityChatHomePageFragment private constructor() : Fragment() {
         fragmentStateAdapter.setFragmentList(
             arrayListOf(
                 AmityFragmentStateAdapter.AmityPagerModel(
-                    getString(R.string.amity_title_recent_chat),
+                    getString(ChatR.string.amity_title_recent_chat),
                     getRecentChatFragment()
                 )
             )
@@ -98,11 +99,11 @@ class AmityChatHomePageFragment private constructor() : Fragment() {
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
-        inflater.inflate(R.menu.amity_chat_home, menu)
+        inflater.inflate(ChatR.menu.amity_chat_home, menu)
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        if (item.itemId == R.id.create) {
+        if (item.itemId == ChatR.id.create) {
             navigateToCreateGroupChat()
         }
         return super.onOptionsItemSelected(item)

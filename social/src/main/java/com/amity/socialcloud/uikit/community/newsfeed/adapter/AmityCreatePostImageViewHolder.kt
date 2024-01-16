@@ -7,7 +7,8 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.RecyclerView
 import com.amity.socialcloud.uikit.common.base.AmityBaseRecyclerViewAdapter
 import com.amity.socialcloud.uikit.common.utils.AmityScreenUtils
-import com.amity.socialcloud.uikit.community.R
+import com.amity.socialcloud.uikit.common.R as CommonR
+import com.amity.socialcloud.uikit.community.R as CommunityR
 import com.amity.socialcloud.uikit.community.newsfeed.activity.AmityVideoPlayerActivity
 import com.amity.socialcloud.uikit.community.newsfeed.listener.AmityCreatePostImageActionListener
 import com.amity.socialcloud.uikit.community.newsfeed.model.FileUploadState
@@ -27,13 +28,13 @@ class AmityCreatePostImageViewHolder(
     RecyclerView.ViewHolder(itemView), AmityBaseRecyclerViewAdapter.IBinder<PostMedia> {
 
 
-    val container: ConstraintLayout = itemView.findViewById(R.id.container)
-    var photo: ShapeableImageView = itemView.findViewById(R.id.ivPhoto)
-    var removePhoto: ShapeableImageView = itemView.findViewById(R.id.ivCross)
-    var errorPhoto: ShapeableImageView = itemView.findViewById(R.id.ivError)
-    private val progrssBar: ProgressBar = itemView.findViewById(R.id.pbImageUpload)
-    private val playIcon: ShapeableImageView = itemView.findViewById(R.id.ivPlay)
-    private val radius: Float = itemView.context.resources.getDimension(R.dimen.amity_four)
+    val container: ConstraintLayout = itemView.findViewById(CommunityR.id.container)
+    var photo: ShapeableImageView = itemView.findViewById(CommunityR.id.ivPhoto)
+    var removePhoto: ShapeableImageView = itemView.findViewById(CommunityR.id.ivCross)
+    var errorPhoto: ShapeableImageView = itemView.findViewById(CommunityR.id.ivError)
+    private val progrssBar: ProgressBar = itemView.findViewById(CommunityR.id.pbImageUpload)
+    private val playIcon: ShapeableImageView = itemView.findViewById(CommunityR.id.ivPlay)
+    private val radius: Float = itemView.context.resources.getDimension(CommonR.dimen.amity_four)
 
     override fun bind(data: PostMedia?, position: Int) {
         setupShape()
@@ -115,17 +116,17 @@ class AmityCreatePostImageViewHolder(
     private fun getHeight(itemCount: Int): Int {
         var dimenRes: Int = -1
         dimenRes = when (itemCount) {
-            1, 2 -> R.dimen.amity_three_hundred_twenty_eight
+            1, 2 -> CommonR.dimen.amity_three_hundred_twenty_eight
             else -> {
-                R.dimen.amity_one_hundred_twenty
+                CommonR.dimen.amity_one_hundred_twenty
             }
         }
         return itemView.context.resources.getDimensionPixelSize(dimenRes)
     }
 
     private fun getWidth(itemCount: Int): Int {
-        val margin: Int = itemView.context.resources.getDimensionPixelSize(R.dimen.amity_sixteen)
-        var dimenRes: Int = itemView.context.resources.getDimensionPixelSize(R.dimen.amity_eight)
+        val margin: Int = itemView.context.resources.getDimensionPixelSize(CommonR.dimen.amity_sixteen)
+        var dimenRes: Int = itemView.context.resources.getDimensionPixelSize(CommonR.dimen.amity_eight)
         dimenRes = when (itemCount) {
             1 -> return AmityScreenUtils.getScreenWidth(itemView.context) - margin * 2
             2 -> {

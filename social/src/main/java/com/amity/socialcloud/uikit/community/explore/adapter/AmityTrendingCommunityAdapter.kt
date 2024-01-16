@@ -8,7 +8,8 @@ import com.amity.socialcloud.sdk.model.core.file.AmityImage
 import com.amity.socialcloud.sdk.model.social.community.AmityCommunity
 import com.amity.socialcloud.uikit.common.base.AmityBaseRecyclerViewListAdapter
 import com.amity.socialcloud.uikit.common.common.formatCount
-import com.amity.socialcloud.uikit.community.R
+import com.amity.socialcloud.uikit.common.R as CommonR
+import com.amity.socialcloud.uikit.community.R as CommunityR
 import com.amity.socialcloud.uikit.community.databinding.AmityItemTrendingCommunityListBinding
 import com.amity.socialcloud.uikit.community.mycommunity.listener.AmityMyCommunityItemClickListener
 
@@ -32,7 +33,7 @@ class AmityTrendingCommunityAdapter(private val listener: AmityMyCommunityItemCl
     }
 
     override fun getLayoutId(position: Int, obj: AmityCommunity?): Int =
-        R.layout.amity_item_trending_community_list
+        CommunityR.layout.amity_item_trending_community_list
 
     override fun getViewHolder(view: View, viewType: Int): RecyclerView.ViewHolder =
         AmityTrendingCommunityViewHolder(view, listener)
@@ -60,7 +61,7 @@ class AmityTrendingCommunityAdapter(private val listener: AmityMyCommunityItemCl
             binding?.community = data
             binding?.listener = listener
             binding?.tvMembersCount?.text = itemView.context.getString(
-                R.string.amity_members_count,
+                CommunityR.string.amity_members_count,
                 "${data?.getMemberCount()?.toDouble()?.formatCount()}"
             )
             binding?.tvCategory?.text =

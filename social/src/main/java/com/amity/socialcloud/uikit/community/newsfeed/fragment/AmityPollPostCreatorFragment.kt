@@ -19,7 +19,8 @@ import com.amity.socialcloud.sdk.model.social.poll.AmityPoll
 import com.amity.socialcloud.sdk.model.social.poll.AmityPollAnswer
 import com.amity.socialcloud.uikit.common.base.AmityBaseFragment
 import com.amity.socialcloud.uikit.common.utils.AmityAndroidUtil
-import com.amity.socialcloud.uikit.community.R
+import com.amity.socialcloud.uikit.common.R as CommonR
+import com.amity.socialcloud.uikit.community.R as CommunityR
 import com.amity.socialcloud.uikit.community.databinding.AmityFragmentPollCreatorBinding
 import com.amity.socialcloud.uikit.community.newsfeed.adapter.AmityPollDraftAnswerAdapter
 import com.amity.socialcloud.uikit.community.newsfeed.adapter.AmityUserMentionAdapter
@@ -91,7 +92,7 @@ class AmityPollPostCreatorFragment : AmityBaseFragment(), SuggestionsVisibilityM
     private fun highlightLastChar(textView: TextView) {
         val spannableString = SpannableString(textView.text)
         spannableString.setSpan(
-            ForegroundColorSpan(ContextCompat.getColor(requireContext(), R.color.amityColorAlert)),
+            ForegroundColorSpan(ContextCompat.getColor(requireContext(), CommonR.color.amityColorAlert)),
             textView.length() - 1,
             textView.length(),
             Spannable.SPAN_INCLUSIVE_EXCLUSIVE
@@ -120,8 +121,8 @@ class AmityPollPostCreatorFragment : AmityBaseFragment(), SuggestionsVisibilityM
             ContextCompat.getColor(
                 requireContext(),
                 when (isExceeded) {
-                    true -> R.color.amityColorAlert
-                    false -> R.color.amityColorShuttleGray
+                    true -> CommonR.color.amityColorAlert
+                    false -> CommunityR.color.amityColorShuttleGray
                 }
             )
         )
@@ -131,8 +132,8 @@ class AmityPollPostCreatorFragment : AmityBaseFragment(), SuggestionsVisibilityM
             ContextCompat.getColor(
                 requireContext(),
                 when (isExceeded) {
-                    true -> R.color.amityColorAlert
-                    false -> R.color.amityColorAthensGray
+                    true -> CommonR.color.amityColorAlert
+                    false -> CommunityR.color.amityColorAthensGray
                 }
             )
         )
@@ -185,8 +186,8 @@ class AmityPollPostCreatorFragment : AmityBaseFragment(), SuggestionsVisibilityM
             ContextCompat.getColor(
                 requireContext(),
                 when (isExceeded) {
-                    true -> R.color.amityColorAlert
-                    false -> R.color.amityColorAthensGray
+                    true -> CommonR.color.amityColorAlert
+                    false -> CommunityR.color.amityColorAthensGray
                 }
             )
         )
@@ -196,7 +197,7 @@ class AmityPollPostCreatorFragment : AmityBaseFragment(), SuggestionsVisibilityM
 
     override fun onPrepareOptionsMenu(menu: Menu) {
         val menuItem =
-            menu.add(Menu.NONE, R.id.amity_poll_post, Menu.NONE, getString(R.string.amity_post))
+            menu.add(Menu.NONE, CommunityR.id.amity_poll_post, Menu.NONE, getString(CommunityR.string.amity_post))
 
         val isEnabled = binding.questionEditText.length() in 1..MAX_QUESTION_LENGTH
                 && adapter.itemCount >= MIN_ANSWER_COUNT
@@ -204,8 +205,8 @@ class AmityPollPostCreatorFragment : AmityBaseFragment(), SuggestionsVisibilityM
             ?.toIntOrNull() ?: 0 <= DEFAULT_TIME_FRAME_DAYS
 
         val color = when (isEnabled) {
-            true -> ContextCompat.getColor(requireContext(), R.color.amityColorPrimary)
-            false -> ContextCompat.getColor(requireContext(), R.color.amityColorShuttleGray)
+            true -> ContextCompat.getColor(requireContext(), CommonR.color.amityColorPrimary)
+            false -> ContextCompat.getColor(requireContext(), CommunityR.color.amityColorShuttleGray)
         }
 
         val title = SpannableString(menuItem.title)
@@ -217,7 +218,7 @@ class AmityPollPostCreatorFragment : AmityBaseFragment(), SuggestionsVisibilityM
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        if (item.itemId == R.id.amity_poll_post) {
+        if (item.itemId == CommunityR.id.amity_poll_post) {
             for (answer in adapter.getItems()) {
                 if (answer.data.isEmpty() || answer.data.length > MAX_ANSWER_LENGTH) {
                     adapter.invalidateAnswers()
@@ -258,7 +259,7 @@ class AmityPollPostCreatorFragment : AmityBaseFragment(), SuggestionsVisibilityM
     }
     
     private fun setupUserMention() {
-        binding.questionEditText.hint = resources.getString(R.string.amity_poll_question_hint)
+        binding.questionEditText.hint = resources.getString(CommunityR.string.amity_poll_question_hint)
         binding.questionEditText.apply {
             setSuggestionsVisibilityManager(this@AmityPollPostCreatorFragment)
             setQueryTokenReceiver(this@AmityPollPostCreatorFragment)

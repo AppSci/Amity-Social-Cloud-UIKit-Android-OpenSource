@@ -7,7 +7,8 @@ import androidx.appcompat.app.ActionBar
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import com.amity.socialcloud.uikit.common.components.AmityToolBarClickListener
-import com.amity.socialcloud.uikit.community.R
+import com.amity.socialcloud.uikit.common.R as CommonR
+import com.amity.socialcloud.uikit.community.R as CommunityR
 import com.amity.socialcloud.uikit.community.databinding.AmityActivityPushNotificationsSettingsBinding
 import com.amity.socialcloud.uikit.community.utils.EXTRA_PARAM_COMMUNITY_ID
 
@@ -34,11 +35,11 @@ class AmityCommunityNotificationsSettingsActivity : AppCompatActivity(), AmityTo
         binding.pushNotificationToolBar.setLeftDrawable(
             ContextCompat.getDrawable(
                 this,
-                R.drawable.amity_ic_arrow_back
+                CommonR.drawable.amity_ic_arrow_back
             )
         )
         binding.pushNotificationToolBar.setClickListener(this)
-        binding.pushNotificationToolBar.setLeftString(getString(R.string.amity_notification_settings))
+        binding.pushNotificationToolBar.setLeftString(getString(CommunityR.string.amity_notification_settings))
 
         supportActionBar?.displayOptions = ActionBar.DISPLAY_SHOW_CUSTOM
         setSupportActionBar(binding.pushNotificationToolBar)
@@ -51,7 +52,7 @@ class AmityCommunityNotificationsSettingsActivity : AppCompatActivity(), AmityTo
         val builder = AmityCommunityNotificationSettingsFragment.newInstance(communityId)
 
         val fragment = builder.build()
-        fragmentTransaction.replace(R.id.fragmentContainer, fragment)
+        fragmentTransaction.replace(CommunityR.id.fragmentContainer, fragment)
         fragmentTransaction.commit()
     }
 

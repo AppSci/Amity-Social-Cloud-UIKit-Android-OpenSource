@@ -1,7 +1,8 @@
 package com.amity.socialcloud.uikit.community.setting
 
 import androidx.annotation.DimenRes
-import com.amity.socialcloud.uikit.community.R
+import com.amity.socialcloud.uikit.common.R as CommonR
+import com.amity.socialcloud.uikit.community.R as CommunityR
 import io.reactivex.rxjava3.core.Flowable
 
 sealed class AmitySettingsItem {
@@ -11,13 +12,13 @@ sealed class AmitySettingsItem {
             val icon: Int? = null,
             val title: Int,
             val description: Int? = null,
-            val titleTextColor: Int = R.color.upstraColorBase,
+            val titleTextColor: Int = CommonR.color.upstraColorBase,
             val isTitleBold: Boolean = false,
             val callback: () -> Unit) : AmitySettingsItem()
 
     class NavigationContent(
             val icon: Int? = null,
-            val iconNavigation: Int? = R.drawable.amity_ic_chevron_right,
+            val iconNavigation: Int? = CommunityR.drawable.amity_ic_chevron_right,
             val title: Int,
             val value: Int? = null,
             val description: Int? = null,

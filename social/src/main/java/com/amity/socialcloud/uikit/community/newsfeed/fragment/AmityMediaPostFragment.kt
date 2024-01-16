@@ -18,7 +18,8 @@ import com.amity.socialcloud.uikit.common.base.AmityBaseFragment
 import com.amity.socialcloud.uikit.common.imagepreview.AmityImagePreviewActivity
 import com.amity.socialcloud.uikit.common.imagepreview.AmityPreviewImage
 import com.amity.socialcloud.uikit.common.utils.safeCast
-import com.amity.socialcloud.uikit.community.R
+import com.amity.socialcloud.uikit.common.R as CommonR
+import com.amity.socialcloud.uikit.community.R as CommunityR
 import com.amity.socialcloud.uikit.community.databinding.AmityFragmentMediaPostBinding
 import com.amity.socialcloud.uikit.community.databinding.AmityViewPrivateUserProfileBinding
 import com.amity.socialcloud.uikit.community.newsfeed.activity.AmityVideoPlayerActivity
@@ -152,12 +153,12 @@ class AmityMediaPostFragment : AmityBaseFragment() {
         binding.postGalleryRecyclerview.visibility = View.GONE
         when (viewModel.postType) {
             AmityPost.DataType.IMAGE.getApiKey() -> {
-                binding.postGalleryEmptyTextview.setText(R.string.amity_gallery_no_photos)
-                binding.postGalleryEmptyImageview.setImageResource(R.drawable.amity_ic_photo_empty)
+                binding.postGalleryEmptyTextview.setText(CommunityR.string.amity_gallery_no_photos)
+                binding.postGalleryEmptyImageview.setImageResource(CommunityR.drawable.amity_ic_photo_empty)
             }
             AmityPost.DataType.VIDEO.getApiKey() -> {
-                binding.postGalleryEmptyTextview.setText(R.string.amity_gallery_no_videos)
-                binding.postGalleryEmptyImageview.setImageResource(R.drawable.amity_ic_video_empty)
+                binding.postGalleryEmptyTextview.setText(CommunityR.string.amity_gallery_no_videos)
+                binding.postGalleryEmptyImageview.setImageResource(CommunityR.drawable.amity_ic_video_empty)
             }
         }
     }

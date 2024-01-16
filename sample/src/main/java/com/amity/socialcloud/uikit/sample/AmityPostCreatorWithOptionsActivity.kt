@@ -5,7 +5,8 @@ import android.content.Intent
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import com.amity.socialcloud.uikit.common.base.AmityBaseToolbarFragmentContainerActivity
-import com.amity.socialcloud.uikit.community.R
+import com.amity.socialcloud.uikit.common.R as CommonR
+import com.amity.socialcloud.uikit.community.R as CommunityR
 import com.amity.socialcloud.uikit.community.newsfeed.fragment.AmityPostCreatorFragment
 import com.amity.socialcloud.uikit.community.newsfeed.model.AmityPostAttachmentOptionItem
 import com.amity.socialcloud.uikit.community.utils.EXTRA_PARAM_COMMUNITY_ID
@@ -14,8 +15,8 @@ import com.amity.socialcloud.uikit.community.utils.EXTRA_PARAM_POST_ATTACHMENT_O
 class AmityPostCreatorWithOptionsActivity : AmityBaseToolbarFragmentContainerActivity() {
 
     override fun initToolbar() {
-        getToolBar()?.setLeftDrawable(ContextCompat.getDrawable(this, R.drawable.amity_ic_cross))
-        getToolBar()?.setLeftString(getString(R.string.amity_my_timeline))
+        getToolBar()?.setLeftDrawable(ContextCompat.getDrawable(this, CommonR.drawable.amity_ic_cross))
+        getToolBar()?.setLeftString(getString(CommunityR.string.amity_my_timeline))
     }
 
     override fun getContentFragment(): Fragment {

@@ -2,7 +2,8 @@ package com.amity.socialcloud.uikit.community.newsfeed.adapter
 
 import android.view.View
 import com.amity.socialcloud.sdk.model.core.file.AmityImage
-import com.amity.socialcloud.uikit.community.R
+import com.amity.socialcloud.uikit.common.R as CommonR
+import com.amity.socialcloud.uikit.community.R as CommunityR
 import com.amity.socialcloud.uikit.community.newsfeed.listener.AmityPostImageClickListener
 import com.amity.socialcloud.uikit.community.newsfeed.listener.AmityPostMediaClickListener
 import com.amity.socialcloud.uikit.community.newsfeed.listener.AmityPostVideoClickListener
@@ -18,15 +19,15 @@ class AmityFourPostImageChildrenViewHolder(
     mediaType: PostMedia.Type
 ) : AmityBasePostImageChildrenViewHolder(view, images, parentPostId, mediaType, itemClickListener) {
 
-    private val imageOne: ShapeableImageView = itemView.findViewById(R.id.imageViewPreviewImageOne)
-    private val imageTwo: ShapeableImageView = itemView.findViewById(R.id.imageViewPreviewImageTwo)
-    private val imageThree: ShapeableImageView = itemView.findViewById(R.id.imageViewPreviewImageThree)
-    private val imageFour: ShapeableImageView = itemView.findViewById(R.id.imageViewPreviewImageFour)
-    private val textRemainingCount: MaterialTextView = itemView.findViewById(R.id.textViewRemainingCount)
-    private val playIconOne: ShapeableImageView = itemView.findViewById(R.id.ivPlayImageOne)
-    private val playIconTwo: ShapeableImageView = itemView.findViewById(R.id.ivPlayImageTwo)
-    private val playIconThree: ShapeableImageView = itemView.findViewById(R.id.ivPlayImageThree)
-    private val playIconFour: ShapeableImageView = itemView.findViewById(R.id.ivPlayImageFour)
+    private val imageOne: ShapeableImageView = itemView.findViewById(CommunityR.id.imageViewPreviewImageOne)
+    private val imageTwo: ShapeableImageView = itemView.findViewById(CommunityR.id.imageViewPreviewImageTwo)
+    private val imageThree: ShapeableImageView = itemView.findViewById(CommunityR.id.imageViewPreviewImageThree)
+    private val imageFour: ShapeableImageView = itemView.findViewById(CommunityR.id.imageViewPreviewImageFour)
+    private val textRemainingCount: MaterialTextView = itemView.findViewById(CommunityR.id.textViewRemainingCount)
+    private val playIconOne: ShapeableImageView = itemView.findViewById(CommunityR.id.ivPlayImageOne)
+    private val playIconTwo: ShapeableImageView = itemView.findViewById(CommunityR.id.ivPlayImageTwo)
+    private val playIconThree: ShapeableImageView = itemView.findViewById(CommunityR.id.ivPlayImageThree)
+    private val playIconFour: ShapeableImageView = itemView.findViewById(CommunityR.id.ivPlayImageFour)
 
     override fun bind(data: AmityPostImageChildrenItem?, position: Int) {
         setupView()

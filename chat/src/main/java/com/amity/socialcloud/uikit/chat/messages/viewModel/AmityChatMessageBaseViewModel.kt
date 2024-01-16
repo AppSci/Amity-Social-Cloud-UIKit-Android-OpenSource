@@ -3,7 +3,7 @@ package com.amity.socialcloud.uikit.chat.messages.viewModel
 import androidx.databinding.ObservableBoolean
 import androidx.databinding.ObservableField
 import com.amity.socialcloud.sdk.model.chat.message.AmityMessage
-import com.amity.socialcloud.uikit.chat.R
+import com.amity.socialcloud.uikit.common.R as CommonR
 import com.amity.socialcloud.uikit.common.base.AmityBaseViewModel
 import io.reactivex.rxjava3.core.Completable
 
@@ -19,7 +19,7 @@ open class AmityChatMessageBaseViewModel : AmityBaseViewModel() {
     val isDeleted = ObservableBoolean(false)
     val editedAt = ObservableField("")
     val isEdited = ObservableBoolean(false)
-    val dateFillColor = ObservableField(R.color.amityColorBase)
+    val dateFillColor = ObservableField(CommonR.color.amityColorBase)
     val isFailed = ObservableBoolean(false)
 
     fun deleteMessage(): Completable? {

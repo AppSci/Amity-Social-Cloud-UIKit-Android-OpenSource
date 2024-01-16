@@ -7,7 +7,8 @@ import com.amity.socialcloud.sdk.model.core.file.AmityImage
 import com.amity.socialcloud.uikit.common.base.AmityBaseRecyclerViewAdapter
 import com.amity.socialcloud.uikit.common.common.views.AmityColorPaletteUtil
 import com.amity.socialcloud.uikit.common.common.views.AmityColorShade
-import com.amity.socialcloud.uikit.community.R
+import com.amity.socialcloud.uikit.common.R as CommonR
+import com.amity.socialcloud.uikit.community.R as CommunityR
 import com.amity.socialcloud.uikit.community.newsfeed.listener.AmityPostImageClickListener
 import com.amity.socialcloud.uikit.community.newsfeed.listener.AmityPostMediaClickListener
 import com.amity.socialcloud.uikit.community.newsfeed.listener.AmityPostVideoClickListener
@@ -45,7 +46,7 @@ abstract class AmityBasePostImageChildrenViewHolder(
         val backgroundColor = AmityColorPaletteUtil.getColor(
             ContextCompat.getColor(
                 itemView.context,
-                R.color.amityColorBase
+                CommonR.color.amityColorBase
             ), AmityColorShade.SHADE4
         )
         imageView.setBackgroundColor(backgroundColor)
@@ -55,7 +56,7 @@ abstract class AmityBasePostImageChildrenViewHolder(
         if (imageUrl.isNotEmpty()) {
             Glide.with(itemView)
                 .load(imageUrl)
-                .placeholder(R.drawable.amity_view_image_post_placeholder)
+                .placeholder(CommunityR.drawable.amity_view_image_post_placeholder)
                 .into(imageView)
 
             imageView.setOnClickListener {
@@ -75,7 +76,7 @@ abstract class AmityBasePostImageChildrenViewHolder(
     }
 
     private fun getImageCornerRadius(isRounded: Boolean) : Float {
-        val imageCornerRadius: Float = itemView.context.resources.getDimension(R.dimen.amity_post_image_preview_radius)
+        val imageCornerRadius: Float = itemView.context.resources.getDimension(CommunityR.dimen.amity_post_image_preview_radius)
         return if(isRounded) imageCornerRadius else 0f
     }
 

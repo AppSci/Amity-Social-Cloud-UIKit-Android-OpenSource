@@ -5,7 +5,8 @@ import com.amity.socialcloud.sdk.api.core.AmityCoreClient
 import com.amity.socialcloud.sdk.model.social.post.AmityPost
 import com.amity.socialcloud.uikit.common.common.readableNumber
 import com.amity.socialcloud.uikit.common.utils.AmityConstants
-import com.amity.socialcloud.uikit.community.R
+import com.amity.socialcloud.uikit.common.R as CommonR
+import com.amity.socialcloud.uikit.community.R as CommunityR
 import com.amity.socialcloud.uikit.community.databinding.AmityItemPostFooterPostEngagementBinding
 import com.amity.socialcloud.uikit.community.newsfeed.events.PostEngagementClickEvent
 import com.amity.socialcloud.uikit.community.newsfeed.events.ReactionCountClickEvent
@@ -55,7 +56,7 @@ class AmityPostFooterPostEngagementViewHolder(
     private fun setNumberOfComments(commentCount: Int) {
         binding.tvNumberOfComments.visibility = if (commentCount > 0) View.VISIBLE else View.GONE
         binding.tvNumberOfComments.text = binding.root.resources.getQuantityString(
-            R.plurals.amity_feed_number_of_comments,
+            CommunityR.plurals.amity_feed_number_of_comments,
             commentCount,
             commentCount
         )
@@ -64,7 +65,7 @@ class AmityPostFooterPostEngagementViewHolder(
     private fun setNumberOfReactions(reactionCount: Int) {
         binding.tvNumberOfReactions.visibility = if (reactionCount > 0) View.VISIBLE else View.GONE
         binding.tvNumberOfReactions.text = binding.root.resources.getQuantityString(
-            R.plurals.amity_feed_number_of_likes,
+            CommunityR.plurals.amity_feed_number_of_likes,
             reactionCount,
             reactionCount.readableNumber()
         )
@@ -82,9 +83,9 @@ class AmityPostFooterPostEngagementViewHolder(
 
     private fun setLikeCheckboxText() {
         if (binding.cbLike.isChecked) {
-            binding.cbLike.setText(R.string.amity_liked)
+            binding.cbLike.setText(CommunityR.string.amity_liked)
         } else {
-            binding.cbLike.setText(R.string.amity_like)
+            binding.cbLike.setText(CommunityR.string.amity_like)
         }
     }
 

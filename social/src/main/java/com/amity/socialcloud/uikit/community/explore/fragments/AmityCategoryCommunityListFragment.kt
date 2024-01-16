@@ -14,7 +14,8 @@ import com.amity.socialcloud.sdk.model.social.community.AmityCommunity
 import com.amity.socialcloud.uikit.common.base.AmityBaseFragment
 import com.amity.socialcloud.uikit.common.common.showSnackBar
 import com.amity.socialcloud.uikit.common.utils.AmityRecyclerViewItemDecoration
-import com.amity.socialcloud.uikit.community.R
+import com.amity.socialcloud.uikit.common.R as CommonR
+import com.amity.socialcloud.uikit.community.R as CommunityR
 import com.amity.socialcloud.uikit.community.databinding.AmityFragmentCategoryCommunityListBinding
 import com.amity.socialcloud.uikit.community.detailpage.AmityCommunityPageActivity
 import com.amity.socialcloud.uikit.community.explore.adapter.AmityCategoryCommunityListAdapter
@@ -46,7 +47,7 @@ class AmityCategoryCommunityListFragment : AmityBaseFragment(),
     ): View {
         binding = DataBindingUtil.inflate(
             inflater,
-            R.layout.amity_fragment_category_community_list,
+            CommunityR.layout.amity_fragment_category_community_list,
             container,
             false
         )
@@ -77,7 +78,7 @@ class AmityCategoryCommunityListFragment : AmityBaseFragment(),
 
     private fun initView() {
         val itemDecorSpace =
-            AmityRecyclerViewItemDecoration(resources.getDimensionPixelSize(R.dimen.amity_padding_xs))
+            AmityRecyclerViewItemDecoration(resources.getDimensionPixelSize(CommonR.dimen.amity_padding_xs))
         binding.rvCommunity.layoutManager = LinearLayoutManager(requireContext())
         binding.rvCommunity.adapter = adapter
         binding.rvCommunity.addItemDecoration(itemDecorSpace)

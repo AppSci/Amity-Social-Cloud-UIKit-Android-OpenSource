@@ -20,7 +20,8 @@ import com.amity.socialcloud.uikit.common.common.setSafeOnClickListener
 import com.amity.socialcloud.uikit.common.common.views.dialog.bottomsheet.AmityBottomSheetDialog
 import com.amity.socialcloud.uikit.common.common.views.dialog.bottomsheet.BottomSheetMenuItem
 import com.amity.socialcloud.uikit.common.utils.AmityAlertDialogUtil
-import com.amity.socialcloud.uikit.community.R
+import com.amity.socialcloud.uikit.common.R as CommonR
+import com.amity.socialcloud.uikit.community.R as CommunityR
 import com.amity.socialcloud.uikit.community.databinding.AmityFragmentUserProfilePageBinding
 import com.amity.socialcloud.uikit.community.followers.AmityUserFollowersActivity
 import com.amity.socialcloud.uikit.community.followrequest.AmityFollowRequestsActivity
@@ -98,7 +99,7 @@ class AmityUserProfilePageFragment : AmityBaseFragment(),
         binding =
             DataBindingUtil.inflate(
                 inflater,
-                R.layout.amity_fragment_user_profile_page,
+                CommunityR.layout.amity_fragment_user_profile_page,
                 container,
                 false
             )
@@ -115,7 +116,7 @@ class AmityUserProfilePageFragment : AmityBaseFragment(),
         }
         setHeaderViewClickListeners()
 
-        binding.refreshLayout.setColorSchemeResources(R.color.amityColorPrimary)
+        binding.refreshLayout.setColorSchemeResources(CommonR.color.amityColorPrimary)
         binding.refreshLayout.setOnRefreshListener {
             refreshFeed()
         }
@@ -149,24 +150,24 @@ class AmityUserProfilePageFragment : AmityBaseFragment(),
         val postCreationOptions =
             arrayListOf(
                 BottomSheetMenuItem(
-                    iconResId = R.drawable.ic_amity_ic_post_create,
-                    titleResId = R.string.amity_post,
+                    iconResId = CommonR.drawable.ic_amity_ic_post_create,
+                    titleResId = CommunityR.string.amity_post,
                     action = {
                         createGenericPost.launch(null)
                         bottomSheet.dismiss()
                     }
                 ),
                 BottomSheetMenuItem(
-                    iconResId = R.drawable.ic_amity_ic_live_stream_create,
-                    titleResId = R.string.amity_video_stream_title,
+                    iconResId = CommonR.drawable.ic_amity_ic_live_stream_create,
+                    titleResId = CommunityR.string.amity_video_stream_title,
                     action = {
                         createLiveStreamPost.launch(null)
                         bottomSheet.dismiss()
                     }
                 ),
                 BottomSheetMenuItem(
-                    iconResId = R.drawable.ic_amity_ic_poll_create,
-                    titleResId = R.string.amity_general_poll,
+                    iconResId = CommonR.drawable.ic_amity_ic_poll_create,
+                    titleResId = CommunityR.string.amity_general_poll,
                     action = {
                         createPollPost.launch(null)
                         bottomSheet.dismiss()
@@ -215,8 +216,8 @@ class AmityUserProfilePageFragment : AmityBaseFragment(),
                     binding.userProfileHeader.updateState(it)
                 }, onError = {
                     showErrorDialog(
-                        getString(R.string.amity_follow_error, currentUser.getDisplayName()),
-                        getString(R.string.amity_something_went_wrong_pls_try),
+                        getString(CommunityR.string.amity_follow_error, currentUser.getDisplayName()),
+                        getString(CommunityR.string.amity_something_went_wrong_pls_try),
                         AmityFollowStatus.NONE
                     )
                 }).untilLifecycleEnd(this@AmityUserProfilePageFragment)
@@ -227,8 +228,8 @@ class AmityUserProfilePageFragment : AmityBaseFragment(),
                 binding.userProfileHeader.updateState(AmityFollowStatus.NONE)
                 viewModel.unFollow().doOnError {
                     showErrorDialog(
-                        getString(R.string.amity_unfollow_error, currentUser.getDisplayName()),
-                        getString(R.string.amity_something_went_wrong_pls_try),
+                        getString(CommunityR.string.amity_unfollow_error, currentUser.getDisplayName()),
+                        getString(CommunityR.string.amity_something_went_wrong_pls_try),
                         AmityFollowStatus.PENDING
                     )
                 }.untilLifecycleEnd(this@AmityUserProfilePageFragment)
@@ -312,11 +313,11 @@ class AmityUserProfilePageFragment : AmityBaseFragment(),
         fragmentStateAdapter.setFragmentList(
             arrayListOf(
                 AmityFragmentStateAdapter.AmityPagerModel(
-                    getString(R.string.amity_timeline),
+                    getString(CommunityR.string.amity_timeline),
                     getTimeLineFragment()
                 ),
                 AmityFragmentStateAdapter.AmityPagerModel(
-                    getString(R.string.amity_gallery_title),
+                    getString(CommunityR.string.amity_gallery_title),
                     getPostGalleryFragment()
                 )
             )
@@ -345,7 +346,7 @@ class AmityUserProfilePageFragment : AmityBaseFragment(),
 
     private fun showErrorDialog(title: String, description: String, prevState: AmityFollowStatus) {
         AmityAlertDialogUtil.showDialog(requireContext(), title, description,
-            getString(R.string.amity_ok), null,
+            getString(CommonR.string.amity_ok), null,
             DialogInterface.OnClickListener { dialog, which ->
                 if (which == DialogInterface.BUTTON_POSITIVE) {
                     dialog.cancel()
@@ -356,12 +357,12 @@ class AmityUserProfilePageFragment : AmityBaseFragment(),
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         val drawable =
-            ContextCompat.getDrawable(requireContext(), R.drawable.amity_ic_more_horiz)
+            ContextCompat.getDrawable(requireContext(), CommonR.drawable.amity_ic_more_horiz)
         drawable?.mutate()
         drawable?.colorFilter = BlendModeColorFilterCompat.createBlendModeColorFilterCompat(
-            R.color.amityColorBlack, BlendModeCompat.SRC_ATOP
+            CommonR.color.amityColorBlack, BlendModeCompat.SRC_ATOP
         )
-        menu.add(Menu.NONE, 1, Menu.NONE, getString(R.string.amity_more_options))
+        menu.add(Menu.NONE, 1, Menu.NONE, getString(CommunityR.string.amity_more_options))
             ?.setIcon(drawable)
             ?.setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS)
         super.onCreateOptionsMenu(menu, inflater)

@@ -10,7 +10,8 @@ import com.amity.socialcloud.sdk.api.social.AmitySocialClient
 import com.amity.socialcloud.sdk.api.social.community.AmityCommunityRepository
 import com.amity.socialcloud.sdk.model.social.community.AmityCommunity
 import com.amity.socialcloud.uikit.common.base.AmityBaseToolbarFragmentContainerActivity
-import com.amity.socialcloud.uikit.community.R
+import com.amity.socialcloud.uikit.common.R as CommonR
+import com.amity.socialcloud.uikit.community.R as CommunityR
 import com.amity.socialcloud.uikit.community.newsfeed.fragment.AmityPollPostCreatorFragment
 import com.amity.socialcloud.uikit.community.utils.EXTRA_PARAM_COMMUNITY_ID
 import com.ekoapp.rxlifecycle.extension.untilLifecycleEnd
@@ -24,11 +25,11 @@ class AmityPollPostCreatorActivity : AmityBaseToolbarFragmentContainerActivity()
 
     override fun initToolbar() {
         val communityId = intent?.getStringExtra(EXTRA_PARAM_COMMUNITY_ID)
-        getToolBar()?.setLeftDrawable(ContextCompat.getDrawable(this, R.drawable.amity_ic_cross))
+        getToolBar()?.setLeftDrawable(ContextCompat.getDrawable(this, CommonR.drawable.amity_ic_cross))
         if (communityId != null) {
             getCommunity(communityRepository,communityId)
         } else {
-            getToolBar()?.setLeftString(getString(R.string.amity_my_timeline))
+            getToolBar()?.setLeftString(getString(CommunityR.string.amity_my_timeline))
         }
     }
     private fun getCommunity(communityRepository: AmityCommunityRepository, communityId: Any) {

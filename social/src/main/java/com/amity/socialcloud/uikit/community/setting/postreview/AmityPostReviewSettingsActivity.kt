@@ -9,7 +9,8 @@ import androidx.lifecycle.ViewModelProvider
 import com.amity.socialcloud.uikit.common.base.AmityBaseActivity
 import com.amity.socialcloud.uikit.common.components.AmityToolBarClickListener
 import com.amity.socialcloud.uikit.community.BR
-import com.amity.socialcloud.uikit.community.R
+import com.amity.socialcloud.uikit.common.R as CommonR
+import com.amity.socialcloud.uikit.community.R as CommunityR
 import com.amity.socialcloud.uikit.community.databinding.AmityActivityPostReviewSettingsBinding
 
 class AmityPostReviewSettingsActivity :
@@ -41,12 +42,12 @@ class AmityPostReviewSettingsActivity :
         binding.postReviewToolbar.setLeftDrawable(
             ContextCompat.getDrawable(
                 this,
-                R.drawable.amity_ic_arrow_back
+                CommonR.drawable.amity_ic_arrow_back
             )
         )
         binding.postReviewToolbar.setClickListener(this)
 
-        val titleToolbar = getString(R.string.amity_post_review)
+        val titleToolbar = getString(CommunityR.string.amity_post_review)
         binding.postReviewToolbar.setLeftString(titleToolbar)
 
         supportActionBar?.displayOptions = ActionBar.DISPLAY_SHOW_CUSTOM
@@ -63,12 +64,12 @@ class AmityPostReviewSettingsActivity :
         }
 
         if (fragment != null) {
-            fragmentTransaction.replace(R.id.fragmentContainer, fragment!!)
+            fragmentTransaction.replace(CommunityR.id.fragmentContainer, fragment!!)
             fragmentTransaction.commit()
         }
     }
 
-    override fun getLayoutId(): Int = R.layout.amity_activity_post_review_settings
+    override fun getLayoutId(): Int = CommunityR.layout.amity_activity_post_review_settings
 
     override fun getViewModel(): AmityPostReviewSettingsViewModel =
         ViewModelProvider(this).get(AmityPostReviewSettingsViewModel::class.java)

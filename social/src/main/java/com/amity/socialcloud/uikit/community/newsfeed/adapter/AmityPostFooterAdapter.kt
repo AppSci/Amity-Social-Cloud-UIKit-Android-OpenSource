@@ -7,7 +7,8 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.amity.socialcloud.sdk.model.core.user.AmityUser
 import com.amity.socialcloud.uikit.common.utils.AmityConstants
-import com.amity.socialcloud.uikit.community.R
+import com.amity.socialcloud.uikit.common.R as CommonR
+import com.amity.socialcloud.uikit.community.R as CommunityR
 import com.amity.socialcloud.uikit.community.databinding.AmityItemPostFooterCommentPreviewBinding
 import com.amity.socialcloud.uikit.community.databinding.AmityItemPostFooterPostEngagementBinding
 import com.amity.socialcloud.uikit.community.databinding.AmityItemPostFooterPostReviewBinding
@@ -46,7 +47,7 @@ class AmityPostFooterAdapter(
             POST_ENGAGEMENT -> {
                 val itemBinding = DataBindingUtil.inflate<AmityItemPostFooterPostEngagementBinding>(
                     LayoutInflater.from(parent.context),
-                    R.layout.amity_item_post_footer_post_engagement,
+                    CommunityR.layout.amity_item_post_footer_post_engagement,
                     parent,
                     false
                 )
@@ -83,7 +84,7 @@ class AmityPostFooterAdapter(
             else -> {
                 val itemBinding = DataBindingUtil.inflate<AmityItemPostFooterPostEngagementBinding>(
                     LayoutInflater.from(parent.context),
-                    R.layout.amity_item_post_footer_post_engagement,
+                    CommunityR.layout.amity_item_post_footer_post_engagement,
                     parent,
                     false
                 )

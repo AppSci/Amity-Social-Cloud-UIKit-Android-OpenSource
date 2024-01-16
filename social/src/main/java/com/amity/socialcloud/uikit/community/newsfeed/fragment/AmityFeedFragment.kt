@@ -24,7 +24,8 @@ import com.amity.socialcloud.uikit.common.common.showSnackBar
 import com.amity.socialcloud.uikit.common.common.views.dialog.AmityAlertDialogFragment
 import com.amity.socialcloud.uikit.common.common.views.dialog.bottomsheet.AmityBottomSheetDialog
 import com.amity.socialcloud.uikit.common.utils.AmityAlertDialogUtil
-import com.amity.socialcloud.uikit.community.R
+import com.amity.socialcloud.uikit.common.R as CommonR
+import com.amity.socialcloud.uikit.community.R as CommunityR
 import com.amity.socialcloud.uikit.community.databinding.AmityFragmentFeedBinding
 import com.amity.socialcloud.uikit.community.newsfeed.activity.AmityEditCommentActivity
 import com.amity.socialcloud.uikit.community.newsfeed.activity.AmityLivestreamVideoPlayerActivity
@@ -176,7 +177,7 @@ abstract class AmityFeedFragment : AmityBaseFragment() {
             context,
             LinearLayoutManager.VERTICAL
         )
-        dividerItemDecoration.setDrawable(requireContext().resources.getDrawable(R.drawable.amity_feed_item_separator))
+        dividerItemDecoration.setDrawable(requireContext().resources.getDrawable(CommunityR.drawable.amity_feed_item_separator))
         return listOf(dividerItemDecoration)
     }
 
@@ -534,7 +535,7 @@ abstract class AmityFeedFragment : AmityBaseFragment() {
 
     private fun reportPost(post: AmityPost) {
         getViewModel().reportPost(post, {
-            view?.showSnackBar(getString(R.string.amity_report_sent))
+            view?.showSnackBar(getString(CommunityR.string.amity_report_sent))
         }, {})
             .untilLifecycleEnd(this)
             .subscribe()
@@ -542,7 +543,7 @@ abstract class AmityFeedFragment : AmityBaseFragment() {
 
     private fun unReportPost(post: AmityPost) {
         getViewModel().unReportPost(post, {
-            view?.showSnackBar(getString(R.string.amity_unreport_sent))
+            view?.showSnackBar(getString(CommunityR.string.amity_unreport_sent))
         }, {})
             .untilLifecycleEnd(this)
             .subscribe()
@@ -551,9 +552,9 @@ abstract class AmityFeedFragment : AmityBaseFragment() {
     private fun showDeletePostWarning(post: AmityPost) {
         val deleteConfirmationDialogFragment = AmityAlertDialogFragment
             .newInstance(
-                R.string.amity_delete_post_title,
-                R.string.amity_delete_post_warning_message,
-                R.string.amity_delete, R.string.amity_cancel
+                CommunityR.string.amity_delete_post_title,
+                CommunityR.string.amity_delete_post_warning_message,
+                CommunityR.string.amity_delete, CommunityR.string.amity_cancel
             )
         deleteConfirmationDialogFragment.show(childFragmentManager, AmityAlertDialogFragment.TAG)
         deleteConfirmationDialogFragment.listener =
@@ -571,9 +572,9 @@ abstract class AmityFeedFragment : AmityBaseFragment() {
     private fun showClosePollWarning(post: AmityPost) {
         val closeConfirmationDialogFragment = AmityAlertDialogFragment
             .newInstance(
-                R.string.amity_close_poll_title,
-                R.string.amity_close_poll_message,
-                R.string.amity_close, R.string.amity_cancel
+                CommunityR.string.amity_close_poll_title,
+                CommunityR.string.amity_close_poll_message,
+                CommunityR.string.amity_close, CommunityR.string.amity_cancel
             )
         closeConfirmationDialogFragment.show(childFragmentManager, AmityAlertDialogFragment.TAG)
         closeConfirmationDialogFragment.listener =
@@ -592,9 +593,9 @@ abstract class AmityFeedFragment : AmityBaseFragment() {
     private fun showDeletePollWarning(post: AmityPost) {
         val deleteConfirmationDialogFragment = AmityAlertDialogFragment
             .newInstance(
-                R.string.amity_delete_poll_title,
-                R.string.amity_delete_poll_message,
-                R.string.amity_delete_poll, R.string.amity_cancel
+                CommunityR.string.amity_delete_poll_title,
+                CommunityR.string.amity_delete_poll_message,
+                CommunityR.string.amity_delete_poll, CommunityR.string.amity_cancel
             )
         deleteConfirmationDialogFragment.show(childFragmentManager, AmityAlertDialogFragment.TAG)
         deleteConfirmationDialogFragment.listener =
@@ -668,9 +669,9 @@ abstract class AmityFeedFragment : AmityBaseFragment() {
     private fun showAlreadyReviewedDialog() {
         AmityAlertDialogUtil.showDialog(
             requireContext(),
-            getString(R.string.amity_post_approve_error_dialog_title),
-            getString(R.string.amity_post_approve_error_dialog_description),
-            getString(R.string.amity_ok),
+            getString(CommunityR.string.amity_post_approve_error_dialog_title),
+            getString(CommunityR.string.amity_post_approve_error_dialog_description),
+            getString(CommonR.string.amity_ok),
             negativeButton = null,
             cancelable = false
         ) { dialog, which ->
@@ -720,7 +721,7 @@ abstract class AmityFeedFragment : AmityBaseFragment() {
 
     private fun reportComment(comment: AmityComment) {
         getViewModel().reportComment(comment, {
-            view?.showSnackBar(getString(R.string.amity_report_sent))
+            view?.showSnackBar(getString(CommunityR.string.amity_report_sent))
         }, {})
             .untilLifecycleEnd(this)
             .subscribe()
@@ -728,7 +729,7 @@ abstract class AmityFeedFragment : AmityBaseFragment() {
 
     private fun unReportComment(comment: AmityComment) {
         getViewModel().unReportComment(comment, {
-            view?.showSnackBar(getString(R.string.amity_unreport_sent))
+            view?.showSnackBar(getString(CommunityR.string.amity_unreport_sent))
         }, {})
             .untilLifecycleEnd(this)
             .subscribe()
@@ -737,9 +738,9 @@ abstract class AmityFeedFragment : AmityBaseFragment() {
     private fun showDeleteCommentWarning(comment: AmityComment) {
         val deleteConfirmationDialogFragment = AmityAlertDialogFragment
             .newInstance(
-                R.string.amity_delete_comment_title,
-                R.string.amity_delete_comment_warning_message,
-                R.string.amity_delete, R.string.amity_cancel
+                CommunityR.string.amity_delete_comment_title,
+                CommunityR.string.amity_delete_comment_warning_message,
+                CommunityR.string.amity_delete, CommunityR.string.amity_cancel
             )
         deleteConfirmationDialogFragment.show(childFragmentManager, AmityAlertDialogFragment.TAG)
         deleteConfirmationDialogFragment.listener =
@@ -757,9 +758,9 @@ abstract class AmityFeedFragment : AmityBaseFragment() {
     private fun showDeleteReplyWarning(comment: AmityComment) {
         val deleteConfirmationDialogFragment = AmityAlertDialogFragment
             .newInstance(
-                R.string.amity_delete_reply_title,
-                R.string.amity_delete_reply_warning_message,
-                R.string.amity_delete, R.string.amity_cancel
+                CommunityR.string.amity_delete_reply_title,
+                CommunityR.string.amity_delete_reply_warning_message,
+                CommunityR.string.amity_delete, CommunityR.string.amity_cancel
             )
         deleteConfirmationDialogFragment.show(childFragmentManager, AmityAlertDialogFragment.TAG)
         deleteConfirmationDialogFragment.listener =
@@ -789,7 +790,7 @@ abstract class AmityFeedFragment : AmityBaseFragment() {
     }
 
     private fun showDownloadingSnackBar(fileName: String) {
-        val text = (requireContext().getString(R.string.amity_downloading_file)) + " " + fileName
+        val text = (requireContext().getString(CommonR.string.amity_downloading_file)) + " " + fileName
         Snackbar.make(binding.recyclerViewFeed, text, Snackbar.LENGTH_SHORT).show()
     }
 }

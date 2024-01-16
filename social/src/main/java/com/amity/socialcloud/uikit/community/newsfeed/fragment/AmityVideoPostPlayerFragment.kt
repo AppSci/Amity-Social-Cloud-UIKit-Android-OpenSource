@@ -10,7 +10,9 @@ import com.amity.socialcloud.sdk.model.core.file.AmityVideo
 import com.amity.socialcloud.sdk.model.social.post.AmityPost
 import com.amity.socialcloud.uikit.common.base.AmityBaseFragment
 import com.amity.socialcloud.uikit.common.utils.safeLet
-import com.amity.socialcloud.uikit.community.R
+import com.amity.socialcloud.uikit.common.R as CommonR
+import com.amity.socialcloud.uikit.community.R as CommunityR
+import com.amity.socialcloud.uikit.community.compose.R as CommunityComposeR
 import com.amity.socialcloud.uikit.community.databinding.AmityFragmentSocialVideoPlayerBinding
 import com.google.android.exoplayer2.ExoPlayer
 import com.google.android.exoplayer2.MediaItem
@@ -62,7 +64,7 @@ internal class AmityVideoPostPlayerFragment : AmityBaseFragment() {
             binding.videoViewer.requestFocus()
             val dataSourceFactory: DataSource.Factory = DefaultDataSourceFactory(
                 nonNullContext,
-                Util.getUserAgent(nonNullContext, resources.getString(R.string.app_name))
+                Util.getUserAgent(nonNullContext, resources.getString(CommunityComposeR.string.app_name))
             )
             val extractorsFactory = DefaultExtractorsFactory()
             val videoSource: MediaSource =

@@ -1,6 +1,7 @@
 package com.amity.socialcloud.uikit.community.setting.postreview
 
-import com.amity.socialcloud.uikit.community.R
+import com.amity.socialcloud.uikit.common.R as CommonR
+import com.amity.socialcloud.uikit.community.R as CommunityR
 import com.amity.socialcloud.uikit.community.setting.AmitySettingsItem
 import io.reactivex.rxjava3.core.Flowable
 
@@ -8,8 +9,8 @@ class AmityPostReviewSettingsSettingsMenuCreatorImpl(private val fragment: Amity
 
     override fun createApproveMemberPostMenu(isChecked: Flowable<Boolean>): AmitySettingsItem.ToggleContent {
         return AmitySettingsItem.ToggleContent(
-                title = R.string.amity_approve_member_post,
-                description = R.string.amity_approve_member_post_desc,
+                title = CommunityR.string.amity_approve_member_post,
+                description = CommunityR.string.amity_approve_member_post_desc,
                 isToggled = isChecked,
                 isTitleBold = true,
                 callback = fragment::toggleApproveMemberPostEvent

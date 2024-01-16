@@ -7,7 +7,8 @@ import androidx.core.content.ContextCompat
 import androidx.core.widget.doAfterTextChanged
 import com.amity.socialcloud.sdk.helper.core.mention.AmityMentionMetadata
 import com.amity.socialcloud.uikit.common.utils.AmityAlertDialogUtil
-import com.amity.socialcloud.uikit.community.R
+import com.amity.socialcloud.uikit.common.R as CommonR
+import com.amity.socialcloud.uikit.community.R as CommunityR
 import com.amity.socialcloud.uikit.community.newsfeed.model.AmityUserMention
 import com.amity.socialcloud.uikit.community.views.mention.MentionViewWordTokenizer
 import com.linkedin.android.spyglass.mentions.MentionSpan
@@ -37,8 +38,8 @@ class AmityCommentComposeView : MentionsEditText {
     override fun insertMention(mention: Mentionable) {
         if (getUserMentions().size >= MENTIONS_LIMIT) {
             showErrorDialog(
-                context.resources.getString(R.string.amity_mention_error_title),
-                context.resources.getString(R.string.amity_mention_error_msg)
+                context.resources.getString(CommunityR.string.amity_mention_error_title),
+                context.resources.getString(CommunityR.string.amity_mention_error_msg)
             )
         } else {
             super.insertMention(mention)
@@ -61,8 +62,8 @@ class AmityCommentComposeView : MentionsEditText {
             if (!text.isNullOrEmpty() && text.length > CHARACTERS_LIMIT) {
                 getText().delete(CHARACTERS_LIMIT, getText().length)
                 showErrorDialog(
-                    context.resources.getString(R.string.amity_comment_characters_limit_error_title),
-                    context.resources.getString(R.string.amity_characters_limit_error_msg)
+                    context.resources.getString(CommunityR.string.amity_comment_characters_limit_error_title),
+                    context.resources.getString(CommunityR.string.amity_characters_limit_error_msg)
                 )
             }
         }
@@ -71,7 +72,7 @@ class AmityCommentComposeView : MentionsEditText {
     private fun showErrorDialog(title: String, message: String) {
         AmityAlertDialogUtil.showDialog(
             context, title, message,
-            context.resources.getString(R.string.amity_done),
+            context.resources.getString(CommunityR.string.amity_done),
             null
         ) { dialog, which ->
             AmityAlertDialogUtil.checkConfirmDialog(
@@ -85,7 +86,7 @@ class AmityCommentComposeView : MentionsEditText {
         setMentionSpanConfig(
             MentionSpanConfig.Builder()
                 .setMentionTextColor(
-                    ContextCompat.getColor(context, R.color.upstraColorPrimary)
+                    ContextCompat.getColor(context, CommonR.color.upstraColorPrimary)
                 ).build()
         )
     }

@@ -18,7 +18,8 @@ import com.amity.socialcloud.uikit.common.common.views.AmityColorShade
 import com.amity.socialcloud.uikit.common.model.AmityEventIdentifier
 import com.amity.socialcloud.uikit.common.utils.AmityAndroidUtil
 import com.amity.socialcloud.uikit.common.utils.AmityRecyclerViewItemDecoration
-import com.amity.socialcloud.uikit.community.R
+import com.amity.socialcloud.uikit.common.R as CommonR
+import com.amity.socialcloud.uikit.community.R as CommunityR
 import com.amity.socialcloud.uikit.community.databinding.AmityFragmentMyCommunityBinding
 import com.amity.socialcloud.uikit.community.detailpage.AmityCommunityPageActivity
 import com.amity.socialcloud.uikit.community.mycommunity.adapter.AmityMyCommunityListAdapter
@@ -52,7 +53,7 @@ class AmityMyCommunityFragment : AmityBaseFragment(),
         binding =
             DataBindingUtil.inflate(
                 inflater,
-                R.layout.amity_fragment_my_community,
+                CommunityR.layout.amity_fragment_my_community,
                 container,
                 false
             )
@@ -77,7 +78,7 @@ class AmityMyCommunityFragment : AmityBaseFragment(),
     private fun handleEditTextInput() {
         binding.etSearch.setShape(
             null, null, null, null,
-            R.color.amityColorBase, null, AmityColorShade.SHADE4
+            CommonR.color.amityColorBase, null, AmityColorShade.SHADE4
         )
         binding.etSearch.setOnEditorActionListener(object : TextView.OnEditorActionListener {
             override fun onEditorAction(v: TextView?, actionId: Int, event: KeyEvent?): Boolean {
@@ -92,7 +93,7 @@ class AmityMyCommunityFragment : AmityBaseFragment(),
 
     private fun setUpToolBar() {
         (activity as AppCompatActivity).supportActionBar?.title =
-            getString(R.string.amity_my_community)
+            getString(CommunityR.string.amity_my_community)
     }
 
     private fun subscribeObservers() {
@@ -125,8 +126,8 @@ class AmityMyCommunityFragment : AmityBaseFragment(),
             this.adapter = mAdapter
             addItemDecoration(
                     AmityRecyclerViewItemDecoration(
-                            resources.getDimensionPixelSize(R.dimen.amity_padding_xs),
-                            0, resources.getDimensionPixelSize(R.dimen.amity_padding_xs), 0
+                            resources.getDimensionPixelSize(CommonR.dimen.amity_padding_xs),
+                            0, resources.getDimensionPixelSize(CommonR.dimen.amity_padding_xs), 0
                     )
             )
             setHasFixedSize(true)
@@ -149,10 +150,10 @@ class AmityMyCommunityFragment : AmityBaseFragment(),
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         val shouldShowAddButton =
-            resources.getBoolean(R.bool.amity_uikit_social_community_creation_button_visible)
+            resources.getBoolean(CommunityR.bool.amity_uikit_social_community_creation_button_visible)
         if (shouldShowAddButton) {
-            val drawable = ContextCompat.getDrawable(requireContext(), R.drawable.amity_ic_add)
-            menu.add(Menu.NONE, 1, Menu.NONE, getString(R.string.amity_add))
+            val drawable = ContextCompat.getDrawable(requireContext(), CommonR.drawable.amity_ic_add)
+            menu.add(Menu.NONE, 1, Menu.NONE, getString(CommunityR.string.amity_add))
                 ?.setIcon(drawable)
                 ?.setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS)
         }

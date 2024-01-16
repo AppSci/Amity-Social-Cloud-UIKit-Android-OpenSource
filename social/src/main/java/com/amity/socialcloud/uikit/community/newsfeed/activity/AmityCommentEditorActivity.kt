@@ -8,7 +8,8 @@ import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import com.amity.socialcloud.sdk.model.social.comment.AmityComment
 import com.amity.socialcloud.uikit.common.base.AmityBaseToolbarFragmentContainerActivity
-import com.amity.socialcloud.uikit.community.R
+import com.amity.socialcloud.uikit.common.R as CommonR
+import com.amity.socialcloud.uikit.community.R as CommunityR
 import com.amity.socialcloud.uikit.community.newsfeed.fragment.AmityCommentEditorFragment
 
 const val EXTRA_PARAM_COMMENT: String = "Comment"
@@ -19,14 +20,14 @@ class AmityEditCommentActivity : AmityBaseToolbarFragmentContainerActivity() {
     private val TAG = AmityEditCommentActivity::class.java.canonicalName
 
     override fun initToolbar() {
-        getToolBar()?.setLeftDrawable(ContextCompat.getDrawable(this, R.drawable.amity_ic_cross))
+        getToolBar()?.setLeftDrawable(ContextCompat.getDrawable(this, CommonR.drawable.amity_ic_cross))
         val comment: AmityComment? = intent.getParcelableExtra(EXTRA_PARAM_COMMENT)
         val isReply = comment?.getParentId()?.isNotEmpty() == true
 
         if (isReply) {
-            getToolBar()?.setLeftString(getString(R.string.amity_edit_reply))
+            getToolBar()?.setLeftString(getString(CommunityR.string.amity_edit_reply))
         } else {
-            getToolBar()?.setLeftString(getString(R.string.amity_edit_comment))
+            getToolBar()?.setLeftString(getString(CommunityR.string.amity_edit_comment))
         }
     }
 

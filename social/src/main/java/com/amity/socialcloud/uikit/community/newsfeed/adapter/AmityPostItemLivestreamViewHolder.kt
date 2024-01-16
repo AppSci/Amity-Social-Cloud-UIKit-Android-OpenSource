@@ -5,7 +5,8 @@ import android.view.View
 import com.amity.socialcloud.sdk.model.core.file.AmityImage
 import com.amity.socialcloud.sdk.model.social.post.AmityPost
 import com.amity.socialcloud.sdk.model.video.stream.AmityStream
-import com.amity.socialcloud.uikit.community.R
+import com.amity.socialcloud.uikit.common.R as CommonR
+import com.amity.socialcloud.uikit.community.R as CommunityR
 import com.amity.socialcloud.uikit.community.databinding.AmityItemLivestreamPostBinding
 import com.amity.socialcloud.uikit.community.newsfeed.events.PostContentClickEvent
 import com.amity.socialcloud.uikit.community.newsfeed.listener.AmityPostLivestreamClickListener
@@ -75,10 +76,10 @@ class AmityPostItemLivestreamViewHolder(itemView: View) : AmityPostContentViewHo
                 .load(imageUrl)
                 .centerCrop()
                 .dontAnimate()
-                .placeholder(R.drawable.amity_default_stream_thumbnail)
+                .placeholder(CommunityR.drawable.amity_default_stream_thumbnail)
                 .into(binding.thumbnailImageview)
         } else {
-            binding.thumbnailImageview.setImageResource(R.drawable.amity_default_stream_thumbnail)
+            binding.thumbnailImageview.setImageResource(CommunityR.drawable.amity_default_stream_thumbnail)
         }
         binding.liveVideoContainer.setOnClickListener {
             liveStreamClickListener.onClickLivestreamVideo(stream)
@@ -102,10 +103,10 @@ class AmityPostItemLivestreamViewHolder(itemView: View) : AmityPostContentViewHo
                 .load(imageUrl)
                 .centerCrop()
                 .dontAnimate()
-                .placeholder(R.drawable.amity_default_stream_thumbnail)
+                .placeholder(CommunityR.drawable.amity_default_stream_thumbnail)
                 .into(binding.thumbnailImageview)
         } else {
-            binding.thumbnailImageview.setImageResource(R.drawable.amity_default_stream_thumbnail)
+            binding.thumbnailImageview.setImageResource(CommunityR.drawable.amity_default_stream_thumbnail)
         }
         binding.liveVideoContainer.setOnClickListener {
             liveStreamClickListener.onClickLivestreamVideo(stream)

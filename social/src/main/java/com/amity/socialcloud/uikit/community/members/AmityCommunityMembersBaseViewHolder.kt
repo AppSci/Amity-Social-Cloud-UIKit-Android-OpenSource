@@ -14,7 +14,8 @@ import com.amity.socialcloud.sdk.model.social.member.AmityCommunityMember
 import com.amity.socialcloud.uikit.common.model.AmitySelectMemberItem
 import com.amity.socialcloud.uikit.common.utils.AmityAlertDialogUtil
 import com.amity.socialcloud.uikit.common.utils.AmityConstants
-import com.amity.socialcloud.uikit.community.R
+import com.amity.socialcloud.uikit.common.R as CommonR
+import com.amity.socialcloud.uikit.community.R as CommunityR
 import com.amity.socialcloud.uikit.community.home.activity.AmityCommunityHomePageActivity
 import com.ekoapp.rxlifecycle.extension.untilLifecycleEnd
 import com.google.android.material.snackbar.Snackbar
@@ -45,9 +46,9 @@ abstract class AmityCommunityMembersBaseViewHolder(
 
     private fun showDialogSentReportMessage(isReport: Boolean) {
         val messageSent = if (isReport) {
-            R.string.amity_report_sent
+            CommunityR.string.amity_report_sent
         } else {
-            R.string.amity_unreport_sent
+            CommunityR.string.amity_unreport_sent
         }
         Snackbar.make(
             (context as AppCompatActivity).findViewById(android.R.id.content),
@@ -58,10 +59,10 @@ abstract class AmityCommunityMembersBaseViewHolder(
 
     fun showRemoveUserDialog(ekoUser: AmityUser) {
         AmityAlertDialogUtil.showDialog(context,
-            context.getString(R.string.amity_remove_from_community),
-            context.getString(R.string.amity_remove_user_msg),
-            context.getString(R.string.amity_remove),
-            context.getString(R.string.amity_cancel),
+            context.getString(CommonR.string.amity_remove_from_community),
+            context.getString(CommunityR.string.amity_remove_user_msg),
+            context.getString(CommunityR.string.amity_remove),
+            context.getString(CommunityR.string.amity_cancel),
             DialogInterface.OnClickListener { dialog, which ->
                 if (which == DialogInterface.BUTTON_POSITIVE) {
                     removeUser(ekoUser)
@@ -82,7 +83,7 @@ abstract class AmityCommunityMembersBaseViewHolder(
                         ekoUser.getUserId(),
                         ekoUser.getAvatar()?.getUrl(AmityImage.Size.MEDIUM) ?: "",
                         ekoUser.getDisplayName()
-                            ?: context.getString(R.string.amity_anonymous),
+                            ?: context.getString(CommonR.string.amity_anonymous),
                         ekoUser.getDescription(),
                         false
                     )

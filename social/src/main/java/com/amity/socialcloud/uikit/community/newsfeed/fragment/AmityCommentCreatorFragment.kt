@@ -6,7 +6,8 @@ import androidx.lifecycle.ViewModelProvider
 import com.amity.socialcloud.sdk.model.core.error.AmityError
 import com.amity.socialcloud.sdk.model.social.comment.AmityComment
 import com.amity.socialcloud.uikit.common.common.showSnackBar
-import com.amity.socialcloud.uikit.community.R
+import com.amity.socialcloud.uikit.common.R as CommonR
+import com.amity.socialcloud.uikit.community.R as CommunityR
 import com.amity.socialcloud.uikit.community.newsfeed.viewmodel.AmityCommentViewModel
 
 class AmityCommentCreatorFragment : AmityCommentBaseFragment() {
@@ -21,7 +22,7 @@ class AmityCommentCreatorFragment : AmityCommentBaseFragment() {
     }
 
     override fun getCommentMenuText(): String {
-        return getString(R.string.amity_post_caps)
+        return getString(CommunityR.string.amity_post_caps)
     }
 
     private fun addComment() {
@@ -38,9 +39,9 @@ class AmityCommentCreatorFragment : AmityCommentBaseFragment() {
                 }
                 updateCommentMenu(true)
                 if (viewModel.getReply() != null) {
-                    view?.showSnackBar(getString(R.string.amity_add_reply_error_message))
+                    view?.showSnackBar(getString(CommunityR.string.amity_add_reply_error_message))
                 } else {
-                    view?.showSnackBar(getString(R.string.amity_add_comment_error_message))
+                    view?.showSnackBar(getString(CommunityR.string.amity_add_comment_error_message))
                 }
             })
             .subscribe()

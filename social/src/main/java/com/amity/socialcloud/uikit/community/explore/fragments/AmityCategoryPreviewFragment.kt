@@ -13,7 +13,8 @@ import com.amity.socialcloud.uikit.common.base.AmityBaseFragment
 import com.amity.socialcloud.uikit.common.common.expandViewHitArea
 import com.amity.socialcloud.uikit.common.utils.AmityExceptionCatchGridLayoutManager
 import com.amity.socialcloud.uikit.common.utils.AmityRecyclerViewItemDecoration
-import com.amity.socialcloud.uikit.community.R
+import com.amity.socialcloud.uikit.common.R as CommonR
+import com.amity.socialcloud.uikit.community.R as CommunityR
 import com.amity.socialcloud.uikit.community.databinding.AmityFragmentCategoryPreviewBinding
 import com.amity.socialcloud.uikit.community.explore.activity.AmityCategoryCommunityListActivity
 import com.amity.socialcloud.uikit.community.explore.activity.AmityCategoryListActivity
@@ -36,7 +37,7 @@ class AmityCategoryPreviewFragment : AmityBaseFragment(),
         viewModel =
             ViewModelProvider(requireActivity()).get(AmityExploreCommunityViewModel::class.java)
         binding = DataBindingUtil.inflate(
-            inflater, R.layout.amity_fragment_category_preview, container, false
+            inflater, CommunityR.layout.amity_fragment_category_preview, container, false
         )
         return binding.root
     }
@@ -63,7 +64,7 @@ class AmityCategoryPreviewFragment : AmityBaseFragment(),
         binding.rvCommunityCategory.adapter = communityCategoryAdapter
         binding.rvCommunityCategory.addItemDecoration(
             AmityRecyclerViewItemDecoration(
-                requireContext().resources.getDimensionPixelSize(R.dimen.amity_padding_s)
+                requireContext().resources.getDimensionPixelSize(CommonR.dimen.amity_padding_s)
             )
         )
         getCategories()

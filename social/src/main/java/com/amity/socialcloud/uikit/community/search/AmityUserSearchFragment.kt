@@ -18,7 +18,8 @@ import com.amity.socialcloud.uikit.common.common.views.AmityColorPaletteUtil
 import com.amity.socialcloud.uikit.common.common.views.AmityColorShade
 import com.amity.socialcloud.uikit.common.model.AmityEventIdentifier
 import com.amity.socialcloud.uikit.common.utils.AmityRecyclerViewItemDecoration
-import com.amity.socialcloud.uikit.community.R
+import com.amity.socialcloud.uikit.common.R as CommonR
+import com.amity.socialcloud.uikit.community.R as CommunityR
 import com.amity.socialcloud.uikit.community.databinding.AmityFragmentUsersGlobalSearchBinding
 import com.amity.socialcloud.uikit.community.newsfeed.listener.AmityUserClickListener
 import com.amity.socialcloud.uikit.social.AmitySocialUISettings
@@ -28,7 +29,7 @@ import io.reactivex.rxjava3.disposables.Disposable
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
-class AmityUserSearchFragment : RxFragment(R.layout.amity_fragment_users_global_search) {
+class AmityUserSearchFragment : RxFragment(CommunityR.layout.amity_fragment_users_global_search) {
 
     private var searchDisposable: Disposable? = null
     private lateinit var usersAdapter: AmityUsersAdapter
@@ -70,14 +71,14 @@ class AmityUserSearchFragment : RxFragment(R.layout.amity_fragment_users_global_
             layoutManager = LinearLayoutManager(requireContext())
             addItemDecoration(
                 AmityRecyclerViewItemDecoration(
-                    resources.getDimensionPixelSize(R.dimen.amity_padding_m1)
+                    resources.getDimensionPixelSize(CommonR.dimen.amity_padding_m1)
                 )
             )
             setHasFixedSize(true)
         }
         binding.tvNoResults.setTextColor(
             AmityColorPaletteUtil.getColor(
-                ContextCompat.getColor(requireContext(), R.color.amityColorBase),
+                ContextCompat.getColor(requireContext(), CommonR.color.amityColorBase),
                 AmityColorShade.SHADE3
             )
         )

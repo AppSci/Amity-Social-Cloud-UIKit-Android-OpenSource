@@ -11,7 +11,8 @@ import androidx.core.content.ContextCompat
 import androidx.databinding.DataBindingUtil
 import com.amity.socialcloud.uikit.common.common.views.AmityColorPaletteUtil
 import com.amity.socialcloud.uikit.common.common.views.AmityColorShade
-import com.amity.socialcloud.uikit.community.R
+import com.amity.socialcloud.uikit.common.R as CommonR
+import com.amity.socialcloud.uikit.community.R as CommunityR
 import com.amity.socialcloud.uikit.community.databinding.AmityCommentComposeBarBinding
 import com.amity.socialcloud.uikit.community.views.comment.AmityCommentComposeView
 
@@ -59,11 +60,11 @@ class AmityCommentComposeBar : ConstraintLayout {
     private fun init() {
         val inflater = context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
         binding =
-                DataBindingUtil.inflate(inflater, R.layout.amity_comment_compose_bar, this, true)
+                DataBindingUtil.inflate(inflater, CommunityR.layout.amity_comment_compose_bar, this, true)
         binding.apply {
             avProfile.setBackgroundColor(
                     AmityColorPaletteUtil.getColor(
-                            ContextCompat.getColor(context, R.color.amityColorPrimary), AmityColorShade.SHADE3
+                            ContextCompat.getColor(context, CommonR.color.amityColorPrimary), AmityColorShade.SHADE3
                     )
             )
             btnPost.isEnabled = false

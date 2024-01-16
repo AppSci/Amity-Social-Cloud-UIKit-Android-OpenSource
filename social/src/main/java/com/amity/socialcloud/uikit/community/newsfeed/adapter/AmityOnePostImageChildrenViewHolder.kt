@@ -2,7 +2,8 @@ package com.amity.socialcloud.uikit.community.newsfeed.adapter
 
 import android.view.View
 import com.amity.socialcloud.sdk.model.core.file.AmityImage
-import com.amity.socialcloud.uikit.community.R
+import com.amity.socialcloud.uikit.common.R as CommonR
+import com.amity.socialcloud.uikit.community.R as CommunityR
 import com.amity.socialcloud.uikit.community.newsfeed.listener.AmityPostMediaClickListener
 import com.amity.socialcloud.uikit.community.newsfeed.model.PostMedia
 import com.google.android.material.imageview.ShapeableImageView
@@ -15,8 +16,8 @@ class AmityOnePostImageChildrenViewHolder(
     mediaType: PostMedia.Type
 ) : AmityBasePostImageChildrenViewHolder(view, images, parentPostId, mediaType, itemClickListener) {
 
-    private val imageOne: ShapeableImageView = itemView.findViewById(R.id.imageViewPreviewImageOne)
-    private val playIconOne: ShapeableImageView = itemView.findViewById(R.id.ivPlayImageOne)
+    private val imageOne: ShapeableImageView = itemView.findViewById(CommunityR.id.imageViewPreviewImageOne)
+    private val playIconOne: ShapeableImageView = itemView.findViewById(CommunityR.id.ivPlayImageOne)
 
     override fun bind(data: AmityPostImageChildrenItem?, position: Int) {
         setupView()

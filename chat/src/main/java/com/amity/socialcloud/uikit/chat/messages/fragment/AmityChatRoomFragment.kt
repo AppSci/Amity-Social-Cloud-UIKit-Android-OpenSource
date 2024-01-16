@@ -5,12 +5,13 @@ import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import com.amity.socialcloud.uikit.chat.R
+import com.amity.socialcloud.uikit.chat.R as ChatR
+import com.amity.socialcloud.uikit.common.R as CommonR
 import com.amity.socialcloud.uikit.chat.messages.adapter.AmityMessagePagingAdapter
 import com.amity.socialcloud.uikit.chat.messages.composebar.AmityChatRoomComposeBar
 import com.amity.socialcloud.uikit.chat.messages.viewModel.AmityChatRoomEssentialViewModel
 
-class AmityChatRoomFragment : Fragment(R.layout.amity_fragment_chat_room) {
+class AmityChatRoomFragment : Fragment(ChatR.layout.amity_fragment_chat_room) {
 
     private lateinit var essentialViewModel: AmityChatRoomEssentialViewModel
 
@@ -26,7 +27,7 @@ class AmityChatRoomFragment : Fragment(R.layout.amity_fragment_chat_room) {
 
     private fun setUpChatRoom() {
         childFragmentManager.beginTransaction()
-            .replace(R.id.chat_room_container, getFragment())
+            .replace(ChatR.id.chat_room_container, getFragment())
             .commit()
     }
 

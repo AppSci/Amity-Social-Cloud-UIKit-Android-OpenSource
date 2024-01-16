@@ -8,7 +8,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.amity.socialcloud.sdk.model.social.community.AmityCommunity
 import com.amity.socialcloud.uikit.common.base.AmityBaseRecyclerViewListAdapter
 import com.amity.socialcloud.uikit.common.common.formatCount
-import com.amity.socialcloud.uikit.community.R
+import com.amity.socialcloud.uikit.common.R as CommonR
+import com.amity.socialcloud.uikit.community.R as CommunityR
 import com.amity.socialcloud.uikit.community.databinding.AmityItemRecommCommBinding
 import com.amity.socialcloud.uikit.community.mycommunity.listener.AmityMyCommunityItemClickListener
 
@@ -35,7 +36,7 @@ class AmityRecommendedCommunitiesAdapter(private val listener: AmityMyCommunityI
     }
 
     override fun getLayoutId(position: Int, obj: AmityCommunity?): Int =
-        R.layout.amity_item_recomm_comm
+        CommunityR.layout.amity_item_recomm_comm
 
     override fun getViewHolder(view: View, viewType: Int): RecyclerView.ViewHolder =
         AmityRecommendedCommunityViewHolder(view, listener)
@@ -46,14 +47,14 @@ class AmityRecommendedCommunitiesAdapter(private val listener: AmityMyCommunityI
     ) : RecyclerView.ViewHolder(itemView), Binder<AmityCommunity> {
 
         private val binding: AmityItemRecommCommBinding? = DataBindingUtil.bind(itemView)
-        private val textviewCommunityName: TextView = itemView.findViewById(R.id.tvCommName)
+        private val textviewCommunityName: TextView = itemView.findViewById(CommunityR.id.tvCommName)
 
         override fun bind(data: AmityCommunity?, position: Int) {
             if (data?.isOfficial() == true) {
                 textviewCommunityName.setCompoundDrawablesWithIntrinsicBounds(
                     0,
                     0,
-                    R.drawable.amity_ic_verified,
+                    CommonR.drawable.amity_ic_verified,
                     0
                 )
             } else {
@@ -68,7 +69,7 @@ class AmityRecommendedCommunitiesAdapter(private val listener: AmityMyCommunityI
             binding?.ekoCommunity = data
             binding?.listener = listener
             binding?.tvMembersCount?.text = itemView.context.getString(
-                R.string.amity_members_count,
+                CommunityR.string.amity_members_count,
                 "${data?.getMemberCount()?.toDouble()?.formatCount()}"
             )
             binding?.tvCommName?.text =

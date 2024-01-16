@@ -9,7 +9,8 @@ import androidx.lifecycle.ViewModelProvider
 import com.amity.socialcloud.uikit.common.base.AmityBaseActivity
 import com.amity.socialcloud.uikit.common.components.AmityToolBarClickListener
 import com.amity.socialcloud.uikit.community.BR
-import com.amity.socialcloud.uikit.community.R
+import com.amity.socialcloud.uikit.common.R as CommonR
+import com.amity.socialcloud.uikit.community.R as CommunityR
 import com.amity.socialcloud.uikit.community.databinding.AmityActivityCommunitySettingBinding
 import com.amity.socialcloud.uikit.community.utils.EXTRA_PARAM_COMMUNITY_ID
 
@@ -34,12 +35,12 @@ class AmityCommunitySettingsActivity :
         getViewDataBinding().communitySettingsToolbar.setLeftDrawable(
             ContextCompat.getDrawable(
                 this,
-                R.drawable.amity_ic_arrow_back
+                CommonR.drawable.amity_ic_arrow_back
             )
         )
         getViewDataBinding().communitySettingsToolbar.setClickListener(this)
 
-        val titleToolbar = getString(R.string.amity_community_setting)
+        val titleToolbar = getString(CommunityR.string.amity_community_setting)
         getViewDataBinding().communitySettingsToolbar.setLeftString(titleToolbar)
 
         supportActionBar?.displayOptions = ActionBar.DISPLAY_SHOW_CUSTOM
@@ -51,11 +52,11 @@ class AmityCommunitySettingsActivity :
         val fragmentManager = supportFragmentManager
         val fragmentTransaction = fragmentManager.beginTransaction()
         val fragment = AmityCommunitySettingsFragment.Builder().communityId(communityId)
-        fragmentTransaction.replace(R.id.fragmentContainer, fragment.build())
+        fragmentTransaction.replace(CommunityR.id.fragmentContainer, fragment.build())
         fragmentTransaction.commit()
     }
 
-    override fun getLayoutId(): Int = R.layout.amity_activity_community_setting
+    override fun getLayoutId(): Int = CommunityR.layout.amity_activity_community_setting
 
     override fun getViewModel(): AmityCommunitySettingViewModel =
         ViewModelProvider(this).get(AmityCommunitySettingViewModel::class.java)

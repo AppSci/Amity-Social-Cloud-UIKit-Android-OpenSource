@@ -9,7 +9,6 @@ import androidx.annotation.ColorRes
 import androidx.annotation.DimenRes
 import androidx.annotation.DrawableRes
 import androidx.core.content.ContextCompat
-import com.amity.socialcloud.uikit.common.R
 
 open class AmityStyle {
 
@@ -24,15 +23,15 @@ open class AmityStyle {
     }
 
     protected fun getSystemAccentColor(): Int {
-        return getSystemColor(R.attr.colorAccent)
+        return getSystemColor(android.R.attr.colorAccent)
     }
 
     protected fun getSystemPrimaryColor(): Int {
-        return getSystemColor(R.attr.colorPrimary)
+        return getSystemColor(android.R.attr.colorPrimary)
     }
 
     protected fun getSystemPrimaryDarkColor(): Int {
-        return getSystemColor(R.attr.colorPrimaryDark)
+        return getSystemColor(android.R.attr.colorPrimaryDark)
     }
 
     protected fun getSystemPrimaryTextColor(): Int {

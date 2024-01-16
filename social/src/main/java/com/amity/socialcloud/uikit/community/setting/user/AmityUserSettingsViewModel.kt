@@ -6,7 +6,8 @@ import com.amity.socialcloud.sdk.model.core.follow.AmityFollowStatus
 import com.amity.socialcloud.sdk.model.core.follow.AmityUserFollowInfo
 import com.amity.socialcloud.sdk.model.core.user.AmityUser
 import com.amity.socialcloud.uikit.common.base.AmityBaseViewModel
-import com.amity.socialcloud.uikit.community.R
+import com.amity.socialcloud.uikit.common.R as CommonR
+import com.amity.socialcloud.uikit.community.R as CommunityR
 import com.amity.socialcloud.uikit.community.setting.AmitySettingsItem
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.core.Completable
@@ -79,12 +80,12 @@ class AmityUserSettingsViewModel (private val savedState: SavedStateHandle) : Am
 
                 settingsItems.add(menuCreator.createManageHeader())
                 if (followInfo.getStatus() == AmityFollowStatus.ACCEPTED) {
-                    settingsItems.add(AmitySettingsItem.Margin(R.dimen.amity_padding_xs))
+                    settingsItems.add(AmitySettingsItem.Margin(CommonR.dimen.amity_padding_xs))
                     settingsItems.add(menuCreator.createUnfollowMenu(user.getUserId()))
                 }
-                settingsItems.add(AmitySettingsItem.Margin(R.dimen.amity_padding_xs))
+                settingsItems.add(AmitySettingsItem.Margin(CommonR.dimen.amity_padding_xs))
                 settingsItems.add(menuCreator.createReportUserMenu(user))
-                settingsItems.add(AmitySettingsItem.Margin(R.dimen.amity_padding_xs))
+                settingsItems.add(AmitySettingsItem.Margin(CommonR.dimen.amity_padding_xs))
                 settingsItems.add(separator)
                 settingsItems
             }
@@ -97,9 +98,9 @@ class AmityUserSettingsViewModel (private val savedState: SavedStateHandle) : Am
         val separator = AmitySettingsItem.Separator
 
         settingsItems.add(menuCreator.createBasicInfoHeader())
-        settingsItems.add(AmitySettingsItem.Margin(R.dimen.amity_padding_xs))
+        settingsItems.add(AmitySettingsItem.Margin(CommonR.dimen.amity_padding_xs))
         settingsItems.add(menuCreator.createEditProfileMenu())
-        settingsItems.add(AmitySettingsItem.Margin(R.dimen.amity_padding_xs))
+        settingsItems.add(AmitySettingsItem.Margin(CommonR.dimen.amity_padding_xs))
         settingsItems.add(separator)
         return Flowable.just(settingsItems)
     }

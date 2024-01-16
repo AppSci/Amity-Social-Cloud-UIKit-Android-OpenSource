@@ -4,7 +4,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.amity.socialcloud.sdk.model.core.file.AmityImage
 import com.amity.socialcloud.sdk.model.core.reaction.AmityReaction
 import com.amity.socialcloud.sdk.model.core.user.AmityUser
-import com.amity.socialcloud.uikit.community.R
+import com.amity.socialcloud.uikit.common.R as CommonR
+import com.amity.socialcloud.uikit.community.R as CommunityR
 import com.amity.socialcloud.uikit.community.databinding.AmityItemReactionBinding
 import com.bumptech.glide.Glide
 import io.reactivex.rxjava3.subjects.PublishSubject
@@ -22,7 +23,7 @@ class AmityReactionViewHolder constructor(
 
             Glide.with(itemView.context)
                 .load(creator.getAvatar()?.getUrl(AmityImage.Size.MEDIUM))
-                .placeholder(R.drawable.amity_ic_default_profile_large)
+                .placeholder(CommonR.drawable.amity_ic_default_profile_large)
                 .centerCrop()
                 .into(binding.ivAvatar)
         }

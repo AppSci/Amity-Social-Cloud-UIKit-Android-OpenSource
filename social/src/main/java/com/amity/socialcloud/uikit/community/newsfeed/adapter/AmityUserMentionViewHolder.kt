@@ -6,7 +6,8 @@ import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.amity.socialcloud.sdk.model.core.user.AmityUser
 import com.amity.socialcloud.uikit.common.base.AmityBaseRecyclerViewPagingDataAdapter
-import com.amity.socialcloud.uikit.community.R
+import com.amity.socialcloud.uikit.common.R as CommonR
+import com.amity.socialcloud.uikit.community.R as CommunityR
 import com.amity.socialcloud.uikit.community.databinding.AmityItemUserMentionBinding
 import com.amity.socialcloud.uikit.community.newsfeed.model.AmityUserMention
 
@@ -19,7 +20,7 @@ class AmityUserMentionViewHolder(itemView: View, private val listener: AmityUser
 
         data?.let { userItem ->
             val banIcon = if (userItem.isGlobalBan()) {
-                ContextCompat.getDrawable(itemView.context, R.drawable.amity_ic_ban)
+                ContextCompat.getDrawable(itemView.context, CommunityR.drawable.amity_ic_ban)
             } else {
                 null
             }

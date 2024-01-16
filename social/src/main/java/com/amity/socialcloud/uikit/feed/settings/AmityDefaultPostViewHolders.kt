@@ -1,7 +1,8 @@
 package com.amity.socialcloud.uikit.feed.settings
 
 import android.view.View
-import com.amity.socialcloud.uikit.community.R
+import com.amity.socialcloud.uikit.common.R as CommonR
+import com.amity.socialcloud.uikit.community.R as CommunityR
 import com.amity.socialcloud.uikit.community.newsfeed.adapter.*
 
 object AmityDefaultPostViewHolders {
@@ -18,7 +19,7 @@ object AmityDefaultPostViewHolders {
 
         override fun getDataType(): String = text
 
-        override fun getLayoutId(): Int = R.layout.amity_item_text_post
+        override fun getLayoutId(): Int = CommunityR.layout.amity_item_text_post
 
         override fun createViewHolder(view: View): AmityPostContentViewHolder {
             return AmityPostItemTextViewHolder(view)
@@ -33,7 +34,7 @@ object AmityDefaultPostViewHolders {
 
         override fun getDataType(): String = poll
 
-        override fun getLayoutId(): Int = R.layout.amity_item_poll_post
+        override fun getLayoutId(): Int = CommunityR.layout.amity_item_poll_post
 
         override fun createViewHolder(view: View): AmityPostItemPollViewHolder {
             return AmityPostItemPollViewHolder(view)
@@ -47,7 +48,7 @@ object AmityDefaultPostViewHolders {
     val imageViewHolder = object : AmityPostRenderer {
         override fun getDataType(): String = image
 
-        override fun getLayoutId(): Int = R.layout.amity_item_image_post
+        override fun getLayoutId(): Int = CommunityR.layout.amity_item_image_post
 
         override fun createViewHolder(view: View): AmityPostContentViewHolder {
             return AmityPostItemImageViewHolder(view)
@@ -61,7 +62,7 @@ object AmityDefaultPostViewHolders {
     val videoViewHolder = object : AmityPostRenderer {
         override fun getDataType(): String = video
 
-        override fun getLayoutId(): Int = R.layout.amity_item_video_post
+        override fun getLayoutId(): Int = CommunityR.layout.amity_item_video_post
 
         override fun createViewHolder(view: View): AmityPostContentViewHolder {
             return AmityPostItemVideoViewHolder(view)
@@ -77,7 +78,7 @@ object AmityDefaultPostViewHolders {
 
         override fun getDataType(): String = file
 
-        override fun getLayoutId(): Int = R.layout.amity_item_files_post
+        override fun getLayoutId(): Int = CommunityR.layout.amity_item_files_post
 
         override fun createViewHolder(view: View): AmityPostContentViewHolder {
             return AmityPostItemAttachmentViewHolder(view)
@@ -92,7 +93,7 @@ object AmityDefaultPostViewHolders {
 
         override fun getDataType(): String = livestream
 
-        override fun getLayoutId(): Int = R.layout.amity_item_livestream_post
+        override fun getLayoutId(): Int = CommunityR.layout.amity_item_livestream_post
 
         override fun createViewHolder(view: View): AmityPostItemLivestreamViewHolder {
             return AmityPostItemLivestreamViewHolder(view)
@@ -107,7 +108,7 @@ object AmityDefaultPostViewHolders {
         override fun getDataType(): String = unknown
 
         override fun getLayoutId(): Int {
-            return R.layout.amity_item_unknown_post
+            return CommunityR.layout.amity_item_unknown_post
         }
 
         override fun createViewHolder(view: View): AmityPostContentViewHolder {

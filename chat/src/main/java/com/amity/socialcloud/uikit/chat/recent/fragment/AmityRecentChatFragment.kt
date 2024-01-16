@@ -10,7 +10,8 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.paging.LoadState
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.amity.socialcloud.uikit.chat.R
+import com.amity.socialcloud.uikit.chat.R as ChatR
+import com.amity.socialcloud.uikit.common.R as CommonR
 import com.amity.socialcloud.uikit.chat.databinding.AmityFragmentRecentChatBinding
 import com.amity.socialcloud.uikit.chat.home.callback.AmityRecentChatItemClickListener
 import com.amity.socialcloud.uikit.chat.messages.AmityMessageListActivity
@@ -31,7 +32,7 @@ class AmityRecentChatFragment private constructor() : Fragment(), AmityRecentCha
     ): View {
         mViewModel = ViewModelProvider(requireActivity()).get(AmityRecentChatViewModel::class.java)
         binding =
-            DataBindingUtil.inflate(inflater, R.layout.amity_fragment_recent_chat, container, false)
+            DataBindingUtil.inflate(inflater, ChatR.layout.amity_fragment_recent_chat, container, false)
         return binding.root
     }
 
@@ -50,7 +51,7 @@ class AmityRecentChatFragment private constructor() : Fragment(), AmityRecentCha
             this.addItemDecoration(
                 AmityRecentItemDecoration(
                     requireContext(),
-                    resources.getDimensionPixelSize(R.dimen.amity_padding_m2)
+                    resources.getDimensionPixelSize(CommonR.dimen.amity_padding_m2)
                 )
             )
         }

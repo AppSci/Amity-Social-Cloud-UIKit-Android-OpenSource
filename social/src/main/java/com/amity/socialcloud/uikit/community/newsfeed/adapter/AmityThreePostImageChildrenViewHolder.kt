@@ -2,7 +2,8 @@ package com.amity.socialcloud.uikit.community.newsfeed.adapter
 
 import android.view.View
 import com.amity.socialcloud.sdk.model.core.file.AmityImage
-import com.amity.socialcloud.uikit.community.R
+import com.amity.socialcloud.uikit.common.R as CommonR
+import com.amity.socialcloud.uikit.community.R as CommunityR
 import com.amity.socialcloud.uikit.community.newsfeed.listener.AmityPostMediaClickListener
 import com.amity.socialcloud.uikit.community.newsfeed.model.PostMedia
 import com.google.android.material.imageview.ShapeableImageView
@@ -15,12 +16,12 @@ class AmityThreePostImageChildrenViewHolder(
     mediaType: PostMedia.Type
 ) : AmityBasePostImageChildrenViewHolder(view, images, parentPostId, mediaType, itemClickListener) {
 
-    private val imageOne: ShapeableImageView = itemView.findViewById(R.id.imageViewPreviewImageOne)
-    private val imageTwo: ShapeableImageView = itemView.findViewById(R.id.imageViewPreviewImageTwo)
-    private val imageThree: ShapeableImageView = itemView.findViewById(R.id.imageViewPreviewImageThree)
-    private val playIconOne: ShapeableImageView = itemView.findViewById(R.id.ivPlayImageOne)
-    private val playIconTwo: ShapeableImageView = itemView.findViewById(R.id.ivPlayImageTwo)
-    private val playIconThree: ShapeableImageView = itemView.findViewById(R.id.ivPlayImageThree)
+    private val imageOne: ShapeableImageView = itemView.findViewById(CommunityR.id.imageViewPreviewImageOne)
+    private val imageTwo: ShapeableImageView = itemView.findViewById(CommunityR.id.imageViewPreviewImageTwo)
+    private val imageThree: ShapeableImageView = itemView.findViewById(CommunityR.id.imageViewPreviewImageThree)
+    private val playIconOne: ShapeableImageView = itemView.findViewById(CommunityR.id.ivPlayImageOne)
+    private val playIconTwo: ShapeableImageView = itemView.findViewById(CommunityR.id.ivPlayImageTwo)
+    private val playIconThree: ShapeableImageView = itemView.findViewById(CommunityR.id.ivPlayImageThree)
 
     override fun bind(data: AmityPostImageChildrenItem?, position: Int) {
         setupView()

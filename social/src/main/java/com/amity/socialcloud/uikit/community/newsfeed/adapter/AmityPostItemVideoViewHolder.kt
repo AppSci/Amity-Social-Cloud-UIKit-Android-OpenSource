@@ -6,7 +6,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.amity.socialcloud.sdk.model.core.file.AmityImage
 import com.amity.socialcloud.sdk.model.social.post.AmityPost
 import com.amity.socialcloud.uikit.common.base.AmitySpacesItemDecoration
-import com.amity.socialcloud.uikit.community.R
+import com.amity.socialcloud.uikit.common.R as CommonR
+import com.amity.socialcloud.uikit.community.R as CommunityR
 import com.amity.socialcloud.uikit.community.newsfeed.events.PostContentClickEvent
 import com.amity.socialcloud.uikit.community.newsfeed.listener.AmityPostVideoClickListener
 import com.amity.socialcloud.uikit.community.newsfeed.model.PostMedia
@@ -14,8 +15,8 @@ import com.amity.socialcloud.uikit.community.newsfeed.model.PostMedia
 
 class AmityPostItemVideoViewHolder(itemView: View) : AmityPostContentViewHolder(itemView) {
 
-    private val imageRecyclerView = itemView.findViewById<RecyclerView>(R.id.rvImages)
-    private val space = itemView.context.resources.getDimensionPixelSize(R.dimen.amity_padding_xs)
+    private val imageRecyclerView = itemView.findViewById<RecyclerView>(CommunityR.id.rvImages)
+    private val space = itemView.context.resources.getDimensionPixelSize(CommonR.dimen.amity_padding_xs)
     private val itemDecor = AmitySpacesItemDecoration(0, 0, 0, space)
     private var adapter: AmityPostImageChildrenAdapter? = null
     private var videoClickListener = object : AmityPostVideoClickListener {

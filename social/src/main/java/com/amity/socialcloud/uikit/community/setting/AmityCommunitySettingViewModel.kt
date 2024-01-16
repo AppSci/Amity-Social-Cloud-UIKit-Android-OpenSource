@@ -5,7 +5,8 @@ import com.amity.socialcloud.sdk.api.social.AmitySocialClient
 import com.amity.socialcloud.sdk.model.core.error.AmityError
 import com.amity.socialcloud.sdk.model.core.permission.AmityPermission
 import com.amity.socialcloud.sdk.model.social.community.AmityCommunity
-import com.amity.socialcloud.uikit.community.R
+import com.amity.socialcloud.uikit.common.R as CommonR
+import com.amity.socialcloud.uikit.community.R as CommunityR
 import com.amity.socialcloud.uikit.community.newsfeed.viewmodel.PermissionViewModel
 import com.amity.socialcloud.uikit.community.notificationsettings.AmityPushNotificationBaseViewModel
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
@@ -72,8 +73,8 @@ class AmityCommunitySettingViewModel(private val savedState: SavedStateHandle) :
             { hasEditPermission, hasDeletePermission, hasReviewPermission ->
                 val settingsItems = mutableListOf<AmitySettingsItem>()
                 val separator = AmitySettingsItem.Separator
-                val basicInfo = AmitySettingsItem.Header(title = R.string.amity_basic_info)
-                val paddingXXS = AmitySettingsItem.Margin(R.dimen.amity_padding_xxs)
+                val basicInfo = AmitySettingsItem.Header(title = CommunityR.string.amity_basic_info)
+                val paddingXXS = AmitySettingsItem.Margin(CommonR.dimen.amity_padding_xxs)
 
                 settingsItems.add(basicInfo)
                 if (hasEditPermission) {
@@ -92,38 +93,38 @@ class AmityCommunitySettingViewModel(private val savedState: SavedStateHandle) :
                     settingsItems.add(notification)
                 }
 
-                settingsItems.add(AmitySettingsItem.Margin(R.dimen.amity_padding_xs))
+                settingsItems.add(AmitySettingsItem.Margin(CommonR.dimen.amity_padding_xs))
                 settingsItems.add(separator)
 
                 if (hasEditPermission) {
                     val communityPermission =
-                        AmitySettingsItem.Header(title = R.string.amity_community_permissions)
-                    settingsItems.add(AmitySettingsItem.Margin(R.dimen.amity_padding_xs))
+                        AmitySettingsItem.Header(title = CommunityR.string.amity_community_permissions)
+                    settingsItems.add(AmitySettingsItem.Margin(CommonR.dimen.amity_padding_xs))
                     settingsItems.add(communityPermission)
                 }
 
                 if (hasReviewPermission) {
                     val postReview = menuCreator.createPostReviewMenu(communityId!!)
-                    settingsItems.add(AmitySettingsItem.Margin(R.dimen.amity_padding_xs))
+                    settingsItems.add(AmitySettingsItem.Margin(CommonR.dimen.amity_padding_xs))
                     settingsItems.add(postReview)
                 }
 
                 if (hasEditPermission || hasDeletePermission) {
-                    settingsItems.add(AmitySettingsItem.Margin(R.dimen.amity_padding_xs))
+                    settingsItems.add(AmitySettingsItem.Margin(CommonR.dimen.amity_padding_xs))
                     settingsItems.add(separator)
                 }
 
                 val leaveCommunity = menuCreator.createLeaveCommunityMenu(communityId!!, hasDeletePermission)
-                settingsItems.add(AmitySettingsItem.Margin(R.dimen.amity_padding_s))
+                settingsItems.add(AmitySettingsItem.Margin(CommonR.dimen.amity_padding_s))
                 settingsItems.add(leaveCommunity)
-                settingsItems.add(AmitySettingsItem.Margin(R.dimen.amity_padding_m1))
+                settingsItems.add(AmitySettingsItem.Margin(CommonR.dimen.amity_padding_m1))
                 settingsItems.add(separator)
 
                 if (hasDeletePermission) {
                     val closeCommunity = menuCreator.createCloseCommunityMenu(communityId!!)
-                    settingsItems.add(AmitySettingsItem.Margin(R.dimen.amity_padding_s))
+                    settingsItems.add(AmitySettingsItem.Margin(CommonR.dimen.amity_padding_s))
                     settingsItems.add(closeCommunity)
-                    settingsItems.add(AmitySettingsItem.Margin(R.dimen.amity_padding_m1))
+                    settingsItems.add(AmitySettingsItem.Margin(CommonR.dimen.amity_padding_m1))
                     settingsItems.add(separator)
                 }
 
@@ -133,9 +134,9 @@ class AmityCommunitySettingViewModel(private val savedState: SavedStateHandle) :
 
     private fun getPushStatus(): Int {
         return if (isCommunityPushEnabled) {
-            R.string.amity_notification_on
+            CommunityR.string.amity_notification_on
         } else {
-            R.string.amity_notification_off
+            CommunityR.string.amity_notification_off
         }
     }
 

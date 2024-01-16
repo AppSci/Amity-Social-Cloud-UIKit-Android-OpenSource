@@ -5,7 +5,8 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.amity.socialcloud.sdk.model.social.category.AmityCommunityCategory
 import com.amity.socialcloud.uikit.common.base.AmityBaseRecyclerViewPagingDataAdapter
-import com.amity.socialcloud.uikit.community.R
+import com.amity.socialcloud.uikit.common.R as CommonR
+import com.amity.socialcloud.uikit.community.R as CommunityR
 import com.amity.socialcloud.uikit.community.explore.listener.AmityCategoryItemClickListener
 
 class AmityCategoryListAdapter(
@@ -30,12 +31,12 @@ class AmityCategoryListAdapter(
 
     override fun getLayoutId(position: Int, obj: AmityCommunityCategory?): Int {
         if (modeSelection)
-            return R.layout.amity_item_type_selector_community_category_list
-        return R.layout.amity_item_community_category_list
+            return CommunityR.layout.amity_item_type_selector_community_category_list
+        return CommunityR.layout.amity_item_community_category_list
     }
 
     override fun getViewHolder(view: View, viewType: Int): RecyclerView.ViewHolder {
-        return if (viewType == R.layout.amity_item_community_category_list)
+        return if (viewType == CommunityR.layout.amity_item_community_category_list)
             AmityCategoryItemViewHolder(view, itemClickListener)
         else
             AmityCategoryItemTypeSelectorViewHolder(view, itemClickListener, this)

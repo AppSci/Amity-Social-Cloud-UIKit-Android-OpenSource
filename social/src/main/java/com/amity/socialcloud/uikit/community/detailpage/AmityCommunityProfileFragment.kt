@@ -20,7 +20,8 @@ import com.amity.socialcloud.sdk.model.social.community.AmityCommunity
 import com.amity.socialcloud.sdk.model.social.feed.AmityFeedType
 import com.amity.socialcloud.uikit.common.common.formatCount
 import com.amity.socialcloud.uikit.common.common.readableNumber
-import com.amity.socialcloud.uikit.community.R
+import com.amity.socialcloud.uikit.common.R as CommonR
+import com.amity.socialcloud.uikit.community.R as CommunityR
 import com.amity.socialcloud.uikit.community.compose.story.target.AmityStoryTargetTabComponent
 import com.amity.socialcloud.uikit.community.data.PostReviewBannerData
 import com.amity.socialcloud.uikit.community.databinding.AmityFragmentCommunityProfileBinding
@@ -59,7 +60,7 @@ class AmityCommunityProfileFragment : RxFragment() {
 
         binding = DataBindingUtil.inflate(
             inflater,
-            R.layout.amity_fragment_community_profile,
+            CommunityR.layout.amity_fragment_community_profile,
             container,
             false
         )
@@ -79,12 +80,12 @@ class AmityCommunityProfileFragment : RxFragment() {
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         if (shouldShowOptionsMenu) {
             val drawable =
-                ContextCompat.getDrawable(requireContext(), R.drawable.amity_ic_more_horiz)
+                ContextCompat.getDrawable(requireContext(), CommonR.drawable.amity_ic_more_horiz)
             drawable?.mutate()
             drawable?.colorFilter = BlendModeColorFilterCompat.createBlendModeColorFilterCompat(
-                R.color.amityColorBlack, BlendModeCompat.SRC_ATOP
+                CommonR.color.amityColorBlack, BlendModeCompat.SRC_ATOP
             )
-            menuItem = menu.add(Menu.NONE, 1, Menu.NONE, getString(R.string.amity_cancel))
+            menuItem = menu.add(Menu.NONE, 1, Menu.NONE, getString(CommonR.string.amity_cancel))
             menuItem?.setIcon(drawable)?.setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS)
         }
 
@@ -165,17 +166,17 @@ class AmityCommunityProfileFragment : RxFragment() {
         Glide.with(this)
             .load(community.getAvatar()?.getUrl(AmityImage.Size.LARGE) ?: "")
             .centerCrop()
-            .placeholder(R.drawable.amity_ic_default_community_avatar)
+            .placeholder(CommunityR.drawable.amity_ic_default_community_avatar)
             .into(binding.ivAvatar)
 
         binding.tvName.text = community.getDisplayName().trim()
         val leftDrawable = if (community.isPublic()) {
             null
         } else {
-            ContextCompat.getDrawable(requireContext(), R.drawable.amity_ic_lock1)
+            ContextCompat.getDrawable(requireContext(), CommonR.drawable.amity_ic_lock1)
         }
         val rightDrawable = if (community.isOfficial()) {
-            ContextCompat.getDrawable(requireContext(), R.drawable.amity_ic_verified)
+            ContextCompat.getDrawable(requireContext(), CommonR.drawable.amity_ic_verified)
         } else {
             null
         }
@@ -189,7 +190,7 @@ class AmityCommunityProfileFragment : RxFragment() {
         val category = community.getCategories().joinToString(separator = " ") { it.getName() }
             .takeIf { it.isNotEmpty() }
 
-        binding.tvCategory.text = category ?: getString(R.string.amity_general)
+        binding.tvCategory.text = category ?: getString(CommunityR.string.amity_general)
 
         community.getPostCount(AmityFeedType.PUBLISHED)
             .subscribeOn(Schedulers.io())
@@ -249,14 +250,14 @@ class AmityCommunityProfileFragment : RxFragment() {
             binding.layoutPendingPostBanner.visibility = View.VISIBLE
             if (data.isReviewer) {
                 val reviewerMessage = binding.root.resources.getQuantityString(
-                    R.plurals.amity_community_banner_number_of_pending_posts,
+                    CommunityR.plurals.amity_community_banner_number_of_pending_posts,
                     data.postCount,
                     data.postCount.readableNumber()
                 )
                 binding.textviewBannerDescription.text = reviewerMessage
             } else {
                 binding.textviewBannerDescription.text =
-                    getString(R.string.amity_pending_posts_banner_member_message)
+                    getString(CommunityR.string.amity_pending_posts_banner_member_message)
             }
             binding.layoutPendingPostBanner.setOnClickListener {
                 val intent =

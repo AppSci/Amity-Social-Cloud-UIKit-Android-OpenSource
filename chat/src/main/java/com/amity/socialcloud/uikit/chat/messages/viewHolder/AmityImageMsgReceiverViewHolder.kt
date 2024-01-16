@@ -5,7 +5,8 @@ import android.view.LayoutInflater
 import android.view.View
 import androidx.databinding.DataBindingUtil
 import com.amity.socialcloud.sdk.model.chat.message.AmityMessage
-import com.amity.socialcloud.uikit.chat.R
+import com.amity.socialcloud.uikit.chat.R as ChatR
+import com.amity.socialcloud.uikit.common.R as CommonR
 import com.amity.socialcloud.uikit.chat.databinding.AmityItemImageMsgReceiverBinding
 import com.amity.socialcloud.uikit.chat.databinding.AmityPopupMsgReportBinding
 import com.amity.socialcloud.uikit.chat.messages.popUp.AmityPopUp
@@ -58,8 +59,8 @@ class AmityImageMsgReceiverViewHolder(
         } else {
             binding?.ivImageIncoming?.setShape(
                 null, null,
-                itemView.context.resources.getDimension(R.dimen.amity_zero),
-                null, R.color.amityColorBase, null, AmityColorShade.SHADE4
+                itemView.context.resources.getDimension(CommonR.dimen.amity_zero),
+                null, CommonR.color.amityColorBase, null, AmityColorShade.SHADE4
             )
         }
 
@@ -79,11 +80,11 @@ class AmityImageMsgReceiverViewHolder(
 
     override fun showPopUp() {
         popUp = AmityPopUp()
-        val anchor: View = itemView.findViewById(R.id.ivImageIncoming)
+        val anchor: View = itemView.findViewById(ChatR.id.ivImageIncoming)
         val inflater: LayoutInflater = LayoutInflater.from(anchor.context)
         val binding: AmityPopupMsgReportBinding = DataBindingUtil.inflate(
             inflater,
-            R.layout.amity_popup_msg_report, null, true
+            ChatR.layout.amity_popup_msg_report, null, true
         )
         binding.viewModel = itemViewModel
         popUp?.showPopUp(binding.root, anchor, itemViewModel, AmityPopUp.PopUpGravity.START)

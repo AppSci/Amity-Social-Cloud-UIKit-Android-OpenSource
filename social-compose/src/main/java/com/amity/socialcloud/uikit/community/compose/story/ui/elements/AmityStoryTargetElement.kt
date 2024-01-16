@@ -26,7 +26,7 @@ import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
 import coil.request.ImageRequest
 import com.amity.socialcloud.uikit.common.config.AmityUIKitConfigController
-import com.amity.socialcloud.uikit.community.compose.R
+import com.amity.socialcloud.uikit.common.R as CommonR
 import com.amity.socialcloud.uikit.community.compose.ui.base.AmityBaseComponent
 import com.amity.socialcloud.uikit.community.compose.ui.base.AmityBaseElement
 import com.amity.socialcloud.uikit.community.compose.ui.scope.AmityComposeComponentScope
@@ -80,7 +80,7 @@ fun AmityStoryTargetElement(
                 ) {
                     if (avatarUrl.isEmpty()) {
                         Image(
-                            painter = painterResource(id = R.drawable.amity_ic_default_profile1),
+                            painter = painterResource(id = CommonR.drawable.amity_ic_default_profile1),
                             contentScale = ContentScale.Fit,
                             contentDescription = "Avatar Image",
                             modifier = Modifier
@@ -109,8 +109,8 @@ fun AmityStoryTargetElement(
                 )
 
                 val badge = when {
-                    isSingleCommunityTarget && hasManageStoryPermission -> R.drawable.amity_ic_plus_circle
-                    isOfficialCommunity -> R.drawable.amity_ic_verified
+                    isSingleCommunityTarget && hasManageStoryPermission -> CommonR.drawable.amity_ic_plus_circle
+                    isOfficialCommunity -> CommonR.drawable.amity_ic_verified
                     else -> null
                 }
 
@@ -131,7 +131,7 @@ fun AmityStoryTargetElement(
             ) {
                 if (isPrivateCommunity && !isSingleCommunityTarget) {
                     Image(
-                        painter = painterResource(id = R.drawable.amity_ic_lock1),
+                        painter = painterResource(id = CommonR.drawable.amity_ic_lock1),
                         contentDescription = "",
                         modifier = Modifier.size(12.dp)
                     )

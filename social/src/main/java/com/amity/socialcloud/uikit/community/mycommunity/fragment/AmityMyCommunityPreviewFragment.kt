@@ -13,7 +13,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.amity.socialcloud.sdk.model.social.community.AmityCommunity
 import com.amity.socialcloud.uikit.common.base.AmityBaseFragment
 import com.amity.socialcloud.uikit.common.utils.AmityRecyclerViewItemDecoration
-import com.amity.socialcloud.uikit.community.R
+import com.amity.socialcloud.uikit.common.R as CommonR
+import com.amity.socialcloud.uikit.community.R as CommunityR
 import com.amity.socialcloud.uikit.community.databinding.AmityFragmentMyCommunityListBinding
 import com.amity.socialcloud.uikit.community.detailpage.AmityCommunityPageActivity
 import com.amity.socialcloud.uikit.community.mycommunity.activity.AmityMyCommunityActivity
@@ -74,8 +75,8 @@ class AmityMyCommunityPreviewFragment : AmityBaseFragment(),
         binding.rvMyCommunity.itemAnimator = null
         binding.rvMyCommunity.addItemDecoration(
             AmityRecyclerViewItemDecoration(
-                0, resources.getDimensionPixelSize(R.dimen.amity_padding_m1), 0,
-                resources.getDimensionPixelSize(R.dimen.amity_padding_m1)
+                0, resources.getDimensionPixelSize(CommonR.dimen.amity_padding_m1), 0,
+                resources.getDimensionPixelSize(CommonR.dimen.amity_padding_m1)
             )
         )
         binding.rvMyCommunity.setHasFixedSize(true)

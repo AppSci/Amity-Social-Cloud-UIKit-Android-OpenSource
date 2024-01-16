@@ -8,7 +8,8 @@ import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import com.amity.socialcloud.sdk.model.social.feed.AmityFeedType
 import com.amity.socialcloud.uikit.common.base.AmityBaseToolbarFragmentContainerActivity
-import com.amity.socialcloud.uikit.community.R
+import com.amity.socialcloud.uikit.common.R as CommonR
+import com.amity.socialcloud.uikit.community.R as CommunityR
 import com.amity.socialcloud.uikit.community.newsfeed.fragment.AmityCommunityFeedFragment
 import com.amity.socialcloud.uikit.community.utils.EXTRA_PARAM_POST_ID
 
@@ -17,7 +18,7 @@ const val PARAM_COMMUNITY_ID = "PARAM_COMMUNITY_ID"
 class AmityCommunityReviewingFeedActivity : AmityBaseToolbarFragmentContainerActivity() {
 
     override fun initToolbar() {
-        getToolBar()?.setLeftDrawable(ContextCompat.getDrawable(this, R.drawable.amity_ic_arrow_back))
+        getToolBar()?.setLeftDrawable(ContextCompat.getDrawable(this, CommonR.drawable.amity_ic_arrow_back))
     }
 
     override fun leftIconClick() {

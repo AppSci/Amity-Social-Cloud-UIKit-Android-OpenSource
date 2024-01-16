@@ -5,7 +5,8 @@ import androidx.appcompat.app.ActionBar
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import com.amity.socialcloud.uikit.common.components.AmityToolBarClickListener
-import com.amity.socialcloud.uikit.community.R
+import com.amity.socialcloud.uikit.common.R as CommonR
+import com.amity.socialcloud.uikit.community.R as CommunityR
 import com.amity.socialcloud.uikit.community.databinding.AmityActivityCreateCommunityBinding
 
 class AmityCommunityCreatorActivity : AppCompatActivity(), AmityToolBarClickListener {
@@ -25,9 +26,9 @@ class AmityCommunityCreatorActivity : AppCompatActivity(), AmityToolBarClickList
 
     private fun setUpToolBar() {
         binding.communityToolbar.setLeftDrawable(
-            ContextCompat.getDrawable(this, R.drawable.amity_ic_cross)
+            ContextCompat.getDrawable(this, CommonR.drawable.amity_ic_cross)
         )
-        binding.communityToolbar.setLeftString(getString(R.string.amity_create_community))
+        binding.communityToolbar.setLeftString(getString(CommunityR.string.amity_create_community))
 
         binding.communityToolbar.setClickListener(this)
 
@@ -39,7 +40,7 @@ class AmityCommunityCreatorActivity : AppCompatActivity(), AmityToolBarClickList
         val fragmentManager = supportFragmentManager
         val fragmentTransaction = fragmentManager.beginTransaction()
         mFragment = AmityCommunityCreatorFragment.newInstance().build()
-        fragmentTransaction.replace(R.id.fragmentContainer, mFragment)
+        fragmentTransaction.replace(CommunityR.id.fragmentContainer, mFragment)
         fragmentTransaction.commit()
     }
 

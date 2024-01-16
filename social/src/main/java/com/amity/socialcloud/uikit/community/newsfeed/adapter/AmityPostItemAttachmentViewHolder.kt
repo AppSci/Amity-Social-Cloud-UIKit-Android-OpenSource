@@ -8,7 +8,8 @@ import com.amity.socialcloud.sdk.model.core.file.AmityFile
 import com.amity.socialcloud.sdk.model.social.post.AmityPost
 import com.amity.socialcloud.uikit.common.base.AmitySpacesItemDecoration
 import com.amity.socialcloud.uikit.common.common.AmityFileUtils
-import com.amity.socialcloud.uikit.community.R
+import com.amity.socialcloud.uikit.common.R as CommonR
+import com.amity.socialcloud.uikit.community.R as CommunityR
 import com.amity.socialcloud.uikit.community.domain.model.AmityFileAttachment
 import com.amity.socialcloud.uikit.community.newsfeed.events.PostContentClickEvent
 import com.amity.socialcloud.uikit.community.newsfeed.listener.AmityPostFileItemClickListener
@@ -17,8 +18,8 @@ import com.amity.socialcloud.uikit.community.newsfeed.model.FileUploadState
 
 class AmityPostItemAttachmentViewHolder(itemView: View) : AmityPostContentViewHolder(itemView) {
 
-    private val rvAttachment = itemView.findViewById<RecyclerView>(R.id.rvAttachment)
-    private val space = itemView.context.resources.getDimensionPixelSize(R.dimen.amity_padding_xs)
+    private val rvAttachment = itemView.findViewById<RecyclerView>(CommunityR.id.rvAttachment)
+    private val space = itemView.context.resources.getDimensionPixelSize(CommonR.dimen.amity_padding_xs)
     private val itemDecor = AmitySpacesItemDecoration(0, 0, 0, space)
     private var files: List<AmityFile> = emptyList()
 
